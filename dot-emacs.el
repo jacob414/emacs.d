@@ -182,6 +182,7 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
   '(case-fold-search t)
+  '(css-indent-offset 2)
   '(js-indent-level 2)
   '(make-backup-files nil)
   '(rst-level-face-base-light 38)
