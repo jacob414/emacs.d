@@ -115,7 +115,8 @@
 ;; Ruby settings --------------------------------------------------------------
 
 (setq auto-mode-alist
-      (append '(("Rakefile" . ruby-mode)) auto-mode-alist))
+      (append '(("\\.po$" . ruby-mode)) ;; until I get po-mode sorted
+      (append '(("Rakefile" . ruby-mode)) auto-mode-alist)))
 
 (add-hook 'ruby-mode-hook
           '(lambda ()
