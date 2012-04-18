@@ -51,7 +51,7 @@
 ;; YASnippet
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory "~/src/emacs.d/snippet")
+(yas/load-directory "~/src/mine/dotfiles/emacs/snippet")
 
 (global-set-key (kbd "C-c y") 'yas/reload-all)
 
