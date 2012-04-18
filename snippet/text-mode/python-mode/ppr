@@ -1,0 +1,3 @@
+@property
+def $1(self):
+    $2

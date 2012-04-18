@@ -1,0 +1,4 @@
+try:
+    $1
+except $2Exception:
+    $3

@@ -1,0 +1,7 @@
+-($1*) $2 {
+  self = [super init];
+  if (self) {
+    $3
+  }
+  return self;
+}
