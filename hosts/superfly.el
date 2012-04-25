@@ -2,6 +2,8 @@
 (require 'zenburn)
 (zenburn)
 
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
+
 ; Final typeface adjustment
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
