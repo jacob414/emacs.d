@@ -13,6 +13,8 @@
 ;; Custom key bindings
 (global-set-key (kbd "C-<tab>") 'dabbrev-expand)
 (global-set-key (kbd "C-z") 'goto-line)
+(global-set-key (kbd "C-c j") 'goto-line)
+(global-set-key (kbd "C-c C-j") 'goto-line)
 (global-set-key (kbd "C-(") 'insert-parentheses)
 (global-set-key (kbd "C-c i") 'indent-region)
 (global-set-key (kbd "<f5>") 'eval-region)
@@ -95,12 +97,18 @@
 
 (autoload 'coffee-mode "coffee-mode" "CoffeScript editing mode." t)
 
+(defun cs-compile-and-run ()
+  (interactive)
+  (save-buffer)
+  (coffe-compile-buffer) )
+
 (setq auto-mode-alist
       (append '(("\\.coffee$" . coffee-mode)) auto-mode-alist))
 
 (add-hook 'coffee-mode-hook
           '(lambda()
              (interactive)
+             (local-set-key (kbd "s-r") 'cs-compile-and-run)
              (set (make-local-variable 'tab-width) 2) )
           )
 
@@ -178,20 +186,19 @@
 ;; Custom ---------------------------------------------------------------------
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-  '(case-fold-search t)
-  '(css-indent-offset 2)
-  '(js-indent-level 2)
-  '(make-backup-files nil)
-  '(rst-level-face-base-light 38)
-  '(safe-local-variable-values (quote ((encoding . utf-8))))
-  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
-  '(yas/field-highlight-face ((t (:background "gray35" :underline t))))
-  '(yas/trigger-key "SPC")
-)
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(case-fold-search t)
+ '(css-indent-offset 2)
+ '(js-indent-level 2)
+ '(make-backup-files nil)
+ '(rst-level-face-base-light 38)
+ '(safe-local-variable-values (quote ((encoding . utf-8))))
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify))
+ '(yas/field-highlight-face ((t (:background "gray35" :underline t))))
+ '(yas/trigger-key "SPC"))
 
 ;; Host specific stuff - should always have the last word ---------------------
 
