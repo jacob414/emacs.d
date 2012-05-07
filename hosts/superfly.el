@@ -3,6 +3,7 @@
 (zenburn)
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
+(setenv "NODE_PATH" "/usr/local/lib/node")
 
 ; Final typeface adjustment
 (custom-set-faces
