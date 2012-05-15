@@ -165,7 +165,6 @@
   (local-set-key (kbd "C-c s s") 'my-ispell-use-sv)
   (local-set-key (kbd "C-c s e") 'my-ispell-use-en)
   (local-set-key (kbd "C-c c") 'ispell-complete-word)
-  (wiki-mode)
 )
 
 (defun text-mode-env ()
