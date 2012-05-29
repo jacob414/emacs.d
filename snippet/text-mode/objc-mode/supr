@@ -1,0 +1,4 @@
+if (self = [super init]) {
+   $1
+}
+return self;
