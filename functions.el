@@ -72,6 +72,10 @@
   (insert (format-time-string "%Y-%m-%d"))
 )
 
+(defun my-longyear ()
+  (interactive)
+  (insert (format-time-string "%Y")) )
+
 (defun po-wrap ()
   "Filter current po-mode buffer through `msgcat' tool to wrap all lines."
   (interactive)
