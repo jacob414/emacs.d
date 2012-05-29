@@ -1,0 +1,8 @@
+// -*- mode: objc -*-
+// Copyright `(my-longyear)` Plexical
+
+#import "$1"
+
+@implementation $2;
+
+@end
