@@ -3,6 +3,6 @@
 
 #import "$1"
 
-@implementation $2;
+@implementation $2
 
 @end
