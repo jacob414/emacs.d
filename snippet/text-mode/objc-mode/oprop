@@ -1,0 +1,1 @@
+@property (strong, nonatomic) $1 *$2;
