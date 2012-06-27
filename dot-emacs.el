@@ -112,6 +112,11 @@
              (set (make-local-variable 'tab-width) 2) )
           )
 
+;; Lisp settings --------------------------------------------------------------
+
+(setq auto-mode-alist
+      (append '(("\\.nu$" . lisp-mode)) auto-mode-alist))
+
 ;; Markdown settings ----------------------------------------------------------
 
 (autoload 'markdown-mode "markdown-mode"
