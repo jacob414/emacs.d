@@ -91,7 +91,8 @@
           )
 
 (setq auto-mode-alist
-      (append '(("\\.wsgi$" . python-mode)) auto-mode-alist))
+      (append '(("\\.wsgi$" . python-mode)
+                ("\\.pyx$" . python-mode)) auto-mode-alist))
 
 ;; CoffeScript settings -------------------------------------------------------
 
