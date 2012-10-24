@@ -18,6 +18,5 @@
 (global-set-key (kbd "C-c m l") 'longlines-mode)
 (global-set-key (kbd "C-x <SPC>") 'whitespace-mode)
 (global-set-key (kbd "C-c T") 'ws-trim-buffer)
-(global-set-key (kbd "C-c T") 'ws-trim-buffer)
 
 (provide 'j414-custom-keybindings)
