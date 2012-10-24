@@ -1,11 +1,13 @@
 ;; Load path settings
-(setq load-path (cons "~/src/mine/dotfiles/emacs" load-path))
-(setq load-path (cons "~/src/mine/dotfiles/emacs/site-lisp" load-path))
-(setq load-path (cons "~/src/mine/dotfiles/emacs/hosts" load-path))
+(setq emacs-dir "~/src/mine/dotfiles/emacs")
+
+(setq load-path (cons emacs-dir load-path))
+(setq load-path (cons (concat emacs-dir "/site-lisp") load-path))
+(setq load-path (cons (concat emacs-dir "/hosts") load-path))
 
 ;; Basic environment ----------------------------------------------------------
 
-(require 'baseenv)
+(require 'j414-base)
 (require 'j414-custom-keybindings)
 
 ;; Line numbers to the left
