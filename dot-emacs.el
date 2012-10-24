@@ -1,9 +1,9 @@
 ;; Load path settings
 (setq emacs-dir "~/src/mine/dotfiles/emacs")
 
-(setq load-path (cons emacs-dir load-path))
-(setq load-path (cons (concat emacs-dir "/site-lisp") load-path))
-(setq load-path (cons (concat emacs-dir "/hosts") load-path))
+(add-to-list 'load-path emacs-dir)
+(add-to-list 'load-path (concat emacs-dir "/site-lisp"))
+(add-to-list 'load-path (concat emacs-dir "/hosts"))
 
 ;; Basic environment ----------------------------------------------------------
 
