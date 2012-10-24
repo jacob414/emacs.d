@@ -22,8 +22,9 @@
 (setq auto-save-timeout 0)
 
 ;; Rectangle selections (via CUA)
-(setq cua-enable-cua-keys nil)
-(cua-mode t)
+(when (fboundp 'cua-mode)
+  (setq cua-enable-cua-keys nil)
+  (cua-mode t) )
 
 ;; Parenthesis balance
 (show-paren-mode t)
