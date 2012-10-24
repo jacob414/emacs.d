@@ -1,9 +1,10 @@
 ;; Basic settings
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
+(dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
+  (when (fboundp mode) (funcall mode -1)))
+
+(when (fboundp 'set-fringe-mode) (set-fringe-mode 0))
+
 (column-number-mode t)
-(set-fringe-mode 0)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (setq confirm-nonexistent-file-or-buffer nil)
