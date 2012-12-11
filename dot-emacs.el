@@ -115,6 +115,9 @@
                 ("Podfile" . ruby-mode)      ;; Cocoapods
                 ("\\.podspec$" . ruby-mode)  ;; Cocoapods
 
+                ("Gemfile" . ruby-mode)      ;; Bundler (for Heroku et al)
+                ("\\.ru$" . ruby-mode)        ;; Rack apps
+
                 ("Rakefile" . ruby-mode)) auto-mode-alist))
 
 (add-hook 'ruby-mode-hook
