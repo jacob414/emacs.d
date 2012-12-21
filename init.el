@@ -7,8 +7,8 @@
 
 ;; Basic environment ----------------------------------------------------------
 
-(require 'j414-base)
-(require 'j414-custom-keybindings)
+(require 'base)
+(require 'custom-keybindings)
 
 ;; Line numbers to the left
 (require 'linum)
