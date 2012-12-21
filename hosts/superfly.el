@@ -1,7 +1,3 @@
-;; Zenburn (http://slinky.imukuppi.org/zenburnpage/)
-(require 'zenburn)
-(zenburn)
-
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
 (setenv "NODE_PATH" "/usr/local/share/npm/lib/node_modules")
 

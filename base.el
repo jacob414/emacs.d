@@ -1,3 +1,12 @@
+;; Are we 'modern'?
+(setq modern (>= emacs-major-version 23))
+
+;; If modern, we'd like our color theme early.
+(when modern
+  ;; Zenburn (http://slinky.imukuppi.org/zenburnpage/)
+  (require 'zenburn)
+  (zenburn) )
+
 ;; Basic settings
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
