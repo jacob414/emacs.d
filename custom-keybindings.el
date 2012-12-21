@@ -19,4 +19,4 @@
 (global-set-key (kbd "C-x <SPC>") 'whitespace-mode)
 (global-set-key (kbd "C-c T") 'ws-trim-buffer)
 
-(provide 'j414-custom-keybindings)
+(provide 'custom-keybindings)

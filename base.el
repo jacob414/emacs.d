@@ -36,4 +36,4 @@
 ;; y/n keypresses instead of spelled out 'yes'/'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(provide 'j414-base)
+(provide 'base)
