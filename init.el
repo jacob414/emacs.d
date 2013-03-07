@@ -1,7 +1,8 @@
 ;; Load path settings
-(setq emacs-dir "~/src/mine/dotfiles/emacs")
-
+(setq emacs-dir (file-name-directory
+                    (or (buffer-file-name) load-file-name)))
 (add-to-list 'load-path emacs-dir)
+
 (add-to-list 'load-path (concat emacs-dir "/site-lisp"))
 (add-to-list 'load-path (concat emacs-dir "/hosts"))
 
@@ -34,7 +35,7 @@
 ;; YASnippet
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory "~/src/mine/dotfiles/emacs/snippet")
+(yas/load-directory (concat emacs-dir "/snippet"))
 
 (global-set-key (kbd "C-c y") 'yas/reload-all)
 
