@@ -1,1 +1,4 @@
 *.elc
+/eshell/
+/auto-save-list/
+tramp
