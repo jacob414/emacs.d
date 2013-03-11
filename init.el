@@ -5,6 +5,11 @@
 (add-to-list 'load-path (concat emacs-dir "/site-lisp"))
 (add-to-list 'load-path (concat emacs-dir "/hosts"))
 
+(dolist
+    (project (directory-files (concat emacs-dir "/site-lisp") t "\\w+"))
+  (when (file-directory-p project)
+    (add-to-list 'load-path project)))
+
 ;; Basic environment ----------------------------------------------------------
 
 (require 'base)
