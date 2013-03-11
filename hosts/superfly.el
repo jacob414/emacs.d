@@ -1,7 +1,16 @@
+;; Relevant PATH --------------------------------------------------------------
+
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
 (setenv "NODE_PATH" "/usr/local/share/npm/lib/node_modules")
 
-; Final typeface adjustment
+;; Dash integration  ----------------------------------------------------------
+
+(autoload 'dash-at-point "dash-at-point"
+          "Search the word at point with Dash." t nil)
+(global-set-key "\C-cd" 'dash-at-point)
+
+;; Final typeface adjustment  -------------------------------------------------
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -10,6 +19,8 @@
  '(default ((t (:height 110 :family "Mensch"))))
  '(highlight-current-line-face ((t (:background "gray35"))))
  '(linum ((t (:inherit (shadow default) :height 0.8)))))
+
+;; Use server  ----------------------------------------------------------------
 
 (server-start)
 

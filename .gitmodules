@@ -1,0 +1,3 @@
+[submodule "site-lisp/dash-at-point"]
+	path = site-lisp/dash-at-point
+	url = https://github.com/Kapeli/dash-at-point.git
