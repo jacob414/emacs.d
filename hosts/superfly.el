@@ -27,5 +27,9 @@
 ;; Go fullscreen immediately  -------------------------------------------------
 
 (ns-toggle-fullscreen)
+(split-window-horizontally)
+(when (> (frame-width) 272)
+ (split-window-horizontally))
+(balance-windows)
 
 (provide 'superfly)
