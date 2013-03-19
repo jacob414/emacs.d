@@ -24,4 +24,8 @@
 
 (server-start)
 
+;; Go fullscreen immediately  -------------------------------------------------
+
+(ns-toggle-fullscreen)
+
 (provide 'superfly)
