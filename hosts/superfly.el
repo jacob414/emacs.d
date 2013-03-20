@@ -32,4 +32,12 @@
  (split-window-horizontally))
 (balance-windows)
 
+;; Pop up a new frame in fullscreen with 2 columns ----------------------------
+
+(defun small-ui ()
+  (interactive)
+  (new-frame)
+  (ns-toggle-fullscreen)
+  (split-window-horizontally) )
+
 (provide 'superfly)
