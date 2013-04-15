@@ -1,11 +1,36 @@
 ;; Are we 'modern'?
 (setq modern (>= emacs-major-version 23))
 
+(defun my-zenburn ()
+   "Apply Zenburn with my settings."
+   (interactive)
+   (require 'zenburn-theme)
+   (custom-set-faces
+    '(cursor ((t (:background "red" :foreground "red"))))
+    '(highlight-current-line-face ((t (:background "gray35"))) ) )
+  )
+
+(defun my-solarized ()
+  "Apply Solarized light with my settings."
+  (interactive)
+  (load-theme 'solarized-light t)
+   (custom-set-faces
+    '(cursor ((t (:background "red" :foreground "red"))))
+    '(highlight-current-line-face ((t (:background "#eee8d5"))) ) )
+  )
+
+(defun my-solarized-boot ()
+  "Apply Solarized light at startup time."
+  (interactive)
+  ;; Hmm..?
+  (add-to-list 'custom-theme-load-path (concat emacs-dir "/site-lisp/solarized"))
+  (my-solarized) )
+
 ;; If modern, we'd like our color theme early.
 (when modern
-  ;; Zenburn (http://slinky.imukuppi.org/zenburnpage/)
-  (require 'zenburn)
-  (zenburn) )
+  (add-to-list 'custom-theme-load-path (concat emacs-dir "/site-lisp/solarized"))
+  (my-zenburn)
+   )
 
 ;; Basic settings
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))

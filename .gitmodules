@@ -1,3 +1,9 @@
 [submodule "site-lisp/dash-at-point"]
 	path = site-lisp/dash-at-point
 	url = https://github.com/Kapeli/dash-at-point.git
+[submodule "site-lisp/zenburn"]
+	path = site-lisp/zenburn
+	url = git://github.com/bbatsov/zenburn-emacs.git
+[submodule "site-lisp/solarized"]
+	path = site-lisp/solarized
+	url = git://github.com/sellout/emacs-color-theme-solarized.git
