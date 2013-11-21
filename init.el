@@ -112,6 +112,10 @@
              (set (make-local-variable 'tab-width) 2) )
           )
 
+;; Objective C settings -------------------------------------------------------
+
+(add-hook 'objc-mode-hook (lambda () (subword-mode 1)))
+
 ;; Lisp settings --------------------------------------------------------------
 
 (setq auto-mode-alist
