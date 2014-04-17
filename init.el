@@ -61,7 +61,11 @@
 (setq-default ws-trim-level 1)
 (global-ws-trim-mode t)
 
-;; Scheme settings --------------------------------------------------------
+;; Load Par Edit --------------------------------------------------------------
+
+(require 'paredit)
+
+;; Scheme settings ------------------------------------------------------------
 
 (require 'xscheme)
 
