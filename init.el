@@ -61,6 +61,11 @@
 (setq-default ws-trim-level 1)
 (global-ws-trim-mode t)
 
+;; Scheme settings --------------------------------------------------------
+
+(require 'xscheme)
+(setq scheme-program-name "/usr/local/bin/scheme")
+
 ;; Load custom functions ------------------------------------------------------
 (require 'functions)
 (if (eq system-type 'darwin) (osx-support) )
