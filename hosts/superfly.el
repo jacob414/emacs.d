@@ -3,6 +3,10 @@
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
 (setenv "NODE_PATH" "/usr/local/share/npm/lib/node_modules")
 
+;; Location of MIT-Scheme on this machine -------------------------------------
+
+(setq scheme-program-name "/usr/local/bin/scheme")
+
 ;; Dash integration  ----------------------------------------------------------
 
 (autoload 'dash-at-point "dash-at-point"

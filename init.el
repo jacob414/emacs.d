@@ -64,7 +64,6 @@
 ;; Scheme settings --------------------------------------------------------
 
 (require 'xscheme)
-(setq scheme-program-name "/usr/local/bin/scheme")
 
 ;; Load custom functions ------------------------------------------------------
 (require 'functions)
