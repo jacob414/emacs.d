@@ -166,6 +166,7 @@
 (defun osx-support ()
   (interactive)
   ;; The price of having a real Meta-key
+  (global-set-key (kbd "M-0") "≈")
   (global-set-key (kbd "M-4") "$")
   (global-set-key (kbd "M-7") "|")
   (global-set-key (kbd "M-8") "[")
