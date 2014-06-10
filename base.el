@@ -64,8 +64,6 @@
 (show-paren-mode t)
 (setq show-paren-style 'expression)
 (set-face-foreground 'show-paren-mismatch-face "red")
-(set-face-attribute 'show-paren-mismatch-face nil
-                    :weight 'bold :underline t :overline nil :slant 'normal)
 
 ;; y/n keypresses instead of spelled out 'yes'/'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
