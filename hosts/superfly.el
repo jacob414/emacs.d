@@ -33,6 +33,8 @@
 (split-window-horizontally)
 (when (> (frame-width) 272)
  (split-window-horizontally))
+(when (> (frame-width) 300)
+  (split-window-horizontally))
 (balance-windows)
 
 ;; Pop up a new frame in fullscreen with 2 columns ----------------------------
