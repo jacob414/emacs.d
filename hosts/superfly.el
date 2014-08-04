@@ -34,6 +34,7 @@
 (when (> (frame-width) 272)
  (split-window-horizontally))
 (when (> (frame-width) 300)
+  (custom-set-faces '(default ((t (:height 120 :family "Mensch")))))
   (split-window-horizontally))
 (balance-windows)
 
