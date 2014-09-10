@@ -3,6 +3,11 @@
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
 (setenv "NODE_PATH" "/usr/local/share/npm/lib/node_modules")
 
+;; Common Lisp (via Clozure CL) -----------------------------------------------
+
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "/usr/local/bin/ccl")
+
 ;; Location of MIT-Scheme on this machine -------------------------------------
 
 (setq scheme-program-name "/usr/local/bin/scheme")
