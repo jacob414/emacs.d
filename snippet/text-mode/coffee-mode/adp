@@ -1,1 +1,1 @@
-assert.deepEqual $1, $2
+$1.should.deep.equal $2
