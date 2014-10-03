@@ -13,7 +13,6 @@
 ;; Basic environment ----------------------------------------------------------
 
 (require 'base)
-(require 'custom-keybindings)
 
 ;; ELPA -----------------------------------------------------------------------
 
@@ -238,3 +237,7 @@
 
  (t
   (require 'generic)) )
+
+;; Load my own keybindings (last to win) --------------------------------------
+
+(require 'custom-keybindings)
