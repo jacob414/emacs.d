@@ -21,4 +21,9 @@
 (global-set-key (kbd "C-c T") 'ws-trim-buffer)
 (global-set-key (kbd "C-å") 'er/expand-region)
 
+;; Mixin in some paredit
+(global-set-key (kbd "M-'") 'paredit-open-curly)
+(global-set-key (kbd "C-8") 'paredit-open-round)
+(global-set-key (kbd "C-\"") 'paredit-doublequote)
+
 (provide 'custom-keybindings)
