@@ -123,6 +123,13 @@
 
 (add-hook 'objc-mode-hook (lambda () (subword-mode 1)))
 
+;; Apache settings ------------------------------------------------------------
+
+(autoload 'apache-mode "apache-mode" "Apache config edit mode." t)
+
+(setq auto-mode-alist
+      (append '(("\\.htaccess$" . apache-mode)) auto-mode-alist))
+
 ;; Lisp settings --------------------------------------------------------------
 
 (setq auto-mode-alist
