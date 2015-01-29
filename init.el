@@ -162,6 +162,12 @@
              (local-set-key (kbd "C-j") 'my-greedy-joinlines) )
           )
 
+;; PHP settings ---------------------------------------------------------------
+
+(setq auto-mode-alist
+      (append '(("\\.php$" . java-mode)))       ;; for now, save installation work
+)
+
 ;; YAML-mode ------------------------------------------------------------------
 
 (require 'yaml-mode)
