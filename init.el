@@ -165,10 +165,10 @@
 ;; PHP settings ---------------------------------------------------------------
 
 (setq auto-mode-alist
-      (append '(("\\.php$" . java-mode)))       ;; for now, save installation work
-)
+      ;; for now, save installation work
+      (append '(("\\.php$" . java-mode)) auto-mode-alist))
 
-;; YAML-mode ------------------------------------------------------------------
+;; YAM-mode ------------------------------------------------------------------
 
 (require 'yaml-mode)
 
