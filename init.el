@@ -190,6 +190,12 @@
           '(lambda ()
              (setq scss-compile-at-save nil) ) )
 
+;; Various configuration ------------------------------------------------------
+
+(setq auto-mode-alist
+      ;; for now, save installation work
+      (append '(("\\.gitignore$" . conf-mode)) auto-mode-alist))
+
 ;; Text-mode ------------------------------------------------------------------
 
 (require 'wc)
