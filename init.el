@@ -244,6 +244,7 @@
  '(css-indent-offset 2)
  '(js-indent-level 2)
  '(make-backup-files nil)
+ '(nginx-indent-level 2)
  '(rst-level-face-base-light 38)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
