@@ -190,6 +190,14 @@
           '(lambda ()
              (setq scss-compile-at-save nil) ) )
 
+;; Nginx configuration --------------------------------------------------------
+
+(autoload 'nginx-mode "nginx-mode"
+  "Major mode for editing NGINX configuration files" t)
+
+(setq auto-mode-alist
+      (append '(("\\nginx*.conf$" . conf-mode)) auto-mode-alist))
+
 ;; Various configuration ------------------------------------------------------
 
 (setq auto-mode-alist
