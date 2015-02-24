@@ -196,7 +196,7 @@
   "Major mode for editing NGINX configuration files" t)
 
 (setq auto-mode-alist
-      (append '(("\\nginx*.conf$" . nix-mode)) auto-mode-alist))
+      (append '(("\\.nix$" . nix-mode)) auto-mode-alist))
 
 ;; Nginx configuration --------------------------------------------------------
 
