@@ -190,6 +190,14 @@
           '(lambda ()
              (setq scss-compile-at-save nil) ) )
 
+;; Nix expressions ------------------------------------------------------------
+
+(autoload 'nix-mode "nix-mode"
+  "Major mode for editing NGINX configuration files" t)
+
+(setq auto-mode-alist
+      (append '(("\\nginx*.conf$" . nix-mode)) auto-mode-alist))
+
 ;; Nginx configuration --------------------------------------------------------
 
 (autoload 'nginx-mode "nginx-mode"
