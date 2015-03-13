@@ -241,6 +241,10 @@
 (add-hook 'text-mode-hook 'text-mode-env)
 (add-hook 'mail-mode-hook 'text-env)
 
+;; nodejs-repl ----------------------------------------------------------------
+
+(require 'nodejs-repl)
+
 ;; Custom ---------------------------------------------------------------------
 
 (custom-set-variables
@@ -257,7 +261,8 @@
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(yas/field-highlight-face ((t (:background "gray35" :underline t))))
- '(yas/trigger-key "SPC"))
+ '(yas/trigger-key "SPC")
+ '(nodejs-repl-command "/usr/local/bin/node"))
 
 ;; Host specific stuff - should always have the last word ---------------------
 
