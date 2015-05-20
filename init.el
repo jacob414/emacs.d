@@ -245,6 +245,10 @@
 
 (require 'nodejs-repl)
 
+;; Tuareg (OCaml) configuration -----------------------------------------------
+
+(load "~/src/ext/ocaml/tuareg/tuareg-site-file")
+
 ;; Custom ---------------------------------------------------------------------
 
 (custom-set-variables
