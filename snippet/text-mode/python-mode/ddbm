@@ -1,0 +1,5 @@
+class $1(db.Model):
+
+    ident = db.Column(db.Integer,$2
+                      db.Sequence('<name>_seq', start=100),
+                      primary_key=True)
