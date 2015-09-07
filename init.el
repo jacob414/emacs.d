@@ -255,6 +255,10 @@
 (add-hook 'org-mode-hook
                     (lambda ()
                       (org-set-local 'yas/trigger-key [tab])
+                      (local-set-key (kbd "M-<left>") 'windmove-left)
+                      (local-set-key (kbd "M-<right>") 'windmove-right)
+                      (local-set-key (kbd "M-<down>") 'windmove-down)
+                      (local-set-key (kbd "M-<up>") 'windmove-up)
                       (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
 
 ;; Custom ---------------------------------------------------------------------
