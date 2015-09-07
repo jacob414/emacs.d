@@ -249,6 +249,14 @@
 
 (load "~/src/ext/ocaml/tuareg/tuareg-site-file")
 
+;; org-mode settings  ---------------------------------------------------------
+
+;; http://orgmode.org/manual/Conflicts.html
+(add-hook 'org-mode-hook
+                    (lambda ()
+                      (org-set-local 'yas/trigger-key [tab])
+                      (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
+
 ;; Custom ---------------------------------------------------------------------
 
 (custom-set-variables
