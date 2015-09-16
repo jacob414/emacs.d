@@ -259,6 +259,7 @@
                       (local-set-key (kbd "M-<right>") 'windmove-right)
                       (local-set-key (kbd "M-<down>") 'windmove-down)
                       (local-set-key (kbd "M-<up>") 'windmove-up)
+                      (local-set-key (kbd "C-<tab>") 'dabbrev-expand)
                       (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
 
 ;; Custom ---------------------------------------------------------------------
