@@ -1,8 +1,12 @@
+;; Are we 'modern'?
+(setq modern (>= emacs-major-version 23))
+
 ;; Load path settings
 (setq emacs-dir "~/src/mine/emacs.d")
 
 (add-to-list 'load-path emacs-dir)
 (add-to-list 'load-path (concat emacs-dir "/site-lisp"))
+(add-to-list 'load-path (concat emacs-dir "/site-lisp/zenburn"))
 (add-to-list 'load-path (concat emacs-dir "/hosts"))
 
 (dolist
@@ -289,6 +293,9 @@
 
  ((equal system-name "medea")
   (require 'medea))
+
+ ((equal system-name "goldskip")
+  (require 'goldskip))
 
  ((equal system-name "stevie.local")
   (require 'stevie))

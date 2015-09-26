@@ -1,10 +1,10 @@
-;; Are we 'modern'?
-(setq modern (>= emacs-major-version 23))
-
 (defun my-zenburn ()
    "Apply Zenburn with my settings."
    (interactive)
+   (add-to-list 'custom-theme-load-path
+                (concat emacs-dir "/site-lisp/zenburn"))
    (require 'zenburn-theme)
+   (load-theme 'zenburn t)
    (custom-set-faces
     '(cursor ((t (:background "red" :foreground "red"))))
     '(highlight-current-line-face ((t (:background "gray35"))) ) )
@@ -27,10 +27,7 @@
   (my-solarized) )
 
 ;; If modern, we'd like our color theme early.
-(when modern
-  (add-to-list 'custom-theme-load-path (concat emacs-dir "/site-lisp/solarized"))
-  (my-zenburn)
-   )
+(when modern  (my-zenburn))
 
 ;; Basic settings
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))

@@ -183,8 +183,6 @@
   (global-set-key (kbd "°") ">")
   (global-set-key (kbd "<end>") 'end-of-line)
   (global-set-key (kbd "<home>") 'beginning-of-line)
-  ;; Fullscreen
-  (global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
   )
 
 (provide 'functions)

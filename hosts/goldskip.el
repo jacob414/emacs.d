@@ -1,12 +1,18 @@
+(message "goldskip setup..")
+
 ;; Relevant PATH --------------------------------------------------------------
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
 (setenv "NODE_PATH" "/usr/local/share/npm/lib/node_modules")
 
+(message "env setup done")
+
 ;; Common Lisp (via Clozure CL) -----------------------------------------------
 
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/local/bin/ccl")
+
+(message "goldskip: clozure CL done")
 
 ;; Location of MIT-Scheme on this machine -------------------------------------
 
@@ -21,12 +27,8 @@
 ;; Final typeface adjustment  -------------------------------------------------
 
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:height 108 :family "Mensch"))))
- '(linum ((t (:inherit (shadow default) :height 0.8)))))
+ '(default ((t (:height 104 :family "Mensch"))))
+ '(linum ((t (:inherit (shadow default) :height 0.9)))))
 
 ;; Use server  ----------------------------------------------------------------
 
@@ -34,7 +36,7 @@
 
 ;; Go fullscreen immediately  -------------------------------------------------
 
-(ns-toggle-fullscreen)
+(toggle-frame-fullscreen)
 (split-window-horizontally)
 (when (> (frame-width) 272)
  (split-window-horizontally))
@@ -48,11 +50,11 @@
 (defun small-ui ()
   (interactive)
   (new-frame)
-  (ns-toggle-fullscreen)
+  (toggle-frame-fullscreen)
   (split-window-horizontally) )
 
-;; Superfly specific keybingings  ---------------------------------------------
+;; Goldskip specific keybingings  ---------------------------------------------
 
-(global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
+(global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)
 
-(provide 'superfly)
+(provide 'goldskip)
