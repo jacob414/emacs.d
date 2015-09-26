@@ -33,6 +33,7 @@
 ;; Use server  ----------------------------------------------------------------
 
 (server-start)
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
 ;; Go fullscreen immediately  -------------------------------------------------
 
