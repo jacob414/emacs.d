@@ -7,6 +7,7 @@
 (add-to-list 'load-path emacs-dir)
 (add-to-list 'load-path (concat emacs-dir "/site-lisp"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/zenburn"))
+(add-to-list 'load-path (concat emacs-dir "/site-lisp/expand-region"))
 (add-to-list 'load-path (concat emacs-dir "/hosts"))
 
 (dolist
@@ -266,6 +267,10 @@
                       (local-set-key (kbd "C-<tab>") 'dabbrev-expand)
                       (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
 
+;; expand-region --------------------------------------------------------------
+
+(require 'expand-region)
+
 ;; Custom ---------------------------------------------------------------------
 
 (custom-set-variables
@@ -294,7 +299,7 @@
  ((equal system-name "medea")
   (require 'medea))
 
- ((equal system-name "goldskip")
+ ((equal system-name "goldskip.plexical.net")
   (require 'goldskip))
 
  ((equal system-name "stevie.local")
