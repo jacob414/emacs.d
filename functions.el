@@ -185,4 +185,10 @@
   (global-set-key (kbd "<home>") 'beginning-of-line)
   )
 
+(defun string/starts-with (string prefix)
+      "Return t if STRING starts with prefix."
+      (and (string-match (rx-to-string `(: bos ,prefix) t)
+                         string)
+           t))
+
 (provide 'functions)

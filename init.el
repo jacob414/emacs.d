@@ -299,7 +299,7 @@
  ((equal system-name "medea")
   (require 'medea))
 
- ((equal system-name "goldskip.plexical.net")
+ ((string/starts-with system-name "goldskip")
   (require 'goldskip))
 
  ((equal system-name "stevie.local")
