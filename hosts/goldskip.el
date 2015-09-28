@@ -27,7 +27,7 @@
 ;; Final typeface adjustment  -------------------------------------------------
 
 (custom-set-faces
- '(default ((t (:height 104 :family "Mensch"))))
+ '(default ((t (:height 110 :family "Mensch"))))
  '(linum ((t (:inherit (shadow default) :height 0.9)))))
 
 ;; Use server  ----------------------------------------------------------------
