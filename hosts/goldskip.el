@@ -1,18 +1,12 @@
-(message "goldskip setup..")
-
 ;; Relevant PATH --------------------------------------------------------------
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
 (setenv "NODE_PATH" "/usr/local/share/npm/lib/node_modules")
 
-(message "env setup done")
-
 ;; Common Lisp (via Clozure CL) -----------------------------------------------
 
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/local/bin/ccl")
-
-(message "goldskip: clozure CL done")
 
 ;; Location of MIT-Scheme on this machine -------------------------------------
 
@@ -57,5 +51,7 @@
 ;; Goldskip specific keybingings  ---------------------------------------------
 
 (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)
+
+(message "goldskip setup done")
 
 (provide 'goldskip)
