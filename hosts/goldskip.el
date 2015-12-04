@@ -1,7 +1,17 @@
 ;; Relevant PATH --------------------------------------------------------------
 
+(setq brew-base "/usr/local/share/emacs/site-lisp")
+
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
 (setenv "NODE_PATH" "/usr/local/share/npm/lib/node_modules")
+
+;; YASnippet ------------------------------------------------------------------
+
+(add-to-list 'load-path (concat brew-base "/yasnippet"))
+(require 'yasnippet)
+(yas/load-directory (concat emacs-dir "/snippet"))
+(yas-global-mode 1)
+(global-set-key (kbd "C-c y") 'yas/reload-all)
 
 ;; Common Lisp (via Clozure CL) -----------------------------------------------
 

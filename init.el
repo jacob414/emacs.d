@@ -53,11 +53,6 @@
 (require 'drag-stuff)
 (drag-stuff-mode t)
 
-;; YASnippet
-(require 'yasnippet)
-(yas/initialize)
-(yas/load-directory (concat emacs-dir "/snippet"))
-
 (global-set-key (kbd "C-c y") 'yas/reload-all)
 
 ;; White-space trim
