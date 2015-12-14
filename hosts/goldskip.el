@@ -10,7 +10,7 @@
 (add-to-list 'load-path (concat brew-base "/yasnippet"))
 (require 'yasnippet)
 (yas/load-directory (concat emacs-dir "/snippet"))
-(yas-global-mode 1)
+(yas/global-mode)
 (global-set-key (kbd "C-c y") 'yas/reload-all)
 
 ;; Common Lisp (via Clozure CL) -----------------------------------------------
