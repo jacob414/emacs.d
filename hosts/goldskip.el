@@ -31,7 +31,7 @@
 ;; Final typeface adjustment  -------------------------------------------------
 
 (custom-set-faces
- '(default ((t (:height 110 :family "Mensch"))))
+ '(default ((t (:height 115 :family "Operator Mono"))))
  '(linum ((t (:inherit (shadow default) :height 0.9)))))
 
 ;; Use server  ----------------------------------------------------------------
@@ -46,7 +46,7 @@
 (when (> (frame-width) 272)
  (split-window-horizontally))
 (when (> (frame-width) 300)
-  (custom-set-faces '(default ((t (:height 120 :family "Mensch")))))
+  (custom-set-faces '(default ((t (:height 115 :family "Operator Mono")))))
   (split-window-horizontally))
 (balance-windows)
 
