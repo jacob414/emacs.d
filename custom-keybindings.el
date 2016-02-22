@@ -28,4 +28,7 @@
 (global-set-key (kbd "C-M-(") 'paredit-open-curly)
 (global-set-key (kbd "C-\"") 'paredit-doublequote)
 
+;; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
 (provide 'custom-keybindings)
