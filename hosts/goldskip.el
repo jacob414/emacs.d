@@ -18,6 +18,10 @@
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/local/bin/ccl")
 
+;; Magit ----------------------------------------------------------------------
+
+(require 'magit)
+
 ;; Location of MIT-Scheme on this machine -------------------------------------
 
 (setq scheme-program-name "/usr/local/bin/scheme")
