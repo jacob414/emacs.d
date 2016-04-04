@@ -260,6 +260,8 @@
                       (local-set-key (kbd "M-<down>") 'windmove-down)
                       (local-set-key (kbd "M-<up>") 'windmove-up)
                       (local-set-key (kbd "C-<tab>") 'dabbrev-expand)
+                      (local-set-key (kbd "C-.") 'scroll-down-one-line)
+                      (local-set-key (kbd "C-,") 'scroll-up-one-line)
                       (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
 
 ;; expand-region --------------------------------------------------------------
