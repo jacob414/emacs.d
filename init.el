@@ -264,6 +264,19 @@
                       (local-set-key (kbd "C-,") 'scroll-up-one-line)
                       (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
 
+;; web-mode -------------------------------------------------------------------
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode)) ;; Override?
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+
+(defun my-web-mode-hook ()
+  "web-mode settings"
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2))
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
 ;; expand-region --------------------------------------------------------------
 
 (require 'expand-region)
