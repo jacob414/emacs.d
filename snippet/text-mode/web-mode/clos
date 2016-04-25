@@ -1,0 +1,5 @@
+# Closure
+# --
+function($1) {
+    $2
+});
