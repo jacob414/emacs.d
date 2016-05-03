@@ -72,6 +72,26 @@
 (require 'functions)
 (if (eq system-type 'darwin) (osx-support) )
 
+;; web-mode -------------------------------------------------------------------
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode)) ;; Override?
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+
+(setq web-mode-content-types-alist
+      '(("jsx"  . "/Users/jacob/src/lab/miveo/roc-0/.*\\.js[x]?\\'")
+        ))
+
+(defun my-web-mode-hook ()
+  "web-mode settings"
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2))
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
+(setq auto-mode-alist
+      (append '(("\\.json$" . web-mode)) auto-mode-alist))
+
 ;; Javascript settings --------------------------------------------------------
 
 (add-hook 'js-mode-hook
@@ -82,9 +102,6 @@
              (highlight-lines-matching-regexp "alert\(" 'hi-red-b)
              )
           )
-
-(setq auto-mode-alist
-      (append '(("\\.json$" . js-mode)) auto-mode-alist))
 
 ;; Python settings ------------------------------------------------------------
 
@@ -263,19 +280,6 @@
                       (local-set-key (kbd "C-.") 'scroll-down-one-line)
                       (local-set-key (kbd "C-,") 'scroll-up-one-line)
                       (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
-
-;; web-mode -------------------------------------------------------------------
-
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode)) ;; Override?
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
-
-(defun my-web-mode-hook ()
-  "web-mode settings"
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2))
-(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 ;; expand-region --------------------------------------------------------------
 
