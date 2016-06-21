@@ -80,6 +80,7 @@
 
 (setq web-mode-content-types-alist
       '(("jsx"  . "/Users/jacob/src/lab/miveo/roc-0/.*\\.js[x]?\\'")
+        ("jsx"  . "/Users/jacob/src/miveo/.*\\.js[x]?\\'")
         ))
 
 (defun my-web-mode-hook ()
