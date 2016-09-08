@@ -80,6 +80,8 @@
 
 (setq web-mode-content-types-alist
       '(("jsx"  . "/Users/jacob/src/lab/miveo/roc-0/.*\\.js[x]?\\'")
+        ("jsx"  . "/Users/jacob/src/lab/cra-pre/.*\\.js[x]?\\'")
+        ("jsx"  . "/Users/jacob/src/oss/cra-0/.*\\.js[x]?\\'")
         ("jsx"  . "/Users/jacob/src/miveo/.*\\.js[x]?\\'")
         ))
 
