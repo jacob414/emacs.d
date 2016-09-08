@@ -19,3 +19,9 @@
 [submodule "site-lisp/elm-mode"]
 	path = site-lisp/elm-mode
 	url = https://github.com/jcollard/elm-mode.git
+[submodule "site-lisp/f.el"]
+	path = site-lisp/f.el
+	url = https://github.com/rejeep/f.el.git
+[submodule "site-lisp/s.el"]
+	path = site-lisp/s.el
+	url = https://github.com/magnars/s.el.git
