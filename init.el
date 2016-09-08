@@ -115,6 +115,7 @@
 (require 'let-alist)
 (require 's)
 (require 'f)
+(require 'elm-mode)
 
 ;; Python settings ------------------------------------------------------------
 
