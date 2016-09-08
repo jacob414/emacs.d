@@ -16,3 +16,6 @@
 [submodule "site-lisp/expand-region"]
 	path = site-lisp/expand-region
 	url = https://github.com/magnars/expand-region.el.git
+[submodule "site-lisp/elm-mode"]
+	path = site-lisp/elm-mode
+	url = https://github.com/jcollard/elm-mode.git
