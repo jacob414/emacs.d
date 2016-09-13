@@ -66,6 +66,14 @@
 
 (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)
 
+;; Goldskip specific paths/language settings ----------------------------------
+
+(custom-set-variables
+ '(elm-format-command "/usr/local/bin/elm-format")
+ '(elm-interactive-command "/usr/local/bin/elm-repl")
+ '(elm-format-on-save 't)
+)
+
 (message "goldskip setup done")
 
 (provide 'goldskip)
