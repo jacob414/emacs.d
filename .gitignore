@@ -4,3 +4,5 @@
 tramp
 bookmarks
 .emacs.desktop
+site-lisp/elm-package.json
+site-lisp/elm-stuff
