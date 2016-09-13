@@ -72,6 +72,7 @@
  '(elm-format-command "/usr/local/bin/elm-format")
  '(elm-interactive-command "/usr/local/bin/elm-repl")
  '(elm-format-on-save 't)
+ '(nodejs-repl-command "/usr/local/bin/node")
 )
 
 (message "goldskip setup done")

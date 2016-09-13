@@ -315,8 +315,7 @@
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(yas/field-highlight-face ((t (:background "gray35" :underline t))))
- '(yas/trigger-key "SPC")
- '(nodejs-repl-command "/usr/local/bin/node"))
+ '(yas/trigger-key "SPC"))
 
 ;; Host specific stuff - should always have the last word ---------------------
 
