@@ -51,11 +51,6 @@
 
 (global-set-key (kbd "C-j") 'my-greedy-joinlines)
 
-(defun my-longlines ()
-  (interactive)
-  (auto-fill-mode)
-  (longlines-mode) )
-
 (global-set-key (kbd "C-c l") 'my-longlines)
 
 (defun my-commit-buffer ()
@@ -184,6 +179,13 @@
   (global-set-key (kbd "<end>") 'end-of-line)
   (global-set-key (kbd "<home>") 'beginning-of-line)
   )
+
+(defun my-longlines ()
+  "Shortcut for my settings for writing text without soft wraps"
+  (interactive)
+  (ws-trim-mode)
+  (visual-line-mode)
+  (auto-fill-mode -1) )
 
 (defun string/starts-with (string prefix)
       "Return t if STRING starts with prefix."
