@@ -117,6 +117,11 @@
 (require 'f)
 (require 'elm-mode)
 
+;; elixir-mode settings  ------------------------------------------------------
+
+(unless (package-installed-p 'elixir-mode)
+  (package-install 'elixir-mode))
+
 ;; Python settings ------------------------------------------------------------
 
 (add-hook 'python-mode-hook
