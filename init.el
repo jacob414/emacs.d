@@ -122,6 +122,11 @@
 (unless (package-installed-p 'elixir-mode)
   (package-install 'elixir-mode))
 
+;; swift-mode settings  -------------------------------------------------------
+
+(unless (package-installed-p 'swift-mode)
+  (package-install 'swift-mode))
+
 ;; Python settings ------------------------------------------------------------
 
 (add-hook 'python-mode-hook
