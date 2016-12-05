@@ -318,6 +318,8 @@
  ;; If there is more than one, they won't work right.
  '(case-fold-search t)
  '(css-indent-offset 2)
+ '(elm-format-command "/usr/local/bin/elm-format" t)
+ '(elm-format-on-save (quote t))
  '(js-indent-level 2)
  '(make-backup-files nil)
  '(nginx-indent-level 2)
