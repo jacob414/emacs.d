@@ -320,6 +320,7 @@
  '(css-indent-offset 2)
  '(elm-format-command "/usr/local/bin/elm-format" t)
  '(elm-format-on-save (quote t))
+ '(elm-interactive-command "/usr/local/bin/elm-repl")
  '(js-indent-level 2)
  '(make-backup-files nil)
  '(nginx-indent-level 2)
