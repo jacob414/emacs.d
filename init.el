@@ -127,6 +127,8 @@
 (unless (package-installed-p 'swift-mode)
   (package-install 'swift-mode))
 
+(add-hook 'swift-mode-hook (lambda () (subword-mode 1)))
+
 ;; Python settings ------------------------------------------------------------
 
 (add-hook 'python-mode-hook
