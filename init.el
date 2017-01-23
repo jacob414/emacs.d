@@ -143,6 +143,9 @@
       (append '(("\\.wsgi$" . python-mode)
                 ("\\.pyx$" . python-mode)) auto-mode-alist))
 
+(setq auto-mode-alist
+      (append '(("Pipfile*" . conf-mode)) auto-mode-alist))
+
 ;; CoffeScript settings -------------------------------------------------------
 
 (autoload 'coffee-mode "coffee-mode" "CoffeScript editing mode." t)
