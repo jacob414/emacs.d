@@ -11,6 +11,7 @@
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/elm-mode"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/s.el"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/f.el"))
+(add-to-list 'load-path (concat emacs-dir "/site-lisp/dash.el"))
 (add-to-list 'load-path (concat emacs-dir "/hosts"))
 
 (dolist
@@ -347,6 +348,9 @@
 
  ((string/starts-with system-name "goldskip")
   (require 'goldskip))
+
+ ((string/starts-with system-name "SEGOTLPMRD006")
+  (require 'sugarline))
 
  ((equal system-name "stevie.local")
   (require 'stevie))
