@@ -136,6 +136,7 @@
           '(lambda ()
              (interactive)
              (highlight-lines-matching-regexp ".set_trace" 'hi-red-b)
+             (ws-trim-mode 'f)
              (set 'python-indent 4)
              )
           )
