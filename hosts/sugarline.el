@@ -68,6 +68,11 @@
 
 ;; Sugarline specific paths/language settings ----------------------------------
 
+(add-to-list 'load-path "~/src/mine/personal/emacs")
+(require 'diasend-sugarline)
+
+;; Final custom variables (last to win) ---------------------------------------
+
 (custom-set-variables
  '(elm-format-command "/usr/local/bin/elm-format")
  '(elm-interactive-command "/usr/local/bin/elm-repl")
