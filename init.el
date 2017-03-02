@@ -212,8 +212,7 @@
 ;; PHP settings ---------------------------------------------------------------
 
 (setq auto-mode-alist
-      ;; for now, save installation work
-      (append '(("\\.php$" . java-mode)) auto-mode-alist))
+      (append '(("\\.php$" . web-mode)) auto-mode-alist))
 
 ;; YAM-mode ------------------------------------------------------------------
 
