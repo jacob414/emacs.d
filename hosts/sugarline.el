@@ -80,6 +80,8 @@
  '(nodejs-repl-command "/usr/local/bin/node")
 )
 
+(my-solarized-boot)
+
 (message "sugarline setup done")
 
 (provide 'sugarline)
