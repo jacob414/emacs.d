@@ -1,11 +1,7 @@
 #name : function template
-#contributor : Xah Lee
+#contributor : Xah Lee (customized)
 # --
 (defun $1 ()
-  "thisandthat."
-  (interactive)
-  (let (var1)
-    (setq var1 some)
-    $0
-  )
-)
+    "Docstring for $1."
+    (interactive)
+    $0 )
