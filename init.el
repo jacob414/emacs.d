@@ -135,6 +135,12 @@
 (add-hook 'python-mode-hook
           '(lambda ()
              (interactive)
+             (setq outline-regexp "[^ \t\n]\\|[ \t]*\\(if[ \t]+\\|elif[ \t]+\\|else[ \t]+\\|for[ \t]+\\|while[ \t]+\\|with[ \t]+\\|def[ \t]+\\|class[ \t]+\\)")
+             (outline-minor-mode t)
+             (define-key python-mode-map (kbd "C-+")
+               'outline-toggle-children)
+             (define-key python-mode-map (kbd "s-+")
+               'outline-show-all)
              (highlight-lines-matching-regexp ".set_trace" 'hi-red-b)
              (set 'python-indent 4)
              )
