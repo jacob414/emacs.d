@@ -9,7 +9,7 @@
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/zenburn"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/expand-region"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/elm-mode"))
-(add-to-list 'load-path (concat emacs-dir "/site-lisp/s.el"))
+
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/f.el"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/dash.el"))
 (add-to-list 'load-path (concat emacs-dir "/hosts"))
