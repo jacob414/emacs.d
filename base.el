@@ -22,6 +22,7 @@
     '(mode-line-highlight ((t (:box (:line-width 2 :color "#d1cdc1" :style released-button)))))
     '(mode-line-inactive ((t (:background "Brown" :foreground "#d1cdc1" :inverse-video t :box nil :underline nil :slant normal :weight normal))))
     '(org-checkbox ((t (:background "#d6d0be" :foreground "#805c64" :box (:line-width 1 :style released-button)))))
+    '(org-link ((t (:foreground "#21867a" :underline t))))
     )
   )
 
