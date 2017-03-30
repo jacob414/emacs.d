@@ -30,6 +30,6 @@
 
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x w") 'magit-diff-buffer-file)
+(global-set-key (kbd "C-x ?") 'magit-diff-buffer-file)
 
 (provide 'custom-keybindings)
