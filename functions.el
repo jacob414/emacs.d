@@ -193,4 +193,11 @@
                          string)
            t))
 
+(defun bukharin-mode ()
+  "sigh. Because world."
+  (interactive)
+  (subword-mode)
+  (setq indent-tabs-mode t)
+  (ws-trim-mode -1) )
+
 (provide 'functions)
