@@ -1,1 +1,1 @@
-debug_print_trace(); exit;
+debug_print_backtrace(); exit;
