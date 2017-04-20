@@ -183,6 +183,11 @@
 (setq auto-mode-alist
       (append '(("\\.htaccess$" . apache-mode)) auto-mode-alist))
 
+;; Shell settings -------------------------------------------------------------
+
+(setq auto-mode-alist
+      (append '(("bash-fc-*" . sh-mode)) auto-mode-alist))
+
 ;; Lisp settings --------------------------------------------------------------
 
 (setq auto-mode-alist
