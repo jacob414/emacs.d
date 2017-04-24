@@ -95,7 +95,8 @@
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
   (local-set-key (kbd "C-x f") 'web-mode-fold-or-unfold)
-  (add-hook 'yas/after-exit-snippet-hook 'web-mode) )
+  (add-hook 'yas/after-exit-snippet-hook 'web-mode)
+  (hs-minor-mode))
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
 (setq auto-mode-alist
