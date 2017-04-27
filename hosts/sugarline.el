@@ -80,7 +80,7 @@
  '(nodejs-repl-command "/usr/local/bin/node")
 )
 
-(my-solarized-boot)
+(my-zenburn)
 
 (message "sugarline setup done")
 
