@@ -95,8 +95,8 @@
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
   (local-set-key (kbd "C-x f") 'web-mode-fold-or-unfold)
-  (add-hook 'yas/after-exit-snippet-hook 'web-mode)
-  (hs-minor-mode))
+  (hs-minor-mode) )
+
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
 (setq auto-mode-alist
@@ -139,12 +139,13 @@
              (interactive)
              (setq outline-regexp "[^ \t\n]\\|[ \t]*\\(if[ \t]+\\|elif[ \t]+\\|else[ \t]+\\|for[ \t]+\\|while[ \t]+\\|with[ \t]+\\|def[ \t]+\\|class[ \t]+\\)")
              (outline-minor-mode t)
-             (define-key python-mode-map (kbd "C-+")
+             (define-key python-mode-map (kbd "C-x C-m")
                'outline-toggle-children)
              (define-key python-mode-map (kbd "s-+")
                'outline-show-all)
              (highlight-lines-matching-regexp ".set_trace" 'hi-red-b)
              (set 'python-indent 4)
+             (add-hook 'yas/after-exit-snippet-hook 'python-mode)
              )
           )
 
@@ -326,6 +327,12 @@
 ;; expand-region --------------------------------------------------------------
 
 (require 'expand-region)
+
+;; Late actions ---------------------------------------------------------------
+
+;; (Clumsy) dodge of problems /e yasnippet interfering /w major mode
+;; for some modes.
+(add-hook 'yas/after-exit-snippet-hook 'major-mode)
 
 ;; Custom ---------------------------------------------------------------------
 
