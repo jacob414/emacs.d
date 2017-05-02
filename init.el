@@ -334,7 +334,7 @@
 (require 'trac-wiki)
 
 (setq auto-mode-alist
-      (append '(("\\.trac-wiki$" . yaml-mode)) auto-mode-alist))
+      (append '(("\\.trac-wiki$" . trac-wiki-mode)) auto-mode-alist))
 
 ;; Late actions ---------------------------------------------------------------
 
