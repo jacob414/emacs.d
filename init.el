@@ -12,6 +12,7 @@
 
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/f.el"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/dash.el"))
+(add-to-list 'load-path (concat emacs-dir "/site-lisp/trac-wiki-el"))
 (add-to-list 'load-path (concat emacs-dir "/hosts"))
 
 (dolist
@@ -327,6 +328,13 @@
 ;; expand-region --------------------------------------------------------------
 
 (require 'expand-region)
+
+;; trac-wiki-el ---------------------------------------------------------------
+
+(require 'trac-wiki)
+
+(setq auto-mode-alist
+      (append '(("\\.trac-wiki$" . yaml-mode)) auto-mode-alist))
 
 ;; Late actions ---------------------------------------------------------------
 

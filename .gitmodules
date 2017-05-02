@@ -28,3 +28,6 @@
 [submodule "site-lisp/dash.el"]
 	path = site-lisp/dash.el
 	url = https://github.com/magnars/dash.el.git
+[submodule "site-lisp/trac-wiki-el"]
+	path = site-lisp/trac-wiki-el
+	url = https://github.com/tiborsimko/trac-wiki-el.git
