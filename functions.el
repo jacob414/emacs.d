@@ -176,6 +176,8 @@
   (global-set-key (kbd "M-+") "\\")
   (global-set-key (kbd "§") "<")
   (global-set-key (kbd "°") ">")
+  (global-set-key (kbd "M-ö") "“")
+  (global-set-key (kbd "M-ä") "”")
   (global-set-key (kbd "<end>") 'end-of-line)
   (global-set-key (kbd "<home>") 'beginning-of-line)
   )
