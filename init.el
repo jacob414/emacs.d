@@ -13,6 +13,7 @@
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/f.el"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/dash.el"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/trac-wiki-el"))
+(add-to-list 'load-path (concat emacs-dir "/site-lisp/dockerfile-mode"))
 (add-to-list 'load-path (concat emacs-dir "/hosts"))
 
 (dolist
@@ -146,7 +147,6 @@
                'outline-show-all)
              (highlight-lines-matching-regexp ".set_trace" 'hi-red-b)
              (set 'python-indent 4)
-             (add-hook 'yas/after-exit-snippet-hook 'python-mode)
              )
           )
 
@@ -336,11 +336,16 @@
 (setq auto-mode-alist
       (append '(("\\.trac-wiki$" . trac-wiki-mode)) auto-mode-alist))
 
+;; dockerfile-mode4 -----------------------------------------------------------
+
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
 ;; Late actions ---------------------------------------------------------------
 
 ;; (Clumsy) dodge of problems /e yasnippet interfering /w major mode
 ;; for some modes.
-(add-hook 'yas/after-exit-snippet-hook 'major-mode)
+(add-hook 'yas/after-exit-snippet-hook 'normal-mode)
 
 ;; Custom ---------------------------------------------------------------------
 

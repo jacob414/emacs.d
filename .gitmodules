@@ -31,3 +31,6 @@
 [submodule "site-lisp/trac-wiki-el"]
 	path = site-lisp/trac-wiki-el
 	url = https://github.com/tiborsimko/trac-wiki-el.git
+[submodule "site-lisp/dockerfile-mode"]
+	path = site-lisp/dockerfile-mode
+	url = https://github.com/spotify/dockerfile-mode
