@@ -325,6 +325,12 @@
                       (local-set-key (kbd "C-,") 'scroll-up-one-line)
                       (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
 
+(setq org-file-apps
+    '(("\\.docx\\'" . default)
+      ("\\.x?html?\\'" . default)
+      ("\\.pdf\\'" . default)
+      (auto-mode . emacs)))
+
 ;; expand-region --------------------------------------------------------------
 
 (require 'expand-region)
