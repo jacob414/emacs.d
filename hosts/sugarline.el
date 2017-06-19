@@ -68,7 +68,7 @@
 
 ;; Sugarline specific paths/language settings ----------------------------------
 
-(add-to-list 'load-path "~/src/mine/personal/emacs")
+(add-to-list 'load-path "~/src/mine/skunkworks/emacs")
 (require 'diasend-sugarline)
 
 ;; Final custom variables (last to win) ---------------------------------------
