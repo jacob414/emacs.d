@@ -323,6 +323,7 @@
                       (local-set-key (kbd "C-<tab>") 'dabbrev-expand)
                       (local-set-key (kbd "C-.") 'scroll-down-one-line)
                       (local-set-key (kbd "C-,") 'scroll-up-one-line)
+                      (local-set-key (kbd "C-j") 'my-greedy-joinlines)
                       (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
 
 (setq org-file-apps
