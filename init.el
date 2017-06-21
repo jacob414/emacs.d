@@ -330,6 +330,7 @@
     '(("\\.docx\\'" . default)
       ("\\.x?html?\\'" . default)
       ("\\.pdf\\'" . default)
+      ("\\.log\\'" . emacs)
       (auto-mode . emacs)))
 
 ;; expand-region --------------------------------------------------------------
@@ -347,6 +348,11 @@
 
 (require 'dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
+;; emasc-w3m  -----------------------------------------------------------------
+
+(require 'w3)
+(setq w3m-command "/usr/local/bin/w3m")
 
 ;; Late actions ---------------------------------------------------------------
 
@@ -369,9 +375,11 @@
  '(js-indent-level 2)
  '(make-backup-files nil)
  '(nginx-indent-level 2)
- '(swift-mode:basic-offset 2)
+ '(nodejs-repl-command "/usr/local/bin/node")
+ '(package-selected-packages (quote (w3m swift-mode elixir-mode)))
  '(rst-level-face-base-light 38)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
+ '(swift-mode:basic-offset 2)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(yas/field-highlight-face ((t (:background "gray35" :underline t))))
  '(yas/trigger-key "SPC"))
@@ -400,3 +408,12 @@
 ;; Load my own keybindings (last to win) --------------------------------------
 
 (require 'custom-keybindings)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:height 115 :family "Operator Mono"))))
+ '(cursor ((t (:background "red" :foreground "red"))))
+ '(highlight-current-line-face ((t (:background "gray35"))))
+ '(linum ((t (:inherit (shadow default) :height 0.9)))))
