@@ -352,11 +352,6 @@
 (require 'dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
-;; emasc-w3m  -----------------------------------------------------------------
-
-(require 'w3)
-(setq w3m-command "/usr/local/bin/w3m")
-
 ;; Late actions ---------------------------------------------------------------
 
 ;; (Clumsy) dodge of problems /e yasnippet interfering /w major mode
