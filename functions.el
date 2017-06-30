@@ -180,6 +180,7 @@
   (global-set-key (kbd "M-ä") "”")
   (global-set-key (kbd "<end>") 'end-of-line)
   (global-set-key (kbd "<home>") 'beginning-of-line)
+  (setq exec-path (append exec-path '("/usr/local/bin")))
   )
 
 (defun my-longlines ()
