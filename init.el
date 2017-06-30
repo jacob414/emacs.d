@@ -24,6 +24,8 @@
 ;; Basic environment ----------------------------------------------------------
 
 (require 'base)
+(require 'functions)
+(if (eq system-type 'darwin) (osx-support) )
 
 ;; ELPA -----------------------------------------------------------------------
 
