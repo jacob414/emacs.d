@@ -77,8 +77,7 @@
 (require 'xscheme)
 
 ;; Load custom functions ------------------------------------------------------
-(require 'functions)
-(if (eq system-type 'darwin) (osx-support) )
+;; (require 'functions)
 
 ;; web-mode -------------------------------------------------------------------
 
