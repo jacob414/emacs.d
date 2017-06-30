@@ -333,6 +333,7 @@
       ("\\.x?html?\\'" . default)
       ("\\.pdf\\'" . default)
       ("\\.log\\'" . emacs)
+      (".*::\\(editme\\)\\'" . (find-file file))
       (auto-mode . emacs)))
 
 ;; expand-region --------------------------------------------------------------
