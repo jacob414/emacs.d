@@ -325,6 +325,7 @@
                       (local-set-key (kbd "C-.") 'scroll-down-one-line)
                       (local-set-key (kbd "C-,") 'scroll-up-one-line)
                       (local-set-key (kbd "C-j") 'my-greedy-joinlines)
+                      (local-set-key (kbd "C-c u") (insert-char "⬆"))
                       (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
 
 (setq org-file-apps
