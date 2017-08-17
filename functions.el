@@ -203,4 +203,10 @@
   (setq indent-tabs-mode t)
   (ws-trim-mode -1) )
 
+(defun tab-emergency ()
+  "In the unfortunate event of a source with tab indent"
+  (interactive)
+  (setq-local tab-width 2)
+  (setq-local indent-tabs-mode nil) )
+
 (provide 'functions)
