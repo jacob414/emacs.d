@@ -336,6 +336,8 @@
       (".*::\\(editme\\)\\'" . (find-file file))
       (auto-mode . emacs)))
 
+(setq org-src-fontify-natively t)
+
 ;; expand-region --------------------------------------------------------------
 
 (require 'expand-region)
