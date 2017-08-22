@@ -207,6 +207,7 @@
   "In the unfortunate event of a source with tab indent"
   (interactive)
   (setq-local tab-width 2)
-  (setq-local indent-tabs-mode nil) )
+  (setq-local indent-tabs-mode t) )
+(global-set-key (kbd "C-c T") 'tab-emergency)
 
 (provide 'functions)
