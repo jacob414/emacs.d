@@ -1,2 +1,3 @@
 def test_$1($2):
+    # type: () -> None
     "Should $3"
