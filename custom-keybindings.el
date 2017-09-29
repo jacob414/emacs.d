@@ -32,4 +32,8 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x ?") 'magit-diff-buffer-file)
 
+;; Paredit
+(global-set-key (kbd "M-D") 'paredit-kill)
+(global-set-key (kbd "C-x 9") 'paredit-close-parenthesis)
+
 (provide 'custom-keybindings)
