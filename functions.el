@@ -211,13 +211,16 @@
 (global-set-key (kbd "C-c T") 'tab-emergency)
 
 (defun archive (&optional thing)
-    "Docstring for archive."
-    (interactive)
-    (unless thing
-      (setq thing (read-string "Archive:")) )
-    (set-buffer (get-buffer "inkorg.org"))
+  "Docstring for archive."
+  (interactive)
+  (unless thing (setq thing (read-string "Archive:")) )
+  (with-current-buffer
+    (set-buffer (find-file "~/src/mine/skunkworks/inkorg.org"))
     (goto-char (point-max))
     (insert (concat thing "\n"))
-    (save-buffer) )
+    (save-buffer)
+    )
+  )
+
 
 (provide 'functions)
