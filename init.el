@@ -328,7 +328,7 @@
                       (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
 
 (setq org-file-apps
-    '(("\\.docx\\'" . default)
+    '(("\\.docx?\\'" . default)
       ("\\.xlsx?\\'" . default)
       ("\\.x?html?\\'" . default)
       ("\\.pdf\\'" . default)
