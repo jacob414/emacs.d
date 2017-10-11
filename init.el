@@ -329,6 +329,7 @@
 
 (setq org-file-apps
     '(("\\.docx\\'" . default)
+      ("\\.xlsx?\\'" . default)
       ("\\.x?html?\\'" . default)
       ("\\.pdf\\'" . default)
       ("\\.log\\'" . emacs)
