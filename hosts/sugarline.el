@@ -22,6 +22,12 @@
 
 (require 'magit)
 
+;; Haskell --------------------------------------------------------------------
+
+(require 'haskell-mode)
+(setq auto-mode-alist
+      (append '(("\\.hs$" . sass-mode)) auto-mode-alist))
+
 ;; Location of MIT-Scheme on this machine -------------------------------------
 
 (setq scheme-program-name "/usr/local/bin/scheme")
