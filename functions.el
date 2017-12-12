@@ -210,7 +210,7 @@
   (setq-local indent-tabs-mode t) )
 (global-set-key (kbd "C-c T") 'tab-emergency)
 
-(defun archive (&optional thing)
+(defun my-archive (&optional thing)
   "Docstring for archive."
   (interactive)
   (unless thing (setq thing (read-string "Archive:")) )
