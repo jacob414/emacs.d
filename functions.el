@@ -222,5 +222,6 @@
     )
   )
 
+(global-set-key (kbd "C-x a") 'my-archive)
 
 (provide 'functions)
