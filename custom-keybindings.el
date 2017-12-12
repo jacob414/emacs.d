@@ -36,4 +36,7 @@
 (global-set-key (kbd "M-D") 'paredit-kill)
 (global-set-key (kbd "C-x 9") 'paredit-close-parenthesis)
 
+;; Fullscreen
+(global-set-key (kbd "s-<return>") 'toggle-frame-fullscreen)
+
 (provide 'custom-keybindings)

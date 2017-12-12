@@ -64,7 +64,7 @@
 
 ;; Goldskip specific keybingings  ---------------------------------------------
 
-(global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)
+;; Empty fn.
 
 ;; Goldskip specific paths/language settings ----------------------------------
 

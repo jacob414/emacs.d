@@ -70,7 +70,7 @@
 
 ;; Sugarline specific keybingings  ---------------------------------------------
 
-(global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)
+;; Empty fn.
 
 ;; Sugarline specific paths/language settings ----------------------------------
 
