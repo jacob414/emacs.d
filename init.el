@@ -354,12 +354,6 @@
 (require 'dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
-;; Late actions ---------------------------------------------------------------
-
-;; (Clumsy) dodge of problems /e yasnippet interfering /w major mode
-;; for some modes.
-(add-hook 'yas/after-exit-snippet-hook 'normal-mode)
-
 ;; Custom ---------------------------------------------------------------------
 
 (custom-set-variables
