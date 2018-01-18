@@ -341,13 +341,6 @@
 
 (require 'expand-region)
 
-;; trac-wiki-el ---------------------------------------------------------------
-
-(require 'trac-wiki)
-
-(setq auto-mode-alist
-      (append '(("\\.trac-wiki$" . trac-wiki-mode)) auto-mode-alist))
-
 ;; dockerfile-mode4 -----------------------------------------------------------
 
 (require 'dockerfile-mode)
