@@ -346,6 +346,12 @@
 (require 'dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
+;; Magit  ---------------------------------------------------------------------
+
+(require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x ?") 'magit-diff-buffer-file)
+
 ;; Custom ---------------------------------------------------------------------
 
 (custom-set-variables
