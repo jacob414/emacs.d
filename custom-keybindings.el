@@ -39,4 +39,6 @@
 ;; Fullscreen
 (global-set-key (kbd "s-<return>") 'toggle-frame-fullscreen)
 
+(global-set-key (kbd "C-x C-m") 'hs-toggle-hiding)
+
 (provide 'custom-keybindings)
