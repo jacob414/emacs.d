@@ -97,7 +97,7 @@
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
-  (local-set-key (kbd "C-x f") 'web-mode-fold-or-unfold)
+  (local-set-key (kbd "C-x C-m") 'web-mode-fold-or-unfold)
   (hs-minor-mode) )
 
 (add-hook 'web-mode-hook  'my-web-mode-hook)
