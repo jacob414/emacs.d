@@ -30,6 +30,8 @@
 
 ;; Magit
 
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;; Paredit
 (global-set-key (kbd "M-D") 'paredit-kill)
 (global-set-key (kbd "C-x 9") 'paredit-close-parenthesis)
