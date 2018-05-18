@@ -1,0 +1,9 @@
+$1from functools import wraps
+
+def deco(fn):
+    @wraps(fn)
+    def wrapper($1*_, **__):
+        $3return fn($2*_, **__)
+    return fn
+
+@deco$4
