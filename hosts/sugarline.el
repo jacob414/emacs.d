@@ -4,6 +4,7 @@
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
 (setenv "NODE_PATH" "/usr/local/share/npm/lib/node_modules")
+(setenv "LC_ALL" "en_GB.UTF-8")
 
 ;; YASnippet ------------------------------------------------------------------
 
