@@ -29,8 +29,8 @@
 (global-set-key (kbd "C-\"") 'paredit-doublequote)
 
 ;; Magit
+
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x ?") 'magit-diff-buffer-file)
 
 ;; Paredit
 (global-set-key (kbd "M-D") 'paredit-kill)
@@ -38,5 +38,7 @@
 
 ;; Fullscreen
 (global-set-key (kbd "s-<return>") 'toggle-frame-fullscreen)
+
+(global-set-key (kbd "C-x C-m") 'hs-toggle-hiding)
 
 (provide 'custom-keybindings)

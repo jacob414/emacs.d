@@ -25,7 +25,15 @@
 
 (require 'base)
 (require 'functions)
+(require 'magit)
 (if (eq system-type 'darwin) (osx-support) )
+
+;; YASnippet ------------------------------------------------------------------
+
+(require 'yasnippet)
+(yas/load-directory (concat emacs-dir "/snippet"))
+(yas/global-mode)
+(global-set-key (kbd "C-c y") 'yas/reload-all)
 
 ;; ELPA -----------------------------------------------------------------------
 
@@ -97,7 +105,7 @@
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
-  (local-set-key (kbd "C-x f") 'web-mode-fold-or-unfold)
+  (local-set-key (kbd "C-x C-m") 'web-mode-fold-or-unfold)
   (hs-minor-mode) )
 
 (add-hook 'web-mode-hook  'my-web-mode-hook)
@@ -367,16 +375,16 @@
 
 ;; http://orgmode.org/manual/Conflicts.html
 (add-hook 'org-mode-hook
-                    (lambda ()
-                      (local-set-key (kbd "M-<up>") 'windmove-up)
-                      (local-set-key (kbd "M-<left>") 'windmove-left)
-                      (local-set-key (kbd "M-<right>") 'windmove-right)
-                      (local-set-key (kbd "M-<down>") 'windmove-down)
-                      (local-set-key (kbd "C-<tab>") 'dabbrev-expand)
-                      (local-set-key (kbd "C-.") 'scroll-down-one-line)
-                      (local-set-key (kbd "C-,") 'scroll-up-one-line)
-                      (local-set-key (kbd "C-j") 'my-greedy-joinlines)
-                      (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
+          (lambda ()
+            (local-set-key (kbd "M-<up>") 'windmove-up)
+            (local-set-key (kbd "M-<left>") 'windmove-left)
+            (local-set-key (kbd "M-<right>") 'windmove-right)
+            (local-set-key (kbd "M-<down>") 'windmove-down)
+            (local-set-key (kbd "C-<tab>") 'dabbrev-expand)
+            (local-set-key (kbd "C-.") 'scroll-down-one-line)
+            (local-set-key (kbd "C-,") 'scroll-up-one-line)
+            (local-set-key (kbd "C-j") 'my-greedy-joinlines)
+            (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
 
 (setq org-file-apps
     '(("\\.docx?\\'" . default)
@@ -393,13 +401,6 @@
 
 (require 'expand-region)
 
-;; trac-wiki-el ---------------------------------------------------------------
-
-(require 'trac-wiki)
-
-(setq auto-mode-alist
-      (append '(("\\.trac-wiki$" . trac-wiki-mode)) auto-mode-alist))
-
 ;; dockerfile-mode4 -----------------------------------------------------------
 
 (require 'dockerfile-mode)
@@ -408,6 +409,11 @@
 ;; prog-fill ------------------------------------------------------------------
 
 (require 'prog-fill)
+;; Magit  ---------------------------------------------------------------------
+
+(require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x ?") 'magit-diff-buffer-file)
 
 ;; Custom ---------------------------------------------------------------------
 
