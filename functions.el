@@ -223,6 +223,10 @@
     )
   )
 
+(defun my-org-link (url display)
+  "Formats an org-link from an URL"
+  (insert (concat "-> [[" url "][" display "]]")) )
+
 (global-set-key (kbd "C-x a") 'my-archive)
 
 (provide 'functions)
