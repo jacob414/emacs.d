@@ -1,0 +1,7 @@
+@pytest.mark.parametrize("$1", (
+    ($2),
+))
+def test_($1):
+    # type: () -> None
+    "Should work"
+    pass$4
