@@ -472,4 +472,4 @@
  '(cursor ((t (:background "red" :foreground "red"))))
  '(highlight-current-line-face ((t (:background "gray35"))))
  '(linum ((t (:inherit (shadow default) :height 0.9))))
- '(org-link ((t (:underline t)))))
+ '(org-link ((t (:foreground "#d0bf8f" :underline t)))))
