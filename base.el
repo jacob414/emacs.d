@@ -67,7 +67,7 @@
 ;; Parenthesis balance
 (show-paren-mode t)
 (setq show-paren-style 'expression)
-(set-face-foreground 'show-paren-mismatch-face "red")
+;;(set-face-foreground 'show-paren-mismatch-face "red")
 
 ;; y/n keypresses instead of spelled out 'yes'/'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
