@@ -1,10 +1,5 @@
 ;; Relevant PATH --------------------------------------------------------------
 
-(setq brew-base "/usr/local/share/emacs/site-lisp")
-
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
-(setenv "NODE_PATH" "/usr/local/share/npm/lib/node_modules")
-
 ;; YASnippet ------------------------------------------------------------------
 
 (add-to-list 'load-path (concat brew-base "/yasnippet"))
