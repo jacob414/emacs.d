@@ -444,6 +444,9 @@
  ((string/starts-with system-name "goldskip")
   (require 'goldskip))
 
+ ((string/starts-with system-name "cecilia")
+  (require 'cecilia))
+
  ((string/starts-with system-name "SEGOTLPMRD006")
   (require 'sugarline))
 
@@ -466,3 +469,4 @@
  '(highlight-current-line-face ((t (:background "gray35"))))
  '(linum ((t (:inherit (shadow default) :height 0.9))))
  '(org-link ((t (:foreground "#d0bf8f" :underline t)))))
+
