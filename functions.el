@@ -182,6 +182,22 @@
   (global-set-key (kbd "<home>") 'beginning-of-line)
   (global-set-key (kbd "<C-s-268632070>") 'toggle-frame-fullscreen)
   (setq exec-path (append exec-path '("/usr/local/bin")))
+
+  ;; OS X typical paths - assumes brew package manager
+  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
+  (setenv "NODE_PATH" "/usr/local/share/npm/lib/node_modules")
+
+  (setq brew-base "/usr/local/share/emacs/site-lisp")
+  (add-to-list 'load-path (concat brew-base "/yasnippet"))
+  (add-to-list 'load-path (concat brew-base "/magit"))
+  (add-to-list 'load-path (concat brew-base "/haskell-mode"))
+  (add-to-list 'load-path (concat brew-base "/rainbow-delimiters"))
+  (add-to-list 'load-path (concat brew-base "/w3"))
+
+  ;; Dodge Python character set trouble
+  (setenv "LC_ALL" "en_GB.UTF-8")
+
+  (my-yasnippet)
   )
 
 (defun my-longlines ()

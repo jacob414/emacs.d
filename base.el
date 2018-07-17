@@ -67,9 +67,23 @@
 ;; Parenthesis balance
 (show-paren-mode t)
 (setq show-paren-style 'expression)
-(set-face-foreground 'show-paren-mismatch-face "red")
+;;(set-face-foreground 'show-paren-mismatch-face "red")
 
 ;; y/n keypresses instead of spelled out 'yes'/'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; yasnippet
+(defun my-yasnippet ()
+  "yasnippet"
+  (setq yas-snippet-dirs
+        '("~/src/mine/emacs.d/snippet"  ;; personal snippets
+          ))
+  (require 'yasnippet)
+  (yas/global-mode)
+  (define-key yas-minor-mode-map (kbd "SPC") yas-maybe-expand)
+
+  (require 'warnings)
+  (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
+  )
 
 (provide 'base)

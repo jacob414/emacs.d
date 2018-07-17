@@ -25,15 +25,15 @@
 
 (require 'base)
 (require 'functions)
-(require 'magit)
 (if (eq system-type 'darwin) (osx-support) )
+(require 'magit)
 
 ;; YASnippet ------------------------------------------------------------------
 
-(require 'yasnippet)
-(yas/load-directory (concat emacs-dir "/snippet"))
-(yas/global-mode)
-(global-set-key (kbd "C-c y") 'yas/reload-all)
+;; (require 'yasnippet)
+;; (yas/load-directory (concat emacs-dir "/snippet"))
+;; (yas/global-mode)
+;; (global-set-key (kbd "C-c y") 'yas/reload-all)
 
 ;; ELPA -----------------------------------------------------------------------
 

@@ -1,18 +1,19 @@
 ;; Relevant PATH --------------------------------------------------------------
 
-(setq brew-base "/usr/local/share/emacs/site-lisp")
-
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
-(setenv "NODE_PATH" "/usr/local/share/npm/lib/node_modules")
-(setenv "LC_ALL" "en_GB.UTF-8")
-
 ;; YASnippet ------------------------------------------------------------------
 
-(add-to-list 'load-path (concat brew-base "/yasnippet"))
 (require 'yasnippet)
 (yas/load-directory (concat emacs-dir "/snippet"))
 (yas/global-mode)
 (global-set-key (kbd "C-c y") 'yas/reload-all)
+;; (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
+
+(setq yas-snippet-dirs
+      '("~/src/mine/emacs.d/snippet"  ;; personal snippets
+        ))
+
+(define-key yas-minor-mode-map (kbd "SPC") yas-maybe-expand)
+
 
 ;; Common Lisp (via Clozure CL) -----------------------------------------------
 
