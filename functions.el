@@ -196,6 +196,8 @@
 
   ;; Dodge Python character set trouble
   (setenv "LC_ALL" "en_GB.UTF-8")
+
+  (my-yasnippet)
   )
 
 (defun my-longlines ()
