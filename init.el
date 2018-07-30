@@ -73,6 +73,12 @@
 
 (require 'paredit)
 
+;; Use multiple-cursors -------------------------------------------------------
+
+(require 'multiple-cursors)
+
+(global-set-key (kbd "M-<SPC>") 'mc/edit-lines)
+
 ;; Scheme settings ------------------------------------------------------------
 
 (require 'xscheme)

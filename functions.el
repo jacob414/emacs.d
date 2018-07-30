@@ -193,6 +193,7 @@
   (add-to-list 'load-path (concat brew-base "/haskell-mode"))
   (add-to-list 'load-path (concat brew-base "/rainbow-delimiters"))
   (add-to-list 'load-path (concat brew-base "/w3"))
+  (add-to-list 'load-path (concat brew-base "/multiple-cursors"))
 
   ;; Dodge Python character set trouble
   (setenv "LC_ALL" "en_GB.UTF-8")
