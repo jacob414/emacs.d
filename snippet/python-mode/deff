@@ -1,7 +1,10 @@
+# -*- python -*-
 # -*- coding: utf-8 -*-
 # name: def
 # contributor: Orestis Markou
 # contributor: Yasser González Fernández <yglez@uh.cu>
 # --
 def ${1:name}($2):
-    $3
+    # type: ($2) -> None
+    "Does $1"
+    ${3:pass}
