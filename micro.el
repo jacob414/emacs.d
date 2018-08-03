@@ -12,10 +12,14 @@
 
 ;; Basic environment ----------------------------------------------------------
 
-(require 'zenburn-theme)
 (require 'functions)
 (require 'base)
 (if (eq system-type 'darwin) (osx-support) )
+
+(add-to-list 'load-path "~/src/ext/emacs/spacemacs-theme")
+(require 'spacemacs-dark-theme)
+
+;; (require 'zenburn-theme)
 
 ;; Host specific stuff - should always have the last word ---------------------
 
