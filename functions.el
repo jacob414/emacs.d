@@ -162,6 +162,17 @@
   (interactive)
   (insert (uuid-create)))
 
+(defun pkg-paths (sys-pkg-base)
+  "Docstring for pkg-paths."
+  (interactive)
+  (add-to-list 'load-path (concat sys-pkg-base "/yasnippet"))
+  (add-to-list 'load-path (concat sys-pkg-base "/magit"))
+  (add-to-list 'load-path (concat sys-pkg-base "/haskell-mode"))
+  (add-to-list 'load-path (concat sys-pkg-base "/rainbow-delimiters"))
+  (add-to-list 'load-path (concat sys-pkg-base "/w3"))
+  (add-to-list 'load-path (concat sys-pkg-base "/multiple-cursors"))
+  )
+
 (defun osx-support ()
   (interactive)
   ;; The price of having a real Meta-key
@@ -188,12 +199,7 @@
   (setenv "NODE_PATH" "/usr/local/share/npm/lib/node_modules")
 
   (setq brew-base "/usr/local/share/emacs/site-lisp")
-  (add-to-list 'load-path (concat brew-base "/yasnippet"))
-  (add-to-list 'load-path (concat brew-base "/magit"))
-  (add-to-list 'load-path (concat brew-base "/haskell-mode"))
-  (add-to-list 'load-path (concat brew-base "/rainbow-delimiters"))
-  (add-to-list 'load-path (concat brew-base "/w3"))
-  (add-to-list 'load-path (concat brew-base "/multiple-cursors"))
+  (pkg-paths "/usr/local/share/emacs/site-lisp")
 
   ;; Dodge Python character set trouble
   (setenv "LC_ALL" "en_GB.UTF-8")
