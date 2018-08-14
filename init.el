@@ -77,6 +77,9 @@
 
 (require 'multiple-cursors)
 (global-set-key (kbd "M-<SPC>") 'mc/edit-lines)
+(global-set-key (kbd "C-c ml") 'mc/mark-next-lines)
+(global-set-key (kbd "M-p") 'mc/mark-previous-like-this)
+
 
 ;; Scheme settings ------------------------------------------------------------
 
