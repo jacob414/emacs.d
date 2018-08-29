@@ -167,6 +167,12 @@
 (setq auto-mode-alist
       (append '(("Pipfile*" . conf-mode)) auto-mode-alist))
 
+;; EIN settings ------------------------------------------------------------
+
+(require 'ein)
+(require 'ein-loaddefs)
+(require 'ein-subpackages)
+
 ;; CoffeScript settings -------------------------------------------------------
 
 (autoload 'coffee-mode "coffee-mode" "CoffeScript editing mode." t)
@@ -432,7 +438,7 @@
  '(make-backup-files nil)
  '(nginx-indent-level 2)
  '(nodejs-repl-command "/usr/local/bin/node")
- '(package-selected-packages (quote (w3m swift-mode elixir-mode)))
+ '(package-selected-packages (quote ("ein" ein w3m swift-mode elixir-mode)))
  '(rst-level-face-base-light 38)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(swift-mode:basic-offset 2)
