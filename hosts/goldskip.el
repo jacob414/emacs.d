@@ -1,12 +1,6 @@
-;; Relevant PATH --------------------------------------------------------------
+;; Machine specifig stuff -----------------------------------------------------
 
-;; YASnippet ------------------------------------------------------------------
-
-(add-to-list 'load-path (concat brew-base "/yasnippet"))
-(require 'yasnippet)
-(yas/load-directory (concat emacs-dir "/snippet"))
-(yas/global-mode)
-(global-set-key (kbd "C-c y") 'yas/reload-all)
+(setenv "PATH" (format "%s:%s" (getenv "PATH") "/Users/jacob/bin"))
 
 ;; Common Lisp (via Clozure CL) -----------------------------------------------
 
