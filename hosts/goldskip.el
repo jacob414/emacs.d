@@ -1,7 +1,3 @@
-;; Machine specifig stuff -----------------------------------------------------
-
-(setenv "PATH" (format "%s:%s" (getenv "PATH") "/Users/jacob/bin"))
-
 ;; Common Lisp (via Clozure CL) -----------------------------------------------
 
 (load (expand-file-name "~/quicklisp/slime-helper.el"))

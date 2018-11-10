@@ -39,7 +39,10 @@
   (add-to-list 'package-archives source t))
   (package-initialize) )
 
+(exec-path-from-shell-initialize)
+
 ;; linum ----------------------------------------------------------------------
+
 
 ;; Line numbers to the left
 (require 'linum)
@@ -146,11 +149,15 @@
 
 ;; Python settings ------------------------------------------------------------
 
+(unless (package-installed-p yapfify)
+  (package-install yapfify))
+
 (add-hook 'python-mode-hook
           '(lambda ()
              (interactive)
              (setq outline-regexp "[^ \t\n]\\|[ \t]*\\(if[ \t]+\\|elif[ \t]+\\|else[ \t]+\\|for[ \t]+\\|while[ \t]+\\|with[ \t]+\\|def[ \t]+\\|class[ \t]+\\)")
              (outline-minor-mode t)
+             (require 'yapfify)
              (define-key python-mode-map (kbd "C-x C-m")
                'outline-toggle-children)
              (define-key python-mode-map (kbd "s-+")
@@ -168,6 +175,9 @@
       (append '(("Pipfile*" . conf-mode)) auto-mode-alist))
 
 ;; EIN settings ------------------------------------------------------------
+
+(unless (package-installed-p 'ein)
+  (package-install 'ein))
 
 (require 'ein)
 (require 'ein-loaddefs)
@@ -416,6 +426,7 @@
 ;; prog-fill ------------------------------------------------------------------
 
 (require 'prog-fill)
+
 ;; Magit  ---------------------------------------------------------------------
 
 (require 'magit)
@@ -438,7 +449,7 @@
  '(make-backup-files nil)
  '(nginx-indent-level 2)
  '(nodejs-repl-command "/usr/local/bin/node")
- '(package-selected-packages (quote ("ein" ein w3m swift-mode elixir-mode)))
+ '(package-selected-packages (quote (ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
  '(rst-level-face-base-light 38)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(swift-mode:basic-offset 2)
