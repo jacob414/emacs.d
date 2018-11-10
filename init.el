@@ -153,6 +153,7 @@
 ;; Python settings ------------------------------------------------------------
 
 (unless (package-installed-p 'yapfify)
+  (package-refresh-contents)
   (package-install 'yapfify))
 
 (add-hook 'python-mode-hook
