@@ -152,8 +152,8 @@
 
 ;; Python settings ------------------------------------------------------------
 
-(unless (package-installed-p yapfify)
-  (package-install yapfify))
+(unless (package-installed-p 'yapfify)
+  (package-install 'yapfify))
 
 (add-hook 'python-mode-hook
           '(lambda ()
