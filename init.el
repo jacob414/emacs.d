@@ -39,6 +39,9 @@
   (add-to-list 'package-archives source t))
   (package-initialize) )
 
+(unless (package-installed-p 'exec-path-from-shell)
+  (package-install 'exec-path-from-shell))
+
 (exec-path-from-shell-initialize)
 
 ;; linum ----------------------------------------------------------------------
