@@ -1,3 +1,6 @@
+;; Load path settings
+(setq emacs-dir "~/src/mine/emacs.d")
+(add-to-list 'load-path emacs-dir)
 (require 'here-env)
 
 ;; Basic environment ----------------------------------------------------------

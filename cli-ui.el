@@ -14,7 +14,7 @@
 
 (require 'basic-extras)
 
-
+(setq create-lockfiles nil)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)

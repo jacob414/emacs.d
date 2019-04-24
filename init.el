@@ -25,24 +25,12 @@
 (if (eq system-type 'darwin) (osx-support) )
 (require 'magit)
 
-;; linum ----------------------------------------------------------------------
-
-;; Line numbers to the left
-(require 'linum)
-(global-linum-mode t)
-
-;; Jump buffers with M-<arrows>
-(require 'windmove)
-(windmove-default-keybindings 'meta)
+(require 'basic-extras)
 
 ;; Desktop mode & bookmarks
 ;;(require 'bookmark+)
 (require 'desktop)
 (desktop-save-mode 1)
-
-;; Drag stuff
-(require 'drag-stuff)
-(drag-stuff-mode t)
 
 (global-set-key (kbd "C-c y") 'yas/reload-all)
 
@@ -50,8 +38,6 @@
 (require 'ws-trim)
 (setq-default ws-trim-level 1)
 (global-ws-trim-mode t)
-
-(message "11")
 
 ;; Load Par Edit --------------------------------------------------------------
 
