@@ -448,7 +448,9 @@
  '(make-backup-files nil)
  '(nginx-indent-level 2)
  '(nodejs-repl-command "/usr/local/bin/node")
- '(package-selected-packages (quote (ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
+ '(package-selected-packages
+   (quote
+    (applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
  '(rst-level-face-base-light 38)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(swift-mode:basic-offset 2)
