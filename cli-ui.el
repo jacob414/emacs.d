@@ -12,6 +12,10 @@
 
 (require 'my-zenburn)
 
+(require 'basic-extras)
+
+
+
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
@@ -25,6 +29,5 @@
                      :foreground "dark orange"
                      :background "black"
                      ))) ))
-
 
 (require 'custom-keybindings)

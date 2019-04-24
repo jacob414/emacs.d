@@ -1,3 +1,5 @@
+(setq emacs-dir "~/src/mine/emacs.d")
+(add-to-list 'load-path emacs-dir)
 (require 'here-env)
 
 (add-to-list 'load-path emacs-dir)
@@ -23,24 +25,7 @@
 (if (eq system-type 'darwin) (osx-support) )
 (require 'magit)
 
-;; ELPA -----------------------------------------------------------------------
-
-(when modern
-  (require 'package)
-  (setq package-user-dir (concat "~/src/mine/elpa.d"))
-  (dolist (source '(("melpa" . "http://melpa.milkbox.net/packages/")
-                    ("marmalade" . "http://marmalade-repo.org/packages/")
-                    ("elpa" . "http://tromey.com/elpa/")))
-  (add-to-list 'package-archives source t))
-  (package-initialize) )
-
-(unless (package-installed-p 'exec-path-from-shell)
-  (package-install 'exec-path-from-shell))
-
-(exec-path-from-shell-initialize)
-
 ;; linum ----------------------------------------------------------------------
-
 
 ;; Line numbers to the left
 (require 'linum)
@@ -51,13 +36,9 @@
 (windmove-default-keybindings 'meta)
 
 ;; Desktop mode & bookmarks
-(require 'bookmark+)
+;;(require 'bookmark+)
 (require 'desktop)
 (desktop-save-mode 1)
-
-;; Highlight current line
-(require 'highlight-current-line)
-(highlight-current-line-on 1)
 
 ;; Drag stuff
 (require 'drag-stuff)
@@ -69,6 +50,8 @@
 (require 'ws-trim)
 (setq-default ws-trim-level 1)
 (global-ws-trim-mode t)
+
+(message "11")
 
 ;; Load Par Edit --------------------------------------------------------------
 
@@ -88,7 +71,6 @@
 
 ;; Load custom functions ------------------------------------------------------
 ;; (require 'functions)
-
 ;; web-mode -------------------------------------------------------------------
 
 (require 'web-mode)
@@ -300,7 +282,7 @@
 
 ;; Text-mode ------------------------------------------------------------------
 
-(require 'wc)
+(require 'wc-mode)
 
 (defun text-env ()
   (interactive)
@@ -450,7 +432,7 @@
  '(nodejs-repl-command "/usr/local/bin/node")
  '(package-selected-packages
    (quote
-    (applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
+    (highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
  '(rst-level-face-base-light 38)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(swift-mode:basic-offset 2)
