@@ -1,11 +1,6 @@
-;; Are we 'modern'?
-(setq modern (>= emacs-major-version 23))
-
-;; Load path settings
-(setq emacs-dir "~/src/mine/emacs.d")
+(require 'here-env)
 
 (add-to-list 'load-path emacs-dir)
-(add-to-list 'load-path (concat emacs-dir "/site-lisp"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/zenburn"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/expand-region"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/elm-mode"))
