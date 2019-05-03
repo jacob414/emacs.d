@@ -21,6 +21,7 @@
 (global-set-key (kbd "C-c T") 'ws-trim-buffer)
 (global-set-key (kbd "C-å") 'er/expand-region)
 (global-set-key (kbd "C-x RET") 'hs-toggle-hiding)
+(global-set-key (kbd "C-x x") 'eval-expression)
 
 ;; Mixin in some paredit
 (global-set-key (kbd "M-'") 'paredit-open-curly)
