@@ -133,6 +133,15 @@
              )
           )
 
+(defun my-yapf-mode-check-buffers ()
+  "Conditionally enable `rjsx-mode' based on file contents."
+  (save-excursion
+    (goto-char (point-min))
+    (when (re-search-forward "uses yapf" nil t)
+      (yapf-mode))))
+
+(add-hook 'find-file-hook #'my-yapf-mode-check-buffers)
+
 (setq 'python-indent 4)
 
 (setq auto-mode-alist
