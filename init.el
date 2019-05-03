@@ -130,9 +130,10 @@
              (define-key python-mode-map (kbd "s-+")
                'outline-show-all)
              (highlight-lines-matching-regexp ".set_trace" 'hi-red-b)
-             (set 'python-indent 4)
              )
           )
+
+(setq 'python-indent 4)
 
 (setq auto-mode-alist
       (append '(("\\.wsgi$" . python-mode)
