@@ -137,8 +137,9 @@
   "Conditionally enable `rjsx-mode' based on file contents."
   (save-excursion
     (goto-char (point-min))
-    (when (re-search-forward "uses yapf" nil t)
-      (yapf-mode))))
+    (when (re-search-forward "yapf-mode" nil t)
+      (yapf-mode))
+    ))
 
 (add-hook 'find-file-hook #'my-yapf-mode-check-buffers)
 
