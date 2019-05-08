@@ -256,12 +256,8 @@
   "Docstring for shell-results."
   (interactive)
   (unless cmd (setq cmd (read-string "Cmd:")) )
-  (insert (shell-command-to-string cmd))
+  (insert (shell-command-to-string (concat "printf %s $(" cmd ")")))
   )
-
-(global-set-key (kbd "M-g") 'shell-results)
-
-
 
 (defun rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."
