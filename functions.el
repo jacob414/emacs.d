@@ -284,4 +284,19 @@
     )
   )
 
+(defun close-all-parentheses ()
+  (interactive "*")
+  (let ((closing nil))
+    (save-excursion
+      (while (condition-case nil
+         (progn
+           (backward-up-list)
+           (let ((syntax (syntax-after (point))))
+             (case (car syntax)
+               ((4) (setq closing (cons (cdr syntax) closing)))
+               ((7 8) (setq closing (cons (char-after (point)) closing)))))
+           t)
+           ((scan-error) nil))))
+    (apply #'insert (nreverse closing))))
+
 (provide 'functions)
