@@ -47,8 +47,8 @@
 
 (require 'multiple-cursors)
 (global-set-key (kbd "M-<SPC>") 'mc/edit-lines)
-(global-set-key (kbd "C-c ml") 'mc/mark-next-lines)
 (global-set-key (kbd "M-p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "M-n") 'mc/mark-next-like-this)
 
 
 ;; Scheme settings ------------------------------------------------------------
@@ -137,7 +137,7 @@
   "Conditionally enable `rjsx-mode' based on file contents."
   (save-excursion
     (goto-char (point-min))
-    (when (re-search-forward "yapf-mode" nil t)
+    (when (re-search-forward "yapf" nil t)
       (yapf-mode))
     ))
 
@@ -429,7 +429,7 @@
  '(nodejs-repl-command "/usr/local/bin/node")
  '(package-selected-packages
    (quote
-    (highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
+    (pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
  '(rst-level-face-base-light 38)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(swift-mode:basic-offset 2)
@@ -469,7 +469,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 115 :family "Operator Mono"))))
+ '(default ((t (:height 113 :family "Operator Mono"))))
  '(cursor ((t (:background "red" :foreground "red"))))
  '(highlight-current-line-face ((t (:background "gray35"))))
  '(linum ((t (:inherit (shadow default) :height 0.9))))
