@@ -5,29 +5,14 @@
 
 (require 'here-env)
 
-(add-to-list 'load-path (concat site-lisp "/zenburn"))
 (add-to-list 'load-path (concat emacs-dir "/hosts"))
-
-(require 'functions)
-
-(require 'my-zenburn)
-
-(require 'basic-extras)
 
 (setq create-lockfiles nil)
 
 (menu-bar-mode -1)
-(tool-bar-mode -1)
 
 (require 'linum)
 (global-linum-mode t)
 (setq linum-format "%d ")
-
-(custom-set-faces
- '(linum ((t
-           (:inherit (shadow default)
-                     :foreground "dark orange"
-                     :background "black"
-                     ))) ))
 
 (require 'custom-keybindings)
