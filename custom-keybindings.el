@@ -42,4 +42,7 @@
 
 (global-set-key (kbd "C-x C-m") 'hs-toggle-hiding)
 
+;; Evaluate expression
+(global-set-key (kbd "M-E") 'eval-expression)
+
 (provide 'custom-keybindings)

@@ -50,6 +50,7 @@
   (package-install 'prog-fill)
   (package-install 'magit)
   (package-install 'highlight-current-line)
+  (package-install 'drag-stuff)
   )
 
 
