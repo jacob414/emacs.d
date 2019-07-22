@@ -85,7 +85,7 @@
 (global-set-key (kbd "M-<SPC>") 'mc/edit-lines)
 (global-set-key (kbd "C-c ml") 'mc/mark-next-lines)
 (global-set-key (kbd "M-p") 'mc/mark-previous-like-this)
-
+(global-set-key (kbd "M-n") 'mc/mark-next-lines)
 
 ;; Scheme settings ------------------------------------------------------------
 
