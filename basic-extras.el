@@ -3,16 +3,12 @@
 (when modern
   (require 'package)
   (setq package-user-dir (concat "~/src/mine/elpa.d"))
-  (setq source '(("melpa" . "http://melpa.milkbox.net/packages/")
-                ("marmalade" . "http://marmalade-repo.org/packages/")
-                ("elpa" . "http://tromey.com/elpa/")))
-  (add-to-list 'package-archives source t)
-  (package-initialize) )
-
-(unless (package-installed-p 'exec-path-from-shell)
-  (package-install 'exec-path-from-shell))
-
-(exec-path-from-shell-initialize)
+  (setq proto "https")
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  (add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (add-to-list 'package-archives (cons "marmalade" "http://melpa.org/packages/") t)
+  (package-initialize)
+  )
 
 ;; linum ----------------------------------------------------------------------
 

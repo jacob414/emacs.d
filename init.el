@@ -1,24 +1,10 @@
+;; Basic environment ----------------------------------------------------------
+
 (setq emacs-dir "~/src/mine/emacs.d")
 (add-to-list 'load-path emacs-dir)
+(add-to-list 'load-path (concat emacs-dir "/site-lisp"))
+
 (require 'here-env)
-
-(add-to-list 'load-path emacs-dir)
-(add-to-list 'load-path (concat emacs-dir "/site-lisp/zenburn"))
-(add-to-list 'load-path (concat emacs-dir "/site-lisp/expand-region"))
-(add-to-list 'load-path (concat emacs-dir "/site-lisp/elm-mode"))
-
-(add-to-list 'load-path (concat emacs-dir "/site-lisp/f.el"))
-(add-to-list 'load-path (concat emacs-dir "/site-lisp/dash.el"))
-(add-to-list 'load-path (concat emacs-dir "/site-lisp/trac-wiki-el"))
-(add-to-list 'load-path (concat emacs-dir "/site-lisp/dockerfile-mode"))
-(add-to-list 'load-path (concat emacs-dir "/hosts"))
-
-(dolist
-    (project (directory-files (concat emacs-dir "/site-lisp") t "\\w+"))
-  (when (file-directory-p project)
-    (add-to-list 'load-path project)))
-
-;; Basic environment ----------------------------------------------------------
 
 (require 'base)
 (require 'functions)
@@ -143,7 +129,7 @@
 
 (add-hook 'find-file-hook #'my-yapf-mode-check-buffers)
 
-(setq 'python-indent 4)
+(setq python-indent 4)
 
 (setq auto-mode-alist
       (append '(("\\.wsgi$" . python-mode)
@@ -158,7 +144,7 @@
   (package-install 'ein))
 
 (require 'ein)
-(require 'ein-loaddefs)
+;; (require 'ein-loaddefs)
 (require 'ein-subpackages)
 
 ;; CoffeScript settings -------------------------------------------------------
@@ -420,6 +406,7 @@
  ;; If there is more than one, they won't work right.
  '(case-fold-search t)
  '(css-indent-offset 2 t)
+ '(desktop-path (quote ("~/src/mine/emacs/desktop" "~")))
  '(elm-format-command "/usr/local/bin/elm-format" t)
  '(elm-format-on-save (quote t))
  '(elm-interactive-command "/usr/local/bin/elm-repl")
@@ -471,7 +458,7 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:height 115 :family "Operator Mono"))))
  '(cursor ((t (:background "red" :foreground "red"))))
- '(highlight-current-line-face ((t (:background "#F0DFAF"))))
+ '(highlight-current-line-face ((t (:background "gray35"))))
  '(linum ((t (:inherit (shadow default) :height 0.9))))
  '(org-link ((t (:foreground "#d0bf8f" :underline t)))))
 

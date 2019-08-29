@@ -1,9 +1,11 @@
 (require 'package)
 (setq package-user-dir (concat "~/src/mine/elpa.d"))
-(dolist (source '(("melpa" . "https://elpa.zilongshanren.com/melpa/")
-                  ("marmalade" . "http://marmalade-repo.org/packages/")
-                  ("elpa" . "http://tromey.com/elpa/")))
-(add-to-list 'package-archives source t))
+(dolist
+    (setq source '(("melpa" . "https://elpa.zilongshanren.com/melpa/")
+                   ("marmalade" . "http://marmalade-repo.org/packages/")
+                   ("elpa" . "http://tromey.com/elpa/") ) )
+  (add-to-list 'package-archives source t)
+  )
 (package-initialize)
 (dolist
   (message "Refresh packages..")
@@ -20,6 +22,7 @@
   (package-install 'exec-path-from-shell)
   (message "Package")
   (package-install 'highlight-current-line)
+  (require 'highlight-current-line)
   (message "Hightlight current line")
   (package-install 'drag-stuff)
   (message "drag-stuff")
@@ -51,6 +54,7 @@
   (package-install 'magit)
   (package-install 'highlight-current-line)
   (package-install 'drag-stuff)
+  (package-install 'wc-mode)
   )
 
 
