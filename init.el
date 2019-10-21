@@ -366,6 +366,9 @@
             (local-set-key (kbd "C-,") 'scroll-up-one-line)
             (local-set-key (kbd "C-j") 'my-greedy-joinlines)
             (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
+;; [return tab backspace backspace ?- ?  ?\M-8 ?  ?\M-9 ? ]
+
+
 
 (setq org-file-apps
     '(("\\.docx?\\'" . default)
