@@ -68,6 +68,12 @@
 
 ;; Sugarline specific keybingings  ---------------------------------------------
 
+(global-set-key (kbd "C-x n") 'smerge-next)
+(global-set-key (kbd "C-x p") 'smerge-next)
+(global-set-key (kbd "C-x <down>") 'smerge-keep-lower)
+(global-set-key (kbd "C-x <up>") 'smerge-keep-upper)
+
+
 ;; Empty fn.
 
 ;; Sugarline specific paths/language settings ----------------------------------
