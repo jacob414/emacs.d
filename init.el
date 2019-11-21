@@ -29,6 +29,11 @@
 
 (require 'paredit)
 
+;; Persistent overlays --------------------------------------------------------
+
+(add-to-list 'load-path (concat emacs-dir "/site-lisp/persistent-overlay"))
+(load-library "persistent-overlays")
+
 ;; Use multiple-cursors -------------------------------------------------------
 
 (require 'multiple-cursors)
@@ -110,6 +115,7 @@
              (interactive)
              (setq outline-regexp "[^ \t\n]\\|[ \t]*\\(if[ \t]+\\|elif[ \t]+\\|else[ \t]+\\|for[ \t]+\\|while[ \t]+\\|with[ \t]+\\|def[ \t]+\\|class[ \t]+\\)")
              (outline-minor-mode t)
+             (persistent-overlays-minor-mode 1)
              (require 'yapfify)
              (define-key python-mode-map (kbd "C-x C-m")
                'outline-toggle-children)
