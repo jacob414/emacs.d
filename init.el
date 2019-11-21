@@ -116,6 +116,10 @@
              (setq outline-regexp "[^ \t\n]\\|[ \t]*\\(if[ \t]+\\|elif[ \t]+\\|else[ \t]+\\|for[ \t]+\\|while[ \t]+\\|with[ \t]+\\|def[ \t]+\\|class[ \t]+\\)")
              (outline-minor-mode t)
              (persistent-overlays-minor-mode 1)
+             (persistent-overlays-load-overlays)
+
+             (add-hook 'before-save-hook persistent-overlays-save-overlays) nil 'local)
+
              (require 'yapfify)
              (define-key python-mode-map (kbd "C-x C-m")
                'outline-toggle-children)
