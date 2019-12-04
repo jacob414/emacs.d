@@ -123,21 +123,23 @@
              (require 'yapfify)
              (define-key python-mode-map (kbd "C-x C-m")
                'outline-toggle-children)
+             (define-key python-mode-map (kbd "C-x y")
+               'yapfify-buffer)
              (define-key python-mode-map (kbd "s-+")
                'outline-show-all)
              (highlight-lines-matching-regexp ".set_trace" 'hi-red-b)
              )
           )
 
-(defun my-yapf-mode-check-buffers ()
-  "Conditionally enable `rjsx-mode' based on file contents."
-  (save-excursion
-    (goto-char (point-min))
-    (when (re-search-forward "yapf" nil t)
-      (yapf-mode))
-    ))
+;; (defun my-yapf-mode-check-buffers ()
+;;   "Conditionally enable `rjsx-mode' based on file contents."
+;;   (save-excursion
+;;     (goto-char (point-min))
+;;     (when (re-search-forward "yapf" nil t)
+;;       (yapf-mode))
+;;     ))
 
-(add-hook 'find-file-hook #'my-yapf-mode-check-buffers)
+;; (add-hook 'find-file-hook #'my-yapf-mode-check-buffers)
 
 (setq python-indent 4)
 
