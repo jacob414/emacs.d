@@ -10,7 +10,6 @@
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/elm-mode"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/f.el"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/dash.el"))
-(add-to-list 'load-path (concat emacs-dir "/site-lisp/trac-wiki-el"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/dockerfile-mode"))
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/exec-path-from-shell"))
 (add-to-list 'load-path (concat emacs-dir "/hosts"))
