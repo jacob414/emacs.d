@@ -104,11 +104,12 @@
              (persistent-overlays-minor-mode 1)
              (persistent-overlays-load-overlays)
 
-             (add-hook 'before-save-hook persistent-overlays-save-overlays) nil 'local)
+             (add-hook 'before-save-hook 'persistent-overlays-save-overlays nil 'local)
 
              (require 'yapfify)
              (highlight-lines-matching-regexp ".set_trace" 'hi-red-b)
-             )
+             (define-key python-mode-map (kbd "C-x C-m") 'outline-toggle-children)
+             ) )
 
 ;; (defun my-yapf-mode-check-buffers ()
 ;;   "Conditionally enable `rjsx-mode' based on file contents."
