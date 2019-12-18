@@ -10,6 +10,8 @@
 (require 'functions)
 (if (eq system-type 'darwin) (osx-support) )
 (require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x ?") 'magit-diff-buffer-file)
 
 (require 'basic-extras)
 
@@ -41,13 +43,11 @@
 (global-set-key (kbd "M-p") 'mc/mark-previous-like-this)
 (global-set-key (kbd "M-n") 'mc/mark-next-like-this)
 
-
 ;; Scheme settings ------------------------------------------------------------
 
 (require 'xscheme)
+(message "xscheme")
 
-;; Load custom functions ------------------------------------------------------
-;; (require 'functions)
 ;; web-mode -------------------------------------------------------------------
 
 (require 'web-mode)
@@ -74,17 +74,6 @@
 (setq auto-mode-alist
       (append '(("\\.json$" . web-mode)) auto-mode-alist))
 
-;; Javascript settings --------------------------------------------------------
-
-(add-hook 'js-mode-hook
-          '(lambda ()
-             (interactive)
-             (highlight-lines-matching-regexp "debugger" 'hi-red-b)
-             (highlight-lines-matching-regexp "console\.log" 'hi-red-b)
-             (highlight-lines-matching-regexp "alert\(" 'hi-red-b)
-             )
-          )
-
 ;; elm-mode settings  ---------------------------------------------------------
 
 (require 'let-alist)
@@ -96,12 +85,10 @@
 
 (unless (package-installed-p 'elixir-mode)
   (package-install 'elixir-mode))
-
 ;; swift-mode settings  -------------------------------------------------------
 
 (unless (package-installed-p 'swift-mode)
   (package-install 'swift-mode))
-
 (add-hook 'swift-mode-hook (lambda () (subword-mode 1)))
 
 ;; Python settings ------------------------------------------------------------
@@ -109,7 +96,6 @@
 (unless (package-installed-p 'yapfify)
   (package-refresh-contents)
   (package-install 'yapfify))
-
 (add-hook 'python-mode-hook
           '(lambda ()
              (interactive)
@@ -121,15 +107,8 @@
              (add-hook 'before-save-hook persistent-overlays-save-overlays) nil 'local)
 
              (require 'yapfify)
-             (define-key python-mode-map (kbd "C-x C-m")
-               'outline-toggle-children)
-             (define-key python-mode-map (kbd "C-x y")
-               'yapfify-buffer)
-             (define-key python-mode-map (kbd "s-+")
-               'outline-show-all)
              (highlight-lines-matching-regexp ".set_trace" 'hi-red-b)
              )
-          )
 
 ;; (defun my-yapf-mode-check-buffers ()
 ;;   "Conditionally enable `rjsx-mode' based on file contents."
@@ -141,12 +120,9 @@
 
 ;; (add-hook 'find-file-hook #'my-yapf-mode-check-buffers)
 
-(setq python-indent 4)
-
 (setq auto-mode-alist
       (append '(("\\.wsgi$" . python-mode)
                 ("\\.pyx$" . python-mode)) auto-mode-alist))
-
 (setq auto-mode-alist
       (append '(("Pipfile*" . conf-mode)) auto-mode-alist))
 
@@ -154,29 +130,8 @@
 
 (unless (package-installed-p 'ein)
   (package-install 'ein))
-
 (require 'ein)
-;; (require 'ein-loaddefs)
 (require 'ein-subpackages)
-
-;; CoffeScript settings -------------------------------------------------------
-
-(autoload 'coffee-mode "coffee-mode" "CoffeScript editing mode." t)
-
-(defun cs-compile-and-run ()
-  (interactive)
-  (save-buffer)
-  (coffe-compile-buffer) )
-
-(setq auto-mode-alist
-      (append '(("\\.coffee$" . coffee-mode)) auto-mode-alist))
-
-(add-hook 'coffee-mode-hook
-          '(lambda()
-             (interactive)
-             (local-set-key (kbd "s-r") 'cs-compile-and-run)
-             (set (make-local-variable 'tab-width) 2) )
-          )
 
 ;; Objective C settings -------------------------------------------------------
 
@@ -194,10 +149,6 @@
 (setq auto-mode-alist
       (append '(("bash-fc-*" . sh-mode)) auto-mode-alist))
 
-;; Lisp settings --------------------------------------------------------------
-
-(setq auto-mode-alist
-      (append '(("\\.nu$" . lisp-mode)) auto-mode-alist))
 
 ;; Markdown settings ----------------------------------------------------------
 
@@ -225,56 +176,43 @@
              (local-set-key "\r" 'newline-and-indent)
              (local-set-key (kbd "C-j") 'my-greedy-joinlines) )
           )
-
 ;; PHP settings ---------------------------------------------------------------
 
 (setq auto-mode-alist
       (append '(("\\.php$" . web-mode)) auto-mode-alist))
-
 ;; YAM-mode ------------------------------------------------------------------
 
 (require 'yaml-mode)
-
 (setq auto-mode-alist
       (append '(("\\.yml$" . yaml-mode)
                 ("\\.yaml$" . yaml-mode)) auto-mode-alist))
-
 ;; SASS -----------------------------------------------------------------------
 
 (setq auto-mode-alist
       (append '(("\\.sass$" . sass-mode)) auto-mode-alist))
-
 (require 'scss-mode)
-
 (setq auto-mode-alist
       (append '(("\\.scss$" . scss-mode)) auto-mode-alist))
-
 (add-hook 'scss-mode-hook
           '(lambda ()
              (setq scss-compile-at-save nil) ) )
-
 ;; Nix expressions ------------------------------------------------------------
 
 (autoload 'nix-mode "nix-mode"
   "Major mode for editing NGINX configuration files" t)
-
 (setq auto-mode-alist
       (append '(("\\.nix$" . nix-mode)) auto-mode-alist))
-
 ;; Nginx configuration --------------------------------------------------------
 
 (autoload 'nginx-mode "nginx-mode"
   "Major mode for editing NGINX configuration files" t)
-
 (setq auto-mode-alist
       (append '(("\\nginx*.conf$" . conf-mode)) auto-mode-alist))
-
 ;; Various configuration ------------------------------------------------------
 
 (setq auto-mode-alist
       ;; for now, save installation work
       (append '(("\\.gitignore$" . conf-mode)) auto-mode-alist))
-
 ;; Text-mode ------------------------------------------------------------------
 
 (require 'wc-mode)
@@ -288,35 +226,23 @@
   (local-set-key (kbd "C-c c") 'ispell-complete-word)
   (local-set-key (kbd "C-c w") 'count-words)
 )
-
 (defun text-mode-env ()
   (interactive)
   (turn-on-auto-fill)
   (text-env)
 )
-
 (setq auto-mode-alist
       (append '(("\\.tmp$" . text-mode)) auto-mode-alist))
-
 (setq auto-mode-alist
       (append '(("\\.eml$" . mail-mode)) auto-mode-alist))
-
 (add-hook 'text-mode-hook 'text-mode-env)
 (add-hook 'mail-mode-hook 'text-env)
-
-;; nodejs-repl ----------------------------------------------------------------
-
-(require 'nodejs-repl)
-
 ;; Tuareg (OCaml) configuration -----------------------------------------------
 
 (load "~/src/ext/ocaml/tuareg/tuareg-site-file")
-
 ;; org-mode settings  ---------------------------------------------------------
 
-(message "org?")
 (require 'my-org)
-(message "org ok")
 
 ;; expand-region --------------------------------------------------------------
 
@@ -331,12 +257,6 @@
 
 (require 'prog-fill)
 
-;; Magit  ---------------------------------------------------------------------
-
-(require 'magit)
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x ?") 'magit-diff-buffer-file)
-
 ;; Custom ---------------------------------------------------------------------
 
 (custom-set-variables
@@ -346,14 +266,13 @@
  ;; If there is more than one, they won't work right.
  '(case-fold-search t)
  '(css-indent-offset 2 t)
- '(desktop-path (quote ("~/src/mine/emacs/desktop" "~")))
- '(elm-format-command "/usr/local/bin/elm-format" t)
+ '(desktop-path (quote ("~/src/tmp/emacs-desktop")))
+ '(elm-format-command "" t)
  '(elm-format-on-save (quote t))
  '(elm-interactive-command "/usr/local/bin/elm-repl")
  '(js-indent-level 2)
  '(make-backup-files nil)
  '(nginx-indent-level 2)
- '(nodejs-repl-command "/usr/local/bin/node")
  '(package-selected-packages
    (quote
     (pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
@@ -379,7 +298,7 @@
  ((string/starts-with system-name "cecilia")
   (require 'cecilia))
 
- ((string/starts-with system-name "SEGOTLPMRD006")
+ ((string/starts-with system-name "sugarline")
   (require 'sugarline))
 
  ((equal system-name "stevie.local")
@@ -391,6 +310,7 @@
 ;; Load my own keybindings (last to win) --------------------------------------
 
 (require 'custom-keybindings)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
