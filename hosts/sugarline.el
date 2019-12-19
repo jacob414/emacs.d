@@ -1,4 +1,6 @@
-;; Relevant PATH --------------------------------------------------------------
+;; Python --------------------------------------------------------------------
+
+(setq python-shell-interpreter-args "-i /Users/jacob/src/mine/emacs.d/pythonstart.py")
 
 ;; YASnippet ------------------------------------------------------------------
 
@@ -13,7 +15,6 @@
         ))
 
 (define-key yas-minor-mode-map (kbd "SPC") yas-maybe-expand)
-
 
 ;; Common Lisp (via Clozure CL) -----------------------------------------------
 
