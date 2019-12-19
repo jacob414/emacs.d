@@ -103,6 +103,7 @@
              (outline-minor-mode t)
              (persistent-overlays-minor-mode 1)
              (persistent-overlays-load-overlays)
+             (setq python-shell-interpreter "~/opt/plus/py/bin/python")
 
              (add-hook 'before-save-hook 'persistent-overlays-save-overlays nil 'local)
 
