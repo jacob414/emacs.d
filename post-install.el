@@ -55,6 +55,7 @@
   (package-install 'highlight-current-line)
   (package-install 'drag-stuff)
   (package-install 'wc-mode)
+  (package-install 'flymake-cursor)
   )
 
 
