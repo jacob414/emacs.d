@@ -56,6 +56,7 @@
   (package-install 'drag-stuff)
   (package-install 'wc-mode)
   (package-install 'flymake-cursor)
+  (package-install 'expand-region)
   )
 
 
