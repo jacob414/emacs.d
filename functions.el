@@ -162,6 +162,15 @@
   (interactive)
   (insert (uuid-create)))
 
+(defun my-muggle-text-mode ()
+  "Docstring for my-muggle-text-mode."
+  (interactive)
+  (visual-line-mode 1)
+  (auto-fill-mode 0)
+  (ws-trim-mode 0)
+  (writegood-mode 1)
+  )
+
 (defun pkg-paths (sys-pkg-base)
   "Docstring for pkg-paths."
   (interactive)
