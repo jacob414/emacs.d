@@ -57,6 +57,7 @@
   (package-install 'wc-mode)
   (package-install 'flymake-cursor)
   (package-install 'expand-region)
+  (package-install 'writegood-mode)
   )
 
 

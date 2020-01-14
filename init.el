@@ -275,9 +275,10 @@
  '(js-indent-level 2)
  '(make-backup-files nil)
  '(nginx-indent-level 2)
+ '(nodejs-repl-command "/usr/local/bin/node")
  '(package-selected-packages
    (quote
-    (expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
+    (writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
  '(rst-level-face-base-light 38)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(swift-mode:basic-offset 2)
