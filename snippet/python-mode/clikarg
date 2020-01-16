@@ -1,0 +1,1 @@
+@click.argument('$1', nargs=1)

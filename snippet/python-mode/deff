@@ -4,7 +4,6 @@
 # contributor: Orestis Markou
 # contributor: Yasser González Fernández <yglez@uh.cu>
 # --
-def ${1:name}($2):
-    # type: ($2) -> None
+def ${1:name}($2:$3) -> None:
     "Does $1"
-    ${3:pass}
+    ${4:pass}

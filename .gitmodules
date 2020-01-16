@@ -34,3 +34,6 @@
 [submodule "site-lisp/dockerfile-mode"]
 	path = site-lisp/dockerfile-mode
 	url = https://github.com/spotify/dockerfile-mode
+[submodule "site-lisp/persistent-overlay"]
+	path = site-lisp/persistent-overlay
+	url = git@github.com:mneilly/Emacs-Persistent-Overlays.git

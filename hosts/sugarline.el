@@ -1,4 +1,6 @@
-;; Relevant PATH --------------------------------------------------------------
+;; Python --------------------------------------------------------------------
+
+(setq python-shell-interpreter-args "-i /Users/jacob/src/mine/emacs.d/pythonstart.py")
 
 ;; YASnippet ------------------------------------------------------------------
 
@@ -13,7 +15,6 @@
         ))
 
 (define-key yas-minor-mode-map (kbd "SPC") yas-maybe-expand)
-
 
 ;; Common Lisp (via Clozure CL) -----------------------------------------------
 
@@ -38,9 +39,15 @@
 
 ;; Final typeface adjustment  -------------------------------------------------
 
-(custom-set-faces
- '(default ((t (:height 115 :family "Operator Mono"))))
- '(linum ((t (:inherit (shadow default) :height 0.9)))))
+(defun my-font-setting ()
+  "Docstring for my-font-setting."
+  (interactive)
+  (custom-set-faces
+   '(default ((t (:height 115 :family "Operator Mono"))))
+   '(linum ((t (:inherit (shadow default) :height 0.9)))))
+  )
+
+(my-font-setting)
 
 ;; Use server  ----------------------------------------------------------------
 
@@ -54,7 +61,7 @@
 (when (> (frame-width) 272)
  (split-window-horizontally))
 (when (> (frame-width) 300)
-  (custom-set-faces '(default ((t (:height 115 :family "Operator Mono")))))
+  (my-font-setting)
   (split-window-horizontally))
 (balance-windows)
 
@@ -67,6 +74,12 @@
   (split-window-horizontally) )
 
 ;; Sugarline specific keybingings  ---------------------------------------------
+
+(global-set-key (kbd "C-x n") 'smerge-next)
+(global-set-key (kbd "C-x p") 'smerge-next)
+(global-set-key (kbd "C-x <down>") 'smerge-keep-lower)
+(global-set-key (kbd "C-x <up>") 'smerge-keep-upper)
+
 
 ;; Empty fn.
 

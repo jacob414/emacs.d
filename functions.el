@@ -162,6 +162,15 @@
   (interactive)
   (insert (uuid-create)))
 
+(defun my-muggle-text-mode ()
+  "Docstring for my-muggle-text-mode."
+  (interactive)
+  (visual-line-mode 1)
+  (auto-fill-mode 0)
+  (ws-trim-mode 0)
+  (writegood-mode 1)
+  )
+
 (defun pkg-paths (sys-pkg-base)
   "Docstring for pkg-paths."
   (interactive)
@@ -183,8 +192,11 @@
   (global-set-key (kbd "M-9") "]")
   (global-set-key (kbd "M-(") "{")
   (global-set-key (kbd "M-)") "}")
+  (global-set-key (kbd "M-)") "}")
+  (global-set-key (kbd "M-2") "@")
   (global-set-key (kbd "M-2") "@")
   (global-set-key (kbd "M-+") "\\")
+  (global-set-key (kbd "C-c b") "\·")
   (global-set-key (kbd "§") "<")
   (global-set-key (kbd "°") ">")
   (global-set-key (kbd "M-ö") "“")
@@ -251,5 +263,52 @@
   (insert (concat "-> [[" url "][" display "]]")) )
 
 (global-set-key (kbd "C-x a") 'my-archive)
+
+(defun shell-results (&optional cmd)
+  "Docstring for shell-results."
+  (interactive)
+  (unless cmd (setq cmd (read-string "Cmd:")) )
+  (insert (shell-command-to-string (concat "printf %s $(" cmd ")")))
+  )
+
+(defun rename-current-buffer-file ()
+  "Renames current buffer and file it is visiting."
+  (interactive)
+  (let* ((name (buffer-name))
+         (filename (buffer-file-name))
+         (basename (file-name-nondirectory filename)))
+    (if (not (and filename (file-exists-p filename)))
+        (error "Buffer '%s' is not visiting a file!" name)
+      (let
+          ((new-name
+            (read-file-name "New name: "
+                            (file-name-directory filename)
+                            basename nil basename)))
+        (if (get-buffer new-name)
+            (error "A buffer named '%s' already exists!" new-name)
+          (rename-file filename new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil)
+          )
+        )
+      )
+    )
+  )
+
+(defun close-all-parentheses ()
+  (interactive "*")
+  (let ((closing nil))
+    (save-excursion
+      (while (condition-case nil
+         (progn
+           (backward-up-list)
+           (let ((syntax (syntax-after (point))))
+             (case (car syntax)
+               ((4) (setq closing (cons (cdr syntax) closing)))
+               ((7 8) (setq closing (cons (char-after (point)) closing)))))
+           t)
+           ((scan-error) nil))))
+    (apply #'insert (nreverse closing))))
 
 (provide 'functions)

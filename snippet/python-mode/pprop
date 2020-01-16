@@ -1,0 +1,5 @@
+# -*- mode: python -*-
+# --
+@property
+def $1(self) -> $2:
+    return $3

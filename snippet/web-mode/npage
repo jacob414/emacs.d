@@ -1,0 +1,13 @@
+# -*- mode: web -*-
+# A crude starter for a completely new blank page.
+# --
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>$1</title>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+  </head>
+
+  <body>$2
+  </body>
+</html>
