@@ -117,9 +117,14 @@
 
 (defun my-svenskakoll ()
   (interactive)
-  (my-ispell-use-sv)
-  (ispell)
+  (langtool-check "sv")
 )
+
+(defun my-en-check ()
+  (interactive)
+  (langtool-check "en-GB")
+)
+
 
 (defun comment-or-uncomment-current-line-or-region ()
   "Comments or uncomments current current line or whole lines in region."
@@ -169,7 +174,12 @@
   (auto-fill-mode 0)
   (ws-trim-mode 0)
   (writegood-mode 1)
+  (local-set-key (kbd "C-x L") 'langtool-check)
   )
+
+(defun my-langtool-sv ()
+  "Docstring for langtool-svenskakoll."
+  (langtool-check "sv") )
 
 (defun pkg-paths (sys-pkg-base)
   "Docstring for pkg-paths."

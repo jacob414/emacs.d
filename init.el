@@ -240,6 +240,12 @@
       (append '(("\\.eml$" . mail-mode)) auto-mode-alist))
 (add-hook 'text-mode-hook 'text-mode-env)
 (add-hook 'mail-mode-hook 'text-env)
+
+(unless (package-installed-p 'elixir-mode)
+  (package-install 'langtool))
+
+(require 'langtool)
+
 ;; Tuareg (OCaml) configuration -----------------------------------------------
 
 (load "~/src/ext/ocaml/tuareg/tuareg-site-file")
@@ -279,7 +285,7 @@
  '(nodejs-repl-command "/usr/local/bin/node")
  '(package-selected-packages
    (quote
-    (writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
+    (langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
  '(rst-level-face-base-light 38)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(swift-mode:basic-offset 2)

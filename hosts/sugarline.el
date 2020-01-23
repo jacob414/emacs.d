@@ -79,9 +79,19 @@
 (global-set-key (kbd "C-x p") 'smerge-next)
 (global-set-key (kbd "C-x <down>") 'smerge-keep-lower)
 (global-set-key (kbd "C-x <up>") 'smerge-keep-upper)
+(global-set-key (kbd "C-c sv") 'my-svenskakoll)
+(global-set-key (kbd "C-c en") 'my-en-check)
 
 
-;; Empty fn.
+;; Text mode ------------------------------------------------------------------
+
+(unless (package-installed-p 'langtool)
+  (package-install 'langtool))
+
+(setq langtool-bin "/usr/local/bin/languagetool")
+(setq langtool-default-language "sv")
+(require 'langtool)
+
 
 ;; Sugarline specific paths/language settings ----------------------------------
 
