@@ -5,6 +5,8 @@
 (add-to-list 'load-path (concat emacs-dir "/site-lisp"))
 
 (require 'here-env)
+(require 'visual)
+(require 'basic-extras)
 
 (require 'base)
 (require 'functions)
@@ -12,8 +14,6 @@
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x ?") 'magit-diff-buffer-file)
-
-(require 'basic-extras)
 
 ;; Desktop mode & bookmarks
 ;;(require 'bookmark+)
@@ -77,9 +77,7 @@
 
 ;; elm-mode settings  ---------------------------------------------------------
 
-(require 'let-alist)
-(require 's)
-(require 'f)
+
 (require 'elm-mode)
 
 ;; elixir-mode settings  ------------------------------------------------------
@@ -285,7 +283,7 @@
  '(nodejs-repl-command "/usr/local/bin/node")
  '(package-selected-packages
    (quote
-    (langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
+    (ox-md langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
  '(rst-level-face-base-light 38)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(swift-mode:basic-offset 2)

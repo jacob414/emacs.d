@@ -66,6 +66,7 @@
             (local-set-key (kbd "C-.") 'scroll-down-one-line)
             (local-set-key (kbd "C-,") 'scroll-up-one-line)
             (local-set-key (kbd "C-j") 'my-greedy-joinlines)
+            (local-set-key (kbd "C-x C-e") 'langtool-correct-buffer)
             (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)
             ))
 

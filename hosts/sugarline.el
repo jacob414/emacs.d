@@ -82,7 +82,6 @@
 (global-set-key (kbd "C-c sv") 'my-svenskakoll)
 (global-set-key (kbd "C-c en") 'my-en-check)
 
-
 ;; Text mode ------------------------------------------------------------------
 
 (unless (package-installed-p 'langtool)

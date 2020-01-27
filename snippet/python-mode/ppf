@@ -1,1 +1,1 @@
-print("$1".format(**locals()))
+print(f"$1")
