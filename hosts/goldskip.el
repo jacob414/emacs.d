@@ -39,6 +39,16 @@
   (split-window-horizontally))
 (balance-windows)
 
+;; Pop up a new frame in fullscreen with 2 columns --------------------------
+
+(unless (package-installed-p 'langtool)
+  (package-install 'langtool))
+
+(setq langtool-bin "/usr/local/bin/languagetool")
+(setq langtool-default-language "sv")
+(require 'langtool)
+
+
 ;; Pop up a new frame in fullscreen with 2 columns ----------------------------
 
 (defun small-ui ()
