@@ -283,7 +283,8 @@
  '(nodejs-repl-command "/usr/local/bin/node")
  '(package-selected-packages
    (quote
-    (ox-md langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
+    (dismal csv csv-mode ox-md langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
+ '(python-check-command "~/opt/plus/py/bin/pyflakes")
  '(rst-level-face-base-light 38)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(swift-mode:basic-offset 2)
