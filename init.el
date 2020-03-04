@@ -244,6 +244,10 @@
 
 (require 'langtool)
 
+;; CSV file configuration -----------------------------------------------------
+
+(require 'csv-mode)
+
 ;; Tuareg (OCaml) configuration -----------------------------------------------
 
 (load "~/src/ext/ocaml/tuareg/tuareg-site-file")

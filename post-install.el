@@ -58,6 +58,7 @@
   (package-install 'flymake-cursor)
   (package-install 'expand-region)
   (package-install 'writegood-mode)
+  (package-install 'csv-mode)
   )
 
 
