@@ -14,6 +14,7 @@
   (add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
   (add-to-list 'package-archives (cons "marmalade" "http://melpa.org/packages/") t)
   (package-initialize)
+  (setq package-check-signature nil)
   )
 
 ;; linum ----------------------------------------------------------------------
