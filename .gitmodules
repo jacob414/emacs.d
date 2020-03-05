@@ -37,3 +37,7 @@
 [submodule "site-lisp/persistent-overlay"]
 	path = site-lisp/persistent-overlay
 	url = git@github.com:mneilly/Emacs-Persistent-Overlays.git
+[submodule "site-lisp/typopunct"]
+	path = site-lisp/typopunct
+	url = git@github.com:emacsmirror/typopunct.git
+	branch = master

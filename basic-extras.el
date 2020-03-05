@@ -31,4 +31,9 @@
 (require 'highlight-current-line)
 (highlight-current-line-on 1)
 
+;; typopunct ----------------------------------------------------------------------
+
+(add-to-list 'load-path (concat emacs-dir "/site-lisp/typopunct"))
+(require 'typopunct)
+
 (provide 'basic-extras)
