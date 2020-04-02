@@ -10,6 +10,8 @@
 (dolist
   (message "Refresh packages..")
   (package-refresh-contents)
+  (message "use-package..")
+  (package-install 'use-package)
   (message "Package epl..")
   (package-install 'epl)
   (message "Package auto-complete..")

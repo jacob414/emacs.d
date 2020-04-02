@@ -8,19 +8,14 @@
   (package-refresh-contents)
   (package-install 'elpy))
 
-(defun my-elpy-keys ()
-  "Docstring for elpy-mine."
-  (interactive)
-  (local-unset-key (kbd "M-<left>"))
-  (define-key elpy-mode-map (kbd "M-<left>") 'windmove-left)
-  (local-unset-key (kbd "M-<right>"))
-  (define-key elpy-mode-map (kbd "M-<right>") 'windmove-right)
-  (local-unset-key (kbd "M-<down>"))
-  (define-key elpy-mode-map (kbd "M-<down>") 'windmove-down)
-  (local-unset-key (kbd "M-<up>"))
-  (define-key elpy-mode-map (kbd "M-<up>") 'windmove-up)
-  )
-
+(use-package elpy
+  :ensure t
+  :config
+  (unbind-key "M-<left>" elpy-mode-map)
+  (unbind-key "M-<right>" elpy-mode-map)
+  (bind-keys :map elpy-mode-map
+           ("s-<left>" . elpy-nav-indent-shift-left)
+           ("s-<right>" . elpy-nav-indent-shift-right)))
 
 (add-hook 'python-mode-hook
           '(lambda ()
@@ -38,7 +33,6 @@
              (define-key python-mode-map (kbd "C-x C-m") 'outline-toggle-children)
              (define-key python-mode-map (kbd "") 'outline-toggle-children)
              (elpy-enable)
-             (my-elpy-keys)
              ) )
 
 (setq auto-mode-alist
