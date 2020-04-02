@@ -59,6 +59,7 @@
   (package-install 'expand-region)
   (package-install 'writegood-mode)
   (package-install 'csv-mode)
+  (package-install 'elpy)
   )
 
 

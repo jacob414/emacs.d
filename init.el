@@ -95,6 +95,11 @@
 (unless (package-installed-p 'yapfify)
   (package-refresh-contents)
   (package-install 'yapfify))
+
+(unless (package-installed-p 'elpy)
+  (package-refresh-contents)
+  (package-install 'elpy))
+
 (add-hook 'python-mode-hook
           '(lambda ()
              (interactive)
@@ -287,7 +292,7 @@
  '(nodejs-repl-command "/usr/local/bin/node")
  '(package-selected-packages
    (quote
-    (dismal csv csv-mode ox-md langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein w3m swift-mode elixir-mode)))
+    (elpy dismal csv csv-mode ox-md langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein swift-mode elixir-mode)))
  '(python-check-command "~/opt/plus/py/bin/pyflakes")
  '(rst-level-face-base-light 38)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
