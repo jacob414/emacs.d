@@ -1,1 +1,1 @@
-"$1".format(**locals())
+f"$1"
