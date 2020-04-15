@@ -23,6 +23,19 @@
              ("s-<left>" . elpy-nav-indent-shift-left)
              ("s-<right>" . elpy-nav-indent-shift-right)))
 
+(setq my-venv (expand-file-name "~/opt/plus/py"))
+
+(custom-set-variables
+ '(python-shell-interpreter "/Users/jacob/opt/plus/py/bin/python")
+ '(elpy-rpc-python-command "/Users/jacob/opt/plus/py/bin/python")
+ '(elpy-rpc-virtualenv-path "/Users/jacob/opt/plus/py/bin/python")
+ '(elpy-rpc-python-command "/Users/jacob/opt/plus/py/bin/python")
+ '(elpy-rpc-virtualenv-path "/Users/jacob/opt/plus/py/bin/python")
+ '(elpy-test-discover-runner-command (quote ("python-shell-interpreter" "-m" "pytest")))
+ '(elpy-test-pytest-runner-command (quote ("/Users/jacob/opt/plus/py/bin/pytest")))
+ '(elpy-test-runner (quote elpy-test-pytest-runner))
+)
+
 (add-hook 'python-mode-hook
           '(lambda ()
              (interactive)
