@@ -52,7 +52,8 @@
              (define-key python-mode-map (kbd "C-x C-m") 'outline-toggle-children)
              (define-key python-mode-map (kbd "") 'outline-toggle-children)
              (elpy-enable)
-             ) )
+             (setq company-idle-delay 1.5)
+             (flycheck-select-checker "python-mypy"))
 
 (setq auto-mode-alist
       (append '(("\\.wsgi$" . python-mode)
