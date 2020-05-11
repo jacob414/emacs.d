@@ -119,6 +119,12 @@
 (setq auto-mode-alist
       (append '(("\\.md$" . markdown-mode)) auto-mode-alist))
 
+;; .srt -settings (subtitle files) --------------------------------------------
+
+(setq auto-mode-alist
+      (append '(("\\.srt$" . srt-mode))
+              auto-mode-alist))
+
 ;; Ruby settings --------------------------------------------------------------
 
 (setq auto-mode-alist
