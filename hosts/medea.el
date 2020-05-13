@@ -31,17 +31,6 @@
 (set-face-attribute 'show-paren-match-face nil
        :weight 'bold :underline nil :overline nil :slant 'normal)
 
-;; -------------------------- zenburn ------------------------------------------
-
-(defun my-zenburn ()
-  (interactive)
-  (require 'zenburn)
-  (color-theme-zenburn)
-  (custom-set-faces
-   '(highlight-current-line-face ((t (:background "gray35"))))
-   '(rst-level-face-base-light 38)
-   '(cursor ((t (:background "#FF0000")))) )  )
-
 ;; -----------------------------------------------------------------------------
 
 (my-zenburn)

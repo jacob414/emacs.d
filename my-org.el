@@ -68,6 +68,7 @@
             (local-set-key (kbd "C-j") 'my-greedy-joinlines)
             (local-set-key (kbd "C-x C-e") 'langtool-correct-buffer)
             (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)
+            (setcar (nthcdr 4 org-emphasis-regexp-components) 4)
             ))
 
 

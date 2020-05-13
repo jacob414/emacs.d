@@ -82,7 +82,8 @@
 ;; EIN settings ------------------------------------------------------------
 
 (unless (package-installed-p 'ein)
-  (package-install 'ein))
+  (package-install 'ein)
+  (package-install 'ein-subpackages))
 (require 'ein)
 (require 'ein-subpackages)
 
