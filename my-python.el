@@ -1,5 +1,8 @@
 ;; Python settings ------------------------------------------------------------
 
+(require 'flymake)
+
+
 (unless (package-installed-p 'yapfify)
   (package-refresh-contents)
   (package-install 'yapfify))
@@ -24,16 +27,31 @@
              ("s-<right>" . elpy-nav-indent-shift-right)))
 
 (setq my-venv (expand-file-name "~/opt/plus/py"))
+(setq my-vpy (expand-file-name "~/opt/plus/py/bin/python"))
+(pyvenv-activate my-venv)
+(pyvenv-workon my-venv)
 
 (custom-set-variables
+ '(elpy-modules
+   (quote
+    (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults)))
  '(python-shell-interpreter "/Users/jacob/opt/plus/py/bin/python")
  '(elpy-rpc-python-command "/Users/jacob/opt/plus/py/bin/python")
  '(elpy-rpc-virtualenv-path "/Users/jacob/opt/plus/py/bin/python")
  '(elpy-rpc-python-command "/Users/jacob/opt/plus/py/bin/python")
+ '(elpy-syntax-check-command (concat my-venv "/bin/mypy"))
  '(elpy-rpc-virtualenv-path "/Users/jacob/opt/plus/py/bin/python")
  '(elpy-test-discover-runner-command (quote ("python-shell-interpreter" "-m" "pytest")))
  '(elpy-test-pytest-runner-command (quote ("/Users/jacob/opt/plus/py/bin/pytest")))
+ '(python-check-command (quote ("/Users/jacob/opt/plus/py/bin/mypy")))
  '(elpy-test-runner (quote elpy-test-pytest-runner))
+ '(elpy-rpc-python-command "/Users/jacob/opt/plus/py/bin/python")
+ '(elpy-rpc-virtualenv-path "/Users/jacob/opt/plus/py/bin/python")
+ '(elpy-syntax-check-command (concat my-venv "/bin/mypy"))
+ '(elpy-test-discover-runner-command (quote ("python-shell-interpreter" "-m" "pytest")))
+ '(elpy-test-pytest-runner-command (quote ("/Users/jacob/opt/plus/py/bin/pytest")))
+ '(python-check-command (quote ("/Users/jacob/opt/plus/py/bin/mypy")))
+ '(python-shell-interpreter "/Users/jacob/opt/plus/py/bin/python")
 )
 
 (add-hook 'python-mode-hook
@@ -53,7 +71,7 @@
              (define-key python-mode-map (kbd "") 'outline-toggle-children)
              (elpy-enable)
              (setq company-idle-delay 1.5)
-             (flycheck-select-checker "python-mypy"))
+             (flycheck-select-checker "python-mypy")) )
 
 (setq auto-mode-alist
       (append '(("\\.wsgi$" . python-mode)
