@@ -6,4 +6,6 @@
 
 (add-to-list 'package-archives my-package-sources t)
 
+(package-initialize)
+
 (provide 'my-package-conf)

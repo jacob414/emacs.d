@@ -11,6 +11,7 @@
 (require 'visual)
 
 (require 'my-package-conf)
+(require 'my-python)
 
 ;; Host specific stuff - should always have the last word ---------------------
 
