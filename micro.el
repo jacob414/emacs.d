@@ -8,9 +8,9 @@
 (require 'functions)
 (require 'base)
 (if (eq system-type 'darwin) (osx-support) )
+(require 'visual)
 
-(require 'zenburn-theme)
-(my-zenburn)
+(require 'my-package-conf)
 
 ;; Host specific stuff - should always have the last word ---------------------
 
