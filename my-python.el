@@ -26,6 +26,8 @@
              ("s-<left>" . elpy-nav-indent-shift-left)
              ("s-<right>" . elpy-nav-indent-shift-right)))
 
+(setq comint-process-echoes t)
+
 (setq my-venv (expand-file-name "~/opt/plus/py"))
 (setq my-vpy (expand-file-name "~/opt/plus/py/bin/python"))
 (pyvenv-activate my-venv)
