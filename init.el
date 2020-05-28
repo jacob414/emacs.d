@@ -15,11 +15,6 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x ?") 'magit-diff-buffer-file)
 
-;; Desktop mode & bookmarks
-;;(require 'bookmark+)
-(require 'desktop)
-(desktop-save-mode 1)
-
 (global-set-key (kbd "C-c y") 'yas/reload-all)
 
 ;; White-space trim
@@ -47,7 +42,6 @@
 ;; Scheme settings ------------------------------------------------------------
 
 (require 'xscheme)
-(message "xscheme")
 
 ;; web-mode -------------------------------------------------------------------
 
@@ -153,16 +147,7 @@
 (setq auto-mode-alist
       (append '(("\\.yml$" . yaml-mode)
                 ("\\.yaml$" . yaml-mode)) auto-mode-alist))
-;; SASS -----------------------------------------------------------------------
 
-(setq auto-mode-alist
-      (append '(("\\.sass$" . sass-mode)) auto-mode-alist))
-(require 'scss-mode)
-(setq auto-mode-alist
-      (append '(("\\.scss$" . scss-mode)) auto-mode-alist))
-(add-hook 'scss-mode-hook
-          '(lambda ()
-             (setq scss-compile-at-save nil) ) )
 ;; Nix expressions ------------------------------------------------------------
 
 (autoload 'nix-mode "nix-mode"
@@ -242,22 +227,32 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(case-fold-search t)
- '(css-indent-offset 2 t)
+ '(css-indent-offset 2)
  '(desktop-path (quote ("~/src/tmp/emacs-desktop")))
  '(elm-format-command "/usr/local/bin/elm-format" t)
  '(elm-format-on-save (quote t))
  '(elm-interactive-command "/usr/local/bin/elm-repl")
+ '(elpy-modules
+   (quote
+    (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults)))
+ '(elpy-rpc-python-command "/Users/jacob/opt/plus/py/bin/python")
+ '(elpy-rpc-virtualenv-path "/Users/jacob/opt/plus/py/bin/python")
+ '(elpy-syntax-check-command (concat my-venv "/bin/mypy"))
+ '(elpy-test-discover-runner-command (quote ("python-shell-interpreter" "-m" "pytest")))
+ '(elpy-test-pytest-runner-command (quote ("/Users/jacob/opt/plus/py/bin/pytest")))
+ '(elpy-test-runner (quote elpy-test-pytest-runner))
  '(js-indent-level 2)
  '(make-backup-files nil)
  '(nginx-indent-level 2)
  '(nodejs-repl-command "/usr/local/bin/node")
  '(package-selected-packages
    (quote
-    (flycheck-mypy flymake-mypy use-package elpy dismal csv csv-mode ox-md langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein swift-mode elixir-mode)))
+    (lsp-mode flycheck-mypy flymake-mypy use-package elpy dismal csv csv-mode ox-md langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein swift-mode elixir-mode)))
  '(python-check-command (quote ("/Users/jacob/opt/plus/py/bin/mypy")))
  '(python-shell-interpreter "/Users/jacob/opt/plus/py/bin/python")
  '(rst-level-face-base-light 38)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
+ '(solarized-contrast (quote normal))
  '(swift-mode:basic-offset 2)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(yas/field-highlight-face ((t (:background "gray35" :underline t))))
@@ -287,6 +282,12 @@
  (t
   (require 'generic)) )
 
+;; desktop --------------------------------------------------------------------
+
+(require 'desktop)
+(desktop-save-mode 1)
+
+
 ;; Load my own keybindings (last to win) --------------------------------------
 
 (require 'custom-keybindings)
@@ -300,5 +301,9 @@
  '(cursor ((t (:background "red" :foreground "red"))))
  '(highlight-current-line-face ((t (:background "gray35"))))
  '(linum ((t (:inherit (shadow default) :height 0.9))))
- '(org-link ((t (:foreground "#d0bf8f" :underline t)))))
-
+ '(mode-line ((t (:background "Black" :foreground "#a4a097" :inverse-video t :box nil :underline nil :slant normal :weight normal))))
+ '(mode-line-highlight ((t (:box (:line-width 2 :color "#d1cdc1" :style released-button)))))
+ '(mode-line-inactive ((t (:background "Brown" :foreground "#d1cdc1" :inverse-video t :box nil :underline nil :slant normal :weight normal))))
+ '(org-checkbox ((t (:background "#d6d0be" :foreground "#805c64" :box (:line-width 1 :style released-button)))))
+ '(org-link ((t (:foreground "#21867a" :underline t))))
+ )

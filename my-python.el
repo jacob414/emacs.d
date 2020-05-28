@@ -1,7 +1,7 @@
 ;; Python settings ------------------------------------------------------------
 
 (require 'flymake)
-
+(remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
 
 (unless (package-installed-p 'yapfify)
   (package-refresh-contents)
@@ -73,7 +73,8 @@
              (define-key python-mode-map (kbd "") 'outline-toggle-children)
              (elpy-enable)
              (setq company-idle-delay 1.5)
-             (flycheck-select-checker "python-mypy")) )
+             )
+          )
 
 (setq auto-mode-alist
       (append '(("\\.wsgi$" . python-mode)

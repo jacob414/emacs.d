@@ -63,6 +63,7 @@
   (package-install 'csv-mode)
   (package-install 'elpy)
   (package-install 'flycheck-mypy)
+  (package-install 'lsp-mode)
   )
 
 
