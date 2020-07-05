@@ -59,6 +59,11 @@
 
 ;; Goldskip specific keybingings  ---------------------------------------------
 
+(when (eq system-type 'darwin)
+  (setq mac-option-modifier 'meta))
+
+;; Goldskip specific keybingings  ---------------------------------------------
+
 ;; Empty fn.
 
 ;; Goldskip specific paths/language settings ----------------------------------
