@@ -62,6 +62,7 @@
   (package-install 'writegood-mode)
   (package-install 'csv-mode)
   (package-install 'elpy)
+  (package-install 'importmagic)
   (package-install 'flycheck-mypy)
   (package-install 'lsp-mode)
   )

@@ -7,6 +7,8 @@
   (package-refresh-contents)
   (package-install 'yapfify))
 
+(require 'importmagic)
+
 (unless (package-installed-p 'elpy)
   (package-refresh-contents)
   (package-install 'elpy))
@@ -73,6 +75,7 @@
              (define-key python-mode-map (kbd "") 'outline-toggle-children)
              (elpy-enable)
              (setq company-idle-delay 0.2)
+             (importmagic-mode)
              )
           )
 
