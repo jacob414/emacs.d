@@ -16,7 +16,7 @@
   (load-theme 'solarized-light t)
    (custom-set-faces
     '(cursor ((t (:background "red" :foreground "red"))))
-    '(highlight-current-line-face ((t (:background "#F0DFAF")))
+    '(highlight-current-line-face ((t (:background "LightYellow2")))
                                   '(mode-line ((t (:background "Black" :foreground "#a4a097" :inverse-video t :box nil :underline nil :slant normal :weight normal)))) )
     '(mode-line ((t (:background "Black" :foreground "#a4a097" :inverse-video t :box nil :underline nil :slant normal :weight normal))))
     '(mode-line-highlight ((t (:box (:line-width 2 :color "#d1cdc1" :style released-button)))))
@@ -34,7 +34,8 @@
   (my-solarized) )
 
 ;; If modern, we'd like our color theme early.
-(when modern  (my-zenburn))
+;; (when modern  (my-zenburn))
+(when modern  (my-solarized-boot))
 
 
 (provide 'visual)
