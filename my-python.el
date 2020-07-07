@@ -56,6 +56,7 @@
  '(elpy-test-pytest-runner-command (quote ("/Users/jacob/opt/plus/py/bin/pytest")))
  '(python-check-command (quote ("/Users/jacob/opt/plus/py/bin/mypy")))
  '(python-shell-interpreter "/Users/jacob/opt/plus/py/bin/python")
+ '(importmagic-python-interpreter "~/opt/plus/py/bin/python")
 )
 
 (add-hook 'python-mode-hook
