@@ -227,6 +227,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(case-fold-search t)
+ '(company-idle-delay 0.05)
  '(css-indent-offset 2)
  '(desktop-path (quote ("~/src/tmp/emacs-desktop")))
  '(elm-format-command "/usr/local/bin/elm-format" t)
@@ -237,7 +238,6 @@
     (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults)))
  '(elpy-rpc-python-command "/Users/jacob/opt/plus/py/bin/python")
  '(elpy-rpc-virtualenv-path "/Users/jacob/opt/plus/py/bin/python")
- '(elpy-syntax-check-command (concat my-venv "/bin/mypy"))
  '(elpy-test-discover-runner-command (quote ("python-shell-interpreter" "-m" "pytest")))
  '(elpy-test-pytest-runner-command (quote ("/Users/jacob/opt/plus/py/bin/pytest")))
  '(elpy-test-runner (quote elpy-test-pytest-runner))
@@ -305,5 +305,4 @@
  '(mode-line-highlight ((t (:box (:line-width 2 :color "#d1cdc1" :style released-button)))))
  '(mode-line-inactive ((t (:background "Brown" :foreground "#d1cdc1" :inverse-video t :box nil :underline nil :slant normal :weight normal))))
  '(org-checkbox ((t (:background "#d6d0be" :foreground "#805c64" :box (:line-width 1 :style released-button)))))
- '(org-link ((t (:foreground "#21867a" :underline t))))
- )
+ '(org-link ((t (:foreground "#21867a" :underline t)))))
