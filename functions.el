@@ -117,6 +117,8 @@
 
 (defun my-svenskakoll ()
   (interactive)
+  (setq langtool-mother-tongue "en")
+  (setq langtool-java-user-arguments '("-Dfile.encoding=UTF-8 -d UPPERCASE_SENTENCE_START"))
   (langtool-check "sv")
 )
 
