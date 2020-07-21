@@ -76,7 +76,6 @@
              (define-key python-mode-map (kbd "") 'outline-toggle-children)
              (elpy-enable)
              (setq company-idle-delay 0.2)
-             (importmagic-mode)
              )
           )
 
