@@ -59,6 +59,14 @@
  '(importmagic-python-interpreter "~/opt/plus/py/bin/python")
 )
 
+(defun my-mypy ()
+  "Docstring for my-mypy."
+  (interactive)
+  (run-python)
+  (flycheck-mode)
+  (flycheck-compile 'python-mypy)
+  )
+
 (add-hook 'python-mode-hook
           '(lambda ()
              (interactive)
@@ -73,6 +81,9 @@
              (require 'yapfify)
              (highlight-lines-matching-regexp ".set_trace" 'hi-red-b)
              (define-key python-mode-map (kbd "C-x C-m") 'outline-toggle-children)
+
+             (define-key python-mode-map (kbd "C-x C-c") 'my-mypy)
+             (define-key python-mode-map (kbd "") 'outline-toggle-children)
              (define-key python-mode-map (kbd "") 'outline-toggle-children)
              (elpy-enable)
              (setq company-idle-delay 0.2)
