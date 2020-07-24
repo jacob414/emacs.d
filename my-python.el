@@ -70,6 +70,15 @@
 (add-hook 'python-mode-hook
           '(lambda ()
              (interactive)
+             (setenv "MYPYPATH"
+                     (concat
+                      (expand-file-name "~/src/mine/skunkworks/python/stubs")
+                      ":"
+                      (expand-file-name "~/src/ext/python/typeshed/")
+                      )
+                     )
+
+
              (setq outline-regexp "[^ \t\n]\\|[ \t]*\\(if[ \t]+\\|elif[ \t]+\\|else[ \t]+\\|for[ \t]+\\|while[ \t]+\\|with[ \t]+\\|def[ \t]+\\|class[ \t]+\\)")
              (outline-minor-mode t)
              (persistent-overlays-minor-mode 1)
