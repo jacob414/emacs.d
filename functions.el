@@ -184,6 +184,8 @@
   (ws-trim-mode 0)
   (writegood-mode 1)
   (local-set-key (kbd "C-x L") 'langtool-check)
+  (linum-mode)  ;; linum not helpful here
+  (set-window-margins nil 4 4) ;; widen margins
   )
 
 (defun my-langtool-sv ()
