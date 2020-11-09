@@ -20,6 +20,7 @@
   (unbind-key "M-<right>" elpy-mode-map)
   (unbind-key "M-<up>" elpy-mode-map)
   (unbind-key "M-<down>" elpy-mode-map)
+  (local-set-key (kbd "C-x C-e") 'elpy-shell-send-buffer)
   (bind-keys :map elpy-mode-map
              ("M-<left>" . windmove-left)
              ("M-<right>" . windmove-right)
