@@ -6,9 +6,11 @@
    (require 'zenburn-theme)
    (load-theme 'zenburn t)
    (custom-set-faces
-    '(cursor ((t (:background "red" :foreground "red"))))
-    '(highlight-current-line-face ((t (:background "gray35"))) ) )
-  )
+    '(cursor ((t (:background "red") )) )
+    '(highlight-current-line-face ((t (:background "gray35"))))
+    '(org-checkbox ((t (:foreground nil :inherit org-todo))))
+    )
+)
 
 (defun my-solarized ()
   "Apply Solarized light with my settings."
