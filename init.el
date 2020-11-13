@@ -238,6 +238,7 @@
     (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults)))
  '(elpy-rpc-python-command "/Users/jacob/opt/plus/py/bin/python")
  '(elpy-rpc-virtualenv-path "/Users/jacob/opt/plus/py/bin/python")
+ '(elpy-syntax-check-command "~/opt/plus/py/bin/mypy")
  '(elpy-test-discover-runner-command (quote ("python-shell-interpreter" "-m" "pytest")))
  '(elpy-test-pytest-runner-command (quote ("/Users/jacob/opt/plus/py/bin/pytest")))
  '(elpy-test-runner (quote elpy-test-pytest-runner))
