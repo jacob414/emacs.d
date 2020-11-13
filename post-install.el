@@ -65,6 +65,7 @@
   (package-install 'importmagic)
   (package-install 'flycheck-mypy)
   (package-install 'lsp-mode)
+  (package-install 'writeroom-mode)
   )
 
 
