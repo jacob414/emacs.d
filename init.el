@@ -300,7 +300,7 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:height 115 :family "Operator Mono"))))
  '(cursor ((t (:background "red" :foreground "red"))))
- '(highlight-current-line-face ((t (:background "gray35"))))
+ '(highlight-current-line-face ((t (:background "moccasin"))))
  '(linum ((t (:inherit (shadow default) :height 0.9))))
  '(mode-line ((t (:background "Black" :foreground "#a4a097" :inverse-video t :box nil :underline nil :slant normal :weight normal))))
  '(mode-line-highlight ((t (:box (:line-width 2 :color "#d1cdc1" :style released-button)))))
