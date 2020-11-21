@@ -28,8 +28,7 @@
 (windmove-default-keybindings 'meta)
 
 ;; Highlight current line
-(require 'highlight-current-line)
-(highlight-current-line-on 1)
+(global-hl-line-mode +1)
 
 ;; typopunct ----------------------------------------------------------------------
 
