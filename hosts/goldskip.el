@@ -62,6 +62,8 @@
 (when (eq system-type 'darwin)
   (setq mac-option-modifier 'meta))
 
+(global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)
+
 ;; Goldskip specific keybingings  ---------------------------------------------
 
 ;; Empty fn.
