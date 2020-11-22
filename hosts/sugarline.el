@@ -31,19 +31,13 @@
 
 (setq scheme-program-name "/usr/local/bin/scheme")
 
-;; Dash integration  ----------------------------------------------------------
-
-(autoload 'dash-at-point "dash-at-point"
-          "Search the word at point with Dash." t nil)
-(global-set-key (kbd "C-c h") 'dash-at-point)
-
 ;; Final typeface adjustment  -------------------------------------------------
 
 (defun my-font-setting ()
   "Docstring for my-font-setting."
   (interactive)
   (custom-set-faces
-   '(default ((t (:height 115 :family "Operator Mono"))))
+   '(default ((t (:height 115 :family "Monaco"))))
    '(linum ((t (:inherit (shadow default) :height 0.9)))))
   )
 
@@ -105,8 +99,6 @@
  '(elm-format-on-save 't)
  '(nodejs-repl-command "/usr/local/bin/node")
 )
-
-(my-zenburn)
 
 (message "sugarline setup done")
 

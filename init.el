@@ -298,8 +298,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 115 :family "Operator Mono"))))
- '(cursor ((t (:background "red" :foreground "red"))))
  '(highlight-current-line-face ((t (:background "moccasin"))))
  '(linum ((t (:inherit (shadow default) :height 0.9))))
  '(mode-line ((t (:background "Black" :foreground "#a4a097" :inverse-video t :box nil :underline nil :slant normal :weight normal))))

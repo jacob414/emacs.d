@@ -36,8 +36,6 @@
   (my-solarized) )
 
 ;; If modern, we'd like our color theme early.
-;; (when modern  (my-zenburn))
-(when modern  (my-solarized-boot))
-
+(my-zenburn)
 
 (provide 'visual)
