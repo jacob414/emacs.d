@@ -31,8 +31,8 @@
 
 (setq comint-process-echoes t)
 
-(setq my-venv (expand-file-name "~/opt/plus/py"))
-(setq my-vpy (expand-file-name "~/opt/plus/py/bin/python"))
+(setq my-venv (expand-file-name "~/opt/plus/anaconda3/envs/plus"))
+(setq my-vpy (expand-file-name "~/opt/plus/anaconda3/envs/plus/bin/python"))
 (pyvenv-activate my-venv)
 (pyvenv-workon my-venv)
 
