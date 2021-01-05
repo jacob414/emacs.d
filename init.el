@@ -298,10 +298,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(highlight-current-line-face ((t (:background "moccasin"))))
+ '(cursor ((t (:background "red"))))
+ '(highlight-current-line-face ((t (:background "gray35"))))
  '(linum ((t (:inherit (shadow default) :height 0.9))))
  '(mode-line ((t (:background "Black" :foreground "#a4a097" :inverse-video t :box nil :underline nil :slant normal :weight normal))))
  '(mode-line-highlight ((t (:box (:line-width 2 :color "#d1cdc1" :style released-button)))))
  '(mode-line-inactive ((t (:background "Brown" :foreground "#d1cdc1" :inverse-video t :box nil :underline nil :slant normal :weight normal))))
- '(org-checkbox ((t (:background "#d6d0be" :foreground "#805c64" :box (:line-width 1 :style released-button)))))
+ '(org-checkbox ((t (:foreground nil :inherit org-todo))))
  '(org-link ((t (:foreground "#21867a" :underline t)))))
