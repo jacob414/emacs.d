@@ -85,6 +85,12 @@
                       (expand-file-name "~/src/mine/skunkworks/python/stubs")
                       ":"
                       (expand-file-name "~/src/ext/python/typeshed/")
+                      ":"
+                      (expand-file-name "~/src/oss/kingston/")
+                      ":"
+                      (expand-file-name "~/src/oss/ormsnack/")
+                      ":"
+                      (expand-file-name "~/src/oss/plus/")
                       )
                      )
 
