@@ -17,8 +17,6 @@
   (package-refresh-contents)
   (package-install 'yapfify))
 
-(require 'importmagic)
-
 (unless (package-installed-p 'elpy)
   (package-refresh-contents)
   (package-install 'elpy))
@@ -31,6 +29,7 @@
   (unbind-key "M-<up>" elpy-mode-map)
   (unbind-key "M-<down>" elpy-mode-map)
   (local-set-key (kbd "C-x C-e") 'elpy-shell-send-buffer)
+  (local-set-key (kbd "C-x C-d") 'elpy-pdb-break-at-point)
   (bind-keys :map elpy-mode-map
              ("M-<left>" . windmove-left)
              ("M-<right>" . windmove-right)
