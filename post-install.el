@@ -66,6 +66,7 @@
   (package-install 'flycheck-mypy)
   (package-install 'lsp-mode)
   (package-install 'writeroom-mode)
+  (package-install 'rg)
   )
 
 

@@ -17,6 +17,10 @@
 
 (global-set-key (kbd "C-c y") 'yas/reload-all)
 
+;; rg
+
+(require 'rg)
+
 ;; White-space trim
 (require 'ws-trim)
 (setq-default ws-trim-level 1)
