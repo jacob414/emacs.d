@@ -229,7 +229,7 @@
   (setq exec-path (append exec-path '("/usr/local/bin")))
 
   ;; OS X typical paths - assumes brew package manager
-  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/"))
+  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin/:/Library/TeX/texbin/"))
   (setenv "NODE_PATH" "/usr/local/share/npm/lib/node_modules")
 
   (setq brew-base "/usr/local/share/emacs/site-lisp")
