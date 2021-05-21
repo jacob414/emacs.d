@@ -20,6 +20,8 @@
   (package-install 'dash)
   (message "Package elixir-mode..")
   (package-install 'elixir-mode)
+  (message "Package haskell-mode..")
+  (package-install 'haskell-mode)
   (message "Package exec-path-from-shell")
   (package-install 'exec-path-from-shell)
   (message "Package")
