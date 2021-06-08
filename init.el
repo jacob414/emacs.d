@@ -261,6 +261,11 @@
  '(yas/field-highlight-face ((t (:background "gray35" :underline t))))
  '(yas/trigger-key "SPC"))
 
+;; desktop --------------------------------------------------------------------
+
+(require 'desktop)
+(desktop-save-mode 1)
+
 ;; Host specific stuff - should always have the last word ---------------------
 
 (cond
