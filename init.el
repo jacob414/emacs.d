@@ -281,6 +281,9 @@
  ((string/starts-with system-name "sugarline")
   (require 'sugarline))
 
+ ((string/starts-with system-name "skrotnisse")
+  (require 'skrotnisse))
+
  ((equal system-name "stevie.local")
   (require 'stevie))
 
