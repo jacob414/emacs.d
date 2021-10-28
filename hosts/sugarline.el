@@ -118,4 +118,9 @@
  '(org-link ((t (:foreground "#21867a" :underline t)))))
 
 
+;; Tuareg (OCaml) configuration -----------------------------------------------
+
+(load "~/src/ext/ocaml/tuareg/tuareg-site-file")
+
+
 (provide 'sugarline)
