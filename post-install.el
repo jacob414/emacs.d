@@ -59,6 +59,7 @@
   (package-install 'highlight-current-line)
   (package-install 'drag-stuff)
   (package-install 'wc-mode)
+  (package-install 'langtool)
   (package-install 'flymake-cursor)
   (package-install 'expand-region)
   (package-install 'writegood-mode)
