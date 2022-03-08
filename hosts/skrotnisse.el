@@ -2,6 +2,6 @@
 
 ;; Tuareg (OCaml) configuration -----------------------------------------------
 
-(load "~/.opam/default/share/emacs/site-lisp")
+(load "~/.opam/default/share/emacs/site-lisp/tuareg-site-file")
 
 (provide 'skrotnisse)
