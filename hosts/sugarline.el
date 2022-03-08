@@ -107,7 +107,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 115 :family "Monaco"))))
+ '(default ((t (:height 115 :family "Writer"))))
  '(cursor ((t (:background "red"))))
  '(highlight-current-line-face ((t (:background "gray35"))))
  '(linum ((t (:inherit (shadow default) :height 0.9))))
