@@ -239,6 +239,8 @@
   (setenv "LC_ALL" "en_GB.UTF-8")
 
   (my-yasnippet)
+
+  (require 'osx-dictionary)
   )
 
 (defun my-longlines ()
