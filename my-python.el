@@ -126,6 +126,6 @@
   (package-install 'ein)
   (package-install 'ein-subpackages))
 (require 'ein)
-(require 'ein-subpackages)
+;; (require 'ein-subpackages)
 
 (provide 'my-python)
