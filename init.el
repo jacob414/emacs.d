@@ -230,8 +230,10 @@
  '(case-fold-search t)
  '(company-idle-delay 0.05)
  '(css-indent-offset 2)
+ '(custom-safe-themes
+   '("a0feb1322de9e26a4d209d1cfa236deaf64662bb604fa513cca6a057ddf0ef64" default))
  '(desktop-path '("~/src/tmp/emacs-desktop"))
- '(elm-format-command "/usr/local/bin/elm-format" t)
+ '(elm-format-command "/usr/local/bin/elm-format")
  '(elm-format-on-save 't)
  '(elm-interactive-command "/usr/local/bin/elm-repl")
  '(elpy-modules
