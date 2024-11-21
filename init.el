@@ -287,9 +287,23 @@
  ((equal system-name "stevie.local")
   (require 'stevie))
 
+((equal system-name "zipfly.lan")
+  (require 'zipfly))
+
  (t
   (require 'generic)) )
 
 ;; Load my own keybindings (last to win) --------------------------------------
 
 (require 'custom-keybindings)
+
+;; Load final styles (last to win stylistically) ------------------------------
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(cursor ((t (:background "red"))))
+ '(highlight-current-line-face ((t (:background "gray35"))))
+ '(org-checkbox ((t (:foreground nil :inherit org-todo)))))
