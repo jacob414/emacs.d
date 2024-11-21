@@ -247,7 +247,7 @@
  '(nginx-indent-level 2)
  '(nodejs-repl-command "/usr/local/bin/node")
  '(package-selected-packages
-   '(osx-dictionary transient rg bnf-mode writeroom-mode lsp-mode flycheck-mypy flymake-mypy use-package elpy dismal csv csv-mode ox-md langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein swift-mode elixir-mode))
+   '(org2web alect-themes claude-shell olivetti ox-odt ox-hugo osx-dictionary transient rg bnf-mode writeroom-mode lsp-mode flycheck-mypy flymake-mypy use-package elpy dismal csv csv-mode ox-md langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein swift-mode elixir-mode))
  '(python-check-command '("/Users/jacob/opt/plus/py/bin/mypy"))
  '(python-shell-interpreter "/Users/jacob/opt/plus/py/bin/python")
  '(rst-level-face-base-light 38)
