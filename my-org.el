@@ -1,5 +1,8 @@
 ;; My org settings - split into own module for readability.
 
+(require 'org2web)
+
+
 ;; #+LaTeX_CLASS: beamer in org files
 (unless (boundp 'org-export-latex-classes)
   (setq org-export-latex-classes nil))
