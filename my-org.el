@@ -84,8 +84,6 @@
       (".*::\\(editme\\)\\'" . (find-file file))
       (auto-mode . emacs)))
 
-;; (setq org-src-fontify-natively t)
-
-
+(local-set-key (kbd "C-c C-c") 'org-latex-export-to-pdf)
 
 (provide 'my-org)
