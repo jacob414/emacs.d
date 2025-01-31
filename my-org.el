@@ -1,7 +1,40 @@
 ;; My org settings - split into own module for readability.
 
-(require 'org2web)
+(require 'ox-html)
 
+;; Set default publishing options
+(setq org-html-validation-link nil ;; Remove validation link
+      org-html-doctype "html5"
+      org-html-html5-fancy t
+      org-html-postamble nil ;; No footer
+      org-html-head-include-scripts nil ;; Don't include default scripts
+      org-html-head-include-default-style nil ;; Don't include default style
+      org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\" />")
+
+;; Define a function to publish your site
+(defun my-org-publish-site ()
+  "Publish the Org site and copy the style.css file."
+  (interactive)
+  (let ((org-publish-project-alist
+         '(("my-site"
+            :base-directory "~/src/mine/site"
+            :publishing-directory "~/src/tmp/site"
+            :recursive t
+            :publishing-function org-html-publish-to-html
+            :with-toc nil))))
+    ;; Publish the Org files
+    (org-publish-all t)
+
+    ;; Copy the style.css file to the publishing directory
+    (let* ((source-css-file
+            (expand-file-name "style.css" "~/src/mine/site"))
+           (destination-css-file
+            (expand-file-name "style.css" "~/src/tmp/site")))
+      (when (file-exists-p source-css-file)
+        (copy-file source-css-file destination-css-file t)))))
+
+;; Bind the function to a key combination if desired
+(global-set-key (kbd "C-c p") 'my-org-publish-site)
 
 ;; #+LaTeX_CLASS: beamer in org files
 (unless (boundp 'org-export-latex-classes)
@@ -85,5 +118,6 @@
       (auto-mode . emacs)))
 
 (local-set-key (kbd "C-c C-c") 'org-latex-export-to-pdf)
+(local-set-key (kbd "C-c C-g") 'my-org-publish-site)
 
 (provide 'my-org)
