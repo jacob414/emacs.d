@@ -21,6 +21,13 @@
 (setq auto-save-interval 0)
 (setq auto-save-timeout 0)
 
+;; Additional security settings
+(setq auth-source-save-behavior nil)  ; Don't save auth info automatically
+(setq password-cache-expiry 300)       ; Password cache expires after 5 minutes
+(setq epg-gpg-program "gpg2")         ; Use GPG2 if available
+(setq epa-file-encrypt-to nil)         ; Don't encrypt to default key
+(setq epa-file-select-keys nil)        ; Ask for keys when encrypting
+
 ;; Rectangle selections (via CUA)
 (when (fboundp 'cua-mode)
   (setq cua-enable-cua-keys nil)

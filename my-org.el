@@ -36,6 +36,36 @@
 ;; Bind the function to a key combination if desired
 (global-set-key (kbd "C-c p") 'my-org-publish-site)
 
+;; Deploy static site
+
+;; Define a function to publish your site and upload it using a shell script
+(defun my-org-publish-site ()
+  "Publish the Org site, copy the style.css file, and run the upload script."
+  (interactive)
+  ;; Publish the Org files
+  (let ((org-publish-project-alist
+         '(("my-site"
+            :base-directory "~/src/mine/site"
+            :publishing-directory "~/src/tmp/site"
+            :recursive t
+            :publishing-function org-html-publish-to-html
+            :with-toc nil))))
+    (org-publish-all t)
+
+    ;; Copy the style.css file to the publishing directory
+    (let* ((source-css-file
+            (expand-file-name "style.css" "~/src/mine/site"))
+           (destination-css-file
+            (expand-file-name "style.css" "~/src/tmp/site")))
+      (when (file-exists-p source-css-file)
+        (copy-file source-css-file destination-css-file t))))
+
+  ;; Run the upload script
+  (let ((upload-script "~/bin/414pub.sh"))
+    (if (file-executable-p upload-script)
+        (shell-command (concat "bash " upload-script))
+      (message "Upload script %s is not executable or does not exist." upload-script))))
+
 ;; #+LaTeX_CLASS: beamer in org files
 (unless (boundp 'org-export-latex-classes)
   (setq org-export-latex-classes nil))

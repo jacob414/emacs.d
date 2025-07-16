@@ -1,3 +1,36 @@
+;; Security settings for local variables --------------------------------------
+
+;; Control how Emacs handles local variables and eval statements
+(setq enable-local-variables :safe)  ; Only allow safe local variables
+(setq enable-local-eval nil)         ; Disable local eval by default
+
+;; Ask before processing risky local variables
+(setq enable-dir-local-variables t)  ; Enable directory-local variables
+(setq enable-remote-dir-locals nil)  ; Disable for remote files
+
+;; Define safe local variable predicates
+(put 'python-indent-offset 'safe-local-variable 'integerp)
+(put 'js-indent-level 'safe-local-variable 'integerp)
+(put 'web-mode-markup-indent-offset 'safe-local-variable 'integerp)
+(put 'web-mode-css-indent-offset 'safe-local-variable 'integerp)
+(put 'web-mode-code-indent-offset 'safe-local-variable 'integerp)
+(put 'tab-width 'safe-local-variable 'integerp)
+(put 'fill-column 'safe-local-variable 'integerp)
+(put 'indent-tabs-mode 'safe-local-variable 'booleanp)
+(put 'lexical-binding 'safe-local-variable 'booleanp)
+(put 'org-confirm-babel-evaluate 'safe-local-variable 'booleanp)
+(put 'coding 'safe-local-variable 'symbolp)
+(put 'encoding 'safe-local-variable 'symbolp)
+
+;; Safe mode predicates
+(defun safe-mode-p (mode)
+  "Check if MODE is a safe major mode."
+  (memq mode '(org-mode python-mode web-mode markdown-mode text-mode
+               emacs-lisp-mode lisp-mode scheme-mode js-mode
+               yaml-mode json-mode conf-mode)))
+
+(put 'mode 'safe-local-variable 'safe-mode-p)
+
 ;; Basic environment ----------------------------------------------------------
 
 (setq emacs-dir "~/src/mine/emacs.d")
@@ -46,6 +79,10 @@
 ;; Scheme settings ------------------------------------------------------------
 
 (require 'xscheme)
+
+;; rust-mode ------------------------------------------------------------
+
+(require 'rust-mode)
 
 ;; web-mode -------------------------------------------------------------------
 
@@ -249,11 +286,42 @@
  '(nginx-indent-level 2)
  '(nodejs-repl-command "/usr/local/bin/node")
  '(package-selected-packages
-   '(org2web alect-themes claude-shell olivetti ox-odt ox-hugo osx-dictionary transient rg bnf-mode writeroom-mode lsp-mode flycheck-mypy flymake-mypy use-package elpy dismal csv csv-mode ox-md langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein swift-mode elixir-mode))
+   '(rust-mode elfeed org-static-blog chatgpt-shell dash org2web alect-themes claude-shell olivetti ox-odt ox-hugo osx-dictionary transient rg bnf-mode writeroom-mode lsp-mode flycheck-mypy flymake-mypy use-package elpy dismal csv csv-mode ox-md langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein swift-mode elixir-mode))
  '(python-check-command '("/Users/jacob/opt/plus/py/bin/mypy"))
  '(python-shell-interpreter "/Users/jacob/opt/plus/py/bin/python")
  '(rst-level-face-base-light 38)
- '(safe-local-variable-values '((encoding . utf-8)))
+ '(safe-local-variable-values 
+   '((encoding . utf-8)
+     (indent-tabs-mode . t)
+     (indent-tabs-mode . nil)
+     (tab-width . 2)
+     (tab-width . 4)
+     (tab-width . 8)
+     (fill-column . 72)
+     (fill-column . 78)
+     (fill-column . 80)
+     (fill-column . 100)
+     (python-indent-offset . 2)
+     (python-indent-offset . 4)
+     (python-indent-offset . 8)
+     (js-indent-level . 2)
+     (js-indent-level . 4)
+     (web-mode-markup-indent-offset . 2)
+     (web-mode-markup-indent-offset . 4)
+     (web-mode-css-indent-offset . 2)
+     (web-mode-css-indent-offset . 4)
+     (web-mode-code-indent-offset . 2)
+     (web-mode-code-indent-offset . 4)
+     (org-confirm-babel-evaluate . nil)
+     (org-confirm-babel-evaluate . t)
+     (mode . org)
+     (mode . python-mode)
+     (mode . web-mode)
+     (mode . markdown-mode)
+     (lexical-binding . t)
+     (lexical-binding . nil)
+     (eval . (add-hook 'before-save-hook 'whitespace-cleanup nil t))
+     (eval . (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))))
  '(solarized-contrast 'normal)
  '(swift-mode:basic-offset 2)
  '(uniquify-buffer-name-style 'forward nil (uniquify))
