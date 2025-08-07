@@ -6,4 +6,5 @@ bookmarks
 .emacs.desktop
 site-lisp/elm-package.json
 site-lisp/elm-stuff
+site-lisp/stenkoll.el
 .DS_Store

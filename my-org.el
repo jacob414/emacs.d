@@ -150,4 +150,16 @@
 (local-set-key (kbd "C-c C-c") 'org-latex-export-to-pdf)
 (local-set-key (kbd "C-c C-g") 'my-org-publish-site)
 
+ ;; Stenkoll org-mode integration
+(with-eval-after-load 'org
+  ;; Load stenkoll integration
+  (require 'stenkoll)
+
+  ;; Optional: Add to org-mode hook for automatic setup
+  (add-hook 'org-mode-hook 'stenkoll-maybe-enable-edit-mode)
+
+  ;; Optional: Global keybinding for stenkoll commands
+  (global-set-key (kbd "C-c s e") 'stenkoll-edit-current-issue)
+  (global-set-key (kbd "C-c s l") 'stenkoll-list-issues))
+
 (provide 'my-org)
