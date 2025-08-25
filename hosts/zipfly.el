@@ -17,5 +17,33 @@
    :personal-duoshuo-shortname "your-duoshuo-shortname"
    :web-server-port 7654))
 
+(defun reload-stenkoll ()
+  "Reload stenkoll.el and clean up problematic hooks."
+  (interactive)
+  (message "Reloading stenkoll.el...")
+
+  ;; Remove problematic hook functions that might not exist anymore
+  (remove-hook 'org-mode-hook 'stenkoll-maybe-enable-edit-mode)
+
+  ;; Reload the file
+  (load-file (expand-file-name "~/src/mine/emacs.d/site-lisp/stenkoll.el"))
+
+  ;; Verify the function is loaded correctly
+  (let ((doc (documentation 'stenkoll-edit-issue-by-id)))
+    (if (string-match "direct buffer-based editing" doc)
+        (message "✓ stenkoll.el reloaded successfully - buffer-based version active")
+      (message "⚠ stenkoll.el reloaded but old version may still be active")))
+
+  ;; Show current hook status
+  (message "org-mode-hook functions: %s"
+           (mapcar (lambda (f)
+                     (if (symbolp f)
+                         (symbol-name f)
+                         "anonymous-function"))
+                   org-mode-hook)))
+
+;; Call it immediately
+(reload-stenkoll)
+
 
 (provide 'zipfly)
