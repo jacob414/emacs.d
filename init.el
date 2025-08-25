@@ -110,11 +110,6 @@
 (setq auto-mode-alist
       (append '(("\\.json$" . web-mode)) auto-mode-alist))
 
-;; elm-mode settings  ---------------------------------------------------------
-
-
-(require 'elm-mode)
-
 ;; elixir-mode settings  ------------------------------------------------------
 
 (unless (package-installed-p 'elixir-mode)
