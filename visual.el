@@ -1,16 +1,12 @@
 (defun my-zenburn ()
-   "Apply Zenburn with my settings."
-   (interactive)
-   (add-to-list 'custom-theme-load-path
-                (concat emacs-dir "/site-lisp/zenburn"))
-   (require 'zenburn-theme)
-   (load-theme 'zenburn t)
-   (custom-set-faces
-    '(cursor ((t (:background "red") )) )
-    '(highlight-current-line-face ((t (:background "gray35"))))
-    '(org-checkbox ((t (:foreground nil :inherit org-todo))))
-    )
-)
+  "Apply Zenburn with my settings. Uses MELPA zenburn-theme if available."
+  (interactive)
+  (when (require 'zenburn-theme nil 'noerror)
+    (load-theme 'zenburn t)
+    (custom-set-faces
+     '(cursor ((t (:background "red"))))
+     '(highlight-current-line-face ((t (:background "gray35"))))
+     '(org-checkbox ((t (:foreground nil :inherit org-todo)))))))
 
 (defun my-solarized ()
   "Apply Solarized light with my settings."
@@ -35,7 +31,6 @@
   (add-to-list 'custom-theme-load-path (concat emacs-dir "/site-lisp/solarized"))
   (my-solarized) )
 
-;; If modern, we'd like our color theme early.
-(my-zenburn)
+;; Theme is now applied from init during startup after packages are available.
 
 (provide 'visual)

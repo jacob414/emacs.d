@@ -115,6 +115,9 @@
 ;; Run install after startup; comment this out if you prefer manual control
 (add-hook 'emacs-startup-hook #'my/install-missing-packages)
 
+;; Apply theme after packages have been installed
+(add-hook 'emacs-startup-hook #'my-zenburn)
+
 ;; ripgrep
 (autoload 'rg "rg" nil t)
 (autoload 'rg-project "rg" nil t)
