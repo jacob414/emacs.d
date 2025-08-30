@@ -1,9 +1,6 @@
 [submodule "site-lisp/dash-at-point"]
 	path = site-lisp/dash-at-point
 	url = https://github.com/Kapeli/dash-at-point.git
-[submodule "site-lisp/solarized"]
-	path = site-lisp/solarized
-	url = https://github.com/sellout/emacs-color-theme-solarized.git
 [submodule "site-lisp/coffee-mode"]
 	path = site-lisp/coffee-mode
 	url = https://github.com/defunkt/coffee-mode.git
