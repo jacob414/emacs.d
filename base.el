@@ -21,6 +21,10 @@
 (setq auto-save-interval 0)
 (setq auto-save-timeout 0)
 
+;; Disable backups and lockfiles
+(setq make-backup-files nil)   ;; no file~ backups
+(setq create-lockfiles nil)    ;; no .#lock files
+
 ;; Additional security settings
 (setq auth-source-save-behavior nil)  ; Don't save auth info automatically
 (setq password-cache-expiry 300)       ; Password cache expires after 5 minutes
