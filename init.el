@@ -90,6 +90,31 @@
 (global-set-key (kbd "C-x g") #'magit-status)
 (global-set-key (kbd "C-x ?") #'magit-diff-buffer-file)
 
+;; Install remaining external packages (runs once; may block to download)
+(defvar my/packages-to-install
+  '(nginx-mode nix-mode php-mode applescript-mode csharp-mode
+    haml-mode sass-mode scss-mode typopunct xml-rpc edit-server
+    dropdown-list coffee-mode ws-trim rst po-mode)
+  "Packages to migrate from site-lisp to ELPA/MELPA.")
+
+(defun my/install-missing-packages ()
+  "Refresh package archives and install any missing packages from list."
+  (require 'package)
+  (unless (bound-and-true-p package--initialized)
+    (package-initialize))
+  (let ((missing nil))
+    (dolist (p my/packages-to-install)
+      (unless (package-installed-p p)
+        (push p missing)))
+    (when missing
+      (message "Installing packages: %s" (nreverse missing))
+      (ignore-errors (package-refresh-contents))
+      (dolist (p (nreverse missing))
+        (ignore-errors (package-install p))))))
+
+;; Run install after startup; comment this out if you prefer manual control
+(add-hook 'emacs-startup-hook #'my/install-missing-packages)
+
 ;; ripgrep
 (autoload 'rg "rg" nil t)
 (autoload 'rg-project "rg" nil t)
