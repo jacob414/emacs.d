@@ -1,12 +1,24 @@
+;;; Package setup: GNU + MELPA only
 (require 'package)
-(setq package-user-dir (concat "~/src/mine/elpa.d"))
-(dolist
-    (setq source '(("melpa" . "https://elpa.zilongshanren.com/melpa/")
-                   ("marmalade" . "http://marmalade-repo.org/packages/")
-                   ("elpa" . "http://tromey.com/elpa/") ) )
-  (add-to-list 'package-archives source t)
-  )
-(package-initialize)
+
+;; Where packages get installed
+(setq package-user-dir (expand-file-name "~/src/mine/elpa.d/"))
+(make-directory package-user-dir t)
+
+;; Archives (prefer GNU first, keep MELPA second)
+(setq package-archives
+      '(("gnu"   . "https://elpa.gnu.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")))
+(setq package-archive-priorities '(("gnu" . 10) ("melpa" . 5)))
+
+;; Initialize package.el (Emacs 27+ usually does this earlier; guard just in case)
+(unless (bound-and-true-p package--initialized)
+  (package-initialize))
+
+;; First-time setup: populate archive contents if empty
+(unless package-archive-contents
+  (package-refresh-contents))
+
 (dolist
   (message "Refresh packages..")
   (package-refresh-contents)
@@ -71,8 +83,7 @@
   (package-install 'writeroom-mode)
   (package-install 'rg)
   ;; Advanced testing and development packages for Stenkoll
-  (message "eldev (Emacs Lisp development tool)")
-  (package-install 'eldev)
+  ;; Note: eldev is a CLI tool, install via: brew install eldev
   (message "buttercup (BDD testing framework)")
   (package-install 'buttercup)
   (message "el-mock (advanced mocking)")

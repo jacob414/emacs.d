@@ -240,7 +240,8 @@
 
   (my-yasnippet)
 
-  (require 'osx-dictionary)
+  ;; Optional macOS dictionary integration if available
+  (require 'osx-dictionary nil 'noerror)
   )
 
 (defun my-longlines ()
