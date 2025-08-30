@@ -155,11 +155,11 @@
   ;; Load stenkoll integration
   (require 'stenkoll)
 
-  ;; Optional: Add to org-mode hook for automatic setup
-  (add-hook 'org-mode-hook 'stenkoll-maybe-enable-edit-mode)
+  ;; The stenkoll integration now loads automatically - no hook needed
+  ;; The new implementation uses defensive loading that won't break org-mode
 
   ;; Optional: Global keybinding for stenkoll commands
-  (global-set-key (kbd "C-c s e") 'stenkoll-edit-current-issue)
+  (global-set-key (kbd "C-c s e") 'stenkoll-edit-issue-at-point)
   (global-set-key (kbd "C-c s l") 'stenkoll-list-issues))
 
 (provide 'my-org)
