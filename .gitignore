@@ -4,6 +4,16 @@
 tramp
 bookmarks
 .emacs.desktop
+custom.el
+/elpa/
+/eln-cache/
+/var/
+/transient/
+/url/
+recentf
+savehist
+package-quickstart.el
+package-quickstart.elc
 site-lisp/elm-package.json
 site-lisp/elm-stuff
 site-lisp/stenkoll.el
