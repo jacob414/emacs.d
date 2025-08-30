@@ -70,6 +70,17 @@
   (package-install 'lsp-mode)
   (package-install 'writeroom-mode)
   (package-install 'rg)
+  ;; Advanced testing and development packages for Stenkoll
+  (message "eldev (Emacs Lisp development tool)")
+  (package-install 'eldev)
+  (message "buttercup (BDD testing framework)")
+  (package-install 'buttercup)
+  (message "el-mock (advanced mocking)")
+  (package-install 'el-mock)
+  (message "undercover (test coverage)")
+  (package-install 'undercover)
+  (message "package-lint (package validation)")
+  (package-install 'package-lint)
   )
 
 

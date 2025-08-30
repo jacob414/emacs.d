@@ -263,13 +263,18 @@
  '(company-idle-delay 0.05)
  '(css-indent-offset 2)
  '(custom-safe-themes
-   '("a0feb1322de9e26a4d209d1cfa236deaf64662bb604fa513cca6a057ddf0ef64" default))
+   '("a0feb1322de9e26a4d209d1cfa236deaf64662bb604fa513cca6a057ddf0ef64"
+     default))
  '(desktop-path '("~/src/tmp/emacs-desktop"))
  '(elm-format-command "/usr/local/bin/elm-format")
  '(elm-format-on-save 't)
  '(elm-interactive-command "/usr/local/bin/elm-repl")
  '(elpy-modules
-   '(elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults))
+   '(elpy-module-company elpy-module-eldoc elpy-module-flymake
+                         elpy-module-pyvenv
+                         elpy-module-highlight-indentation
+                         elpy-module-yasnippet
+                         elpy-module-sane-defaults))
  '(elpy-rpc-python-command "/Users/jacob/opt/plus/py/bin/python")
  '(elpy-rpc-virtualenv-path "/Users/jacob/opt/plus/py/bin/python")
  '(elpy-syntax-check-command "~/opt/plus/py/bin/mypy")
@@ -281,42 +286,36 @@
  '(nginx-indent-level 2)
  '(nodejs-repl-command "/usr/local/bin/node")
  '(package-selected-packages
-   '(rust-mode elfeed org-static-blog chatgpt-shell dash org2web alect-themes claude-shell olivetti ox-odt ox-hugo osx-dictionary transient rg bnf-mode writeroom-mode lsp-mode flycheck-mypy flymake-mypy use-package elpy dismal csv csv-mode ox-md langtool writegood-mode expand-region flymake-cursor pymacs drag-stuff highlight-current-line bookmark+ applescript-mode ein-loaddefs "ein" ein swift-mode elixir-mode))
+   '(alect-themes applescript-mode bnf-mode bookmark+ buttercup
+                  chatgpt-shell claude-shell csv csv-mode dash dismal
+                  drag-stuff "ein" ein ein-loaddefs el-mock eldev
+                  elfeed elixir-mode elpy expand-region flycheck-mypy
+                  flymake-cursor flymake-mypy highlight-current-line
+                  langtool lsp-mode olivetti org-static-blog org2web
+                  osx-dictionary ox-hugo ox-md ox-odt package-lint
+                  pymacs rg rust-mode swift-mode transient undercover
+                  use-package writegood-mode writeroom-mode))
  '(python-check-command '("/Users/jacob/opt/plus/py/bin/mypy"))
  '(python-shell-interpreter "/Users/jacob/opt/plus/py/bin/python")
  '(rst-level-face-base-light 38)
- '(safe-local-variable-values 
-   '((encoding . utf-8)
-     (indent-tabs-mode . t)
-     (indent-tabs-mode . nil)
-     (tab-width . 2)
-     (tab-width . 4)
-     (tab-width . 8)
-     (fill-column . 72)
-     (fill-column . 78)
-     (fill-column . 80)
-     (fill-column . 100)
-     (python-indent-offset . 2)
-     (python-indent-offset . 4)
-     (python-indent-offset . 8)
-     (js-indent-level . 2)
-     (js-indent-level . 4)
+ '(safe-local-variable-values
+   '((encoding . utf-8) (indent-tabs-mode . t) (indent-tabs-mode)
+     (tab-width . 2) (tab-width . 4) (tab-width . 8)
+     (fill-column . 72) (fill-column . 78) (fill-column . 80)
+     (fill-column . 100) (python-indent-offset . 2)
+     (python-indent-offset . 4) (python-indent-offset . 8)
+     (js-indent-level . 2) (js-indent-level . 4)
      (web-mode-markup-indent-offset . 2)
      (web-mode-markup-indent-offset . 4)
-     (web-mode-css-indent-offset . 2)
-     (web-mode-css-indent-offset . 4)
+     (web-mode-css-indent-offset . 2) (web-mode-css-indent-offset . 4)
      (web-mode-code-indent-offset . 2)
-     (web-mode-code-indent-offset . 4)
-     (org-confirm-babel-evaluate . nil)
-     (org-confirm-babel-evaluate . t)
-     (mode . org)
-     (mode . python-mode)
-     (mode . web-mode)
-     (mode . markdown-mode)
-     (lexical-binding . t)
-     (lexical-binding . nil)
-     (eval . (add-hook 'before-save-hook 'whitespace-cleanup nil t))
-     (eval . (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))))
+     (web-mode-code-indent-offset . 4) (org-confirm-babel-evaluate)
+     (org-confirm-babel-evaluate . t) (mode . org)
+     (mode . python-mode) (mode . web-mode) (mode . markdown-mode)
+     (lexical-binding . t) (lexical-binding)
+     (eval add-hook 'before-save-hook 'whitespace-cleanup nil t)
+     (eval add-hook 'before-save-hook 'delete-trailing-whitespace nil
+           t)))
  '(solarized-contrast 'normal)
  '(swift-mode:basic-offset 2)
  '(uniquify-buffer-name-style 'forward nil (uniquify))
