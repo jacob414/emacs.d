@@ -82,6 +82,8 @@
   (package-install 'lsp-mode)
   (package-install 'writeroom-mode)
   (package-install 'rg)
+  (package-install 'persistent-overlays)
+
   ;; Advanced testing and development packages for Stenkoll
   ;; Note: eldev is a CLI tool, install via: brew install eldev
   (message "buttercup (BDD testing framework)")
@@ -92,6 +94,8 @@
   (package-install 'undercover)
   (message "package-lint (package validation)")
   (package-install 'package-lint)
+  (message "denote note-taking with org-mode package")
+  (package-install 'denote)
   )
 
 

@@ -76,6 +76,8 @@
   (flycheck-compile 'python-mypy)
   )
 
+(load-library "persistent-overlays")
+
 (add-hook 'python-mode-hook
           '(lambda ()
              (interactive)
