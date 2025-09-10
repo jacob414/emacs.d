@@ -130,4 +130,20 @@
 (require 'ein)
 ;; (require 'ein-subpackages)
 
+
+;; RST settings ------------------------------------------------------------
+
+(with-eval-after-load 'rst
+  (defun my/rst-clear-heading-background ()
+    "Remove bright backgrounds from rst headings/adornments in this buffer."
+    (dolist (face (face-list))
+      (let ((n (symbol-name face)))
+        (when (and (string-prefix-p "rst-" n)
+                   (string-match-p "\\(level\\|header\\|title\\|adorn\\)" n))
+          ;; buffer-local remap (doesn't clobber the theme globally)
+          (face-remap-add-relative face '(:background unspecified))))))
+
+  (add-hook 'rst-mode-hook #'my/rst-clear-heading-background))
+
+
 (provide 'my-python)
