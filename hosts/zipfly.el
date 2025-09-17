@@ -1,5 +1,3 @@
-(setq elpy-rpc-python-command "~/opt/plus/conda-plus/bin/python")
-
 (setq langtool-bin "/opt/homebrew/bin/languagetool")
 
 (org2web-add-project

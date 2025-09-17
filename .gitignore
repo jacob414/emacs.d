@@ -19,3 +19,5 @@ site-lisp/elm-stuff
 site-lisp/stenkoll.el
 site-lisp/stenkoll-dashboard.el
 .DS_Store
+.lock
+*.eld

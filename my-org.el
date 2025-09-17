@@ -66,6 +66,14 @@
         (shell-command (concat "bash " upload-script))
       (message "Upload script %s is not executable or does not exist." upload-script))))
 
+(defun my-org-literal ()
+  "Makes current selection an org-mode literal."
+  (interactive)
+  (unless (use-region-p)
+    (user-error "No active region: select text to wrap"))
+  (org-emphasize ?=)
+)
+
 ;; #+LaTeX_CLASS: beamer in org files
 (unless (boundp 'org-export-latex-classes)
   (setq org-export-latex-classes nil))
@@ -157,6 +165,13 @@
 
   ;; The stenkoll integration now loads automatically - no hook needed
   ;; The new implementation uses defensive loading that won't break org-mode
+
+  (define-key org-mode-map (kbd "C-c C-p") #'my-org-prompt)
+  (define-key org-mode-map (kbd "C-c C-+") #'my-org-literal)
+
+
+  (require 'org-side-tree)
+  (require 'org-beautify-theme)
 
   ;; Optional: Global keybinding for stenkoll commands
   (global-set-key (kbd "C-c s e") 'stenkoll-edit-issue-at-point)
