@@ -21,3 +21,4 @@ site-lisp/stenkoll-dashboard.el
 .DS_Store
 .lock
 *.eld
+.emacs.desktop.lock
