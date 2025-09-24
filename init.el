@@ -252,3 +252,4 @@
  '(cursor ((t (:background "red"))))
  '(highlight-current-line-face ((t (:background "gray35"))))
  '(org-checkbox ((t (:foreground nil :inherit org-todo)))))
+(put 'set-goal-column 'disabled nil)
