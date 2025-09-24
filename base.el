@@ -5,6 +5,7 @@
 (when (fboundp 'set-fringe-mode) (set-fringe-mode 0))
 
 (column-number-mode t)
+(global-display-line-numbers-mode t)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (setq confirm-nonexistent-file-or-buffer nil)
