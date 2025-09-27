@@ -128,8 +128,9 @@
 (autoload 'mc/mark-previous-like-this "multiple-cursors" nil t)
 (autoload 'mc/mark-next-like-this "multiple-cursors" nil t)
 (global-set-key (kbd "M-<SPC>") #'mc/edit-lines)
-(global-set-key (kbd "M-p") #'mc/mark-previous-like-this)
-(global-set-key (kbd "M-n") #'mc/mark-next-like-this)
+
+(global-set-key (kbd "M-p") #'backward-paragraph)
+(global-set-key (kbd "M-n") #'forward-paragraph)
 
 ;; Paredit (manual enable in Lisp modes)
 (with-eval-after-load 'paredit
