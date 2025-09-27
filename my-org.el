@@ -132,7 +132,7 @@
 ;; http://orgmode.org/manual/Conflicts.html
 (add-hook 'org-mode-hook
           (lambda ()
-            (setq fill-column 90)
+            (setq fill-column 85)
             (turn-on-auto-fill)
             (local-set-key (kbd "M-<up>") 'windmove-up)
             (local-set-key (kbd "M-<left>") 'windmove-left)
