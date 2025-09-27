@@ -206,7 +206,6 @@
   (add-to-list 'load-path (concat sys-pkg-base "/haskell-mode"))
   (add-to-list 'load-path (concat sys-pkg-base "/rainbow-delimiters"))
   (add-to-list 'load-path (concat sys-pkg-base "/w3"))
-  (add-to-list 'load-path (concat sys-pkg-base "/multiple-cursors"))
   )
 
 (defun osx-support ()
