@@ -1,4 +1,4 @@
-;;; early-init.el — minimal, fast, and tidy startup
+;;; early-init.el — minimal, fast, and tidy startup -*- lexical-binding: t -*-
 
 ;; Speed up startup by delaying GC; restore after init
 (let ((normal-gc-cons-threshold gc-cons-threshold)

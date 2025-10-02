@@ -72,23 +72,29 @@
     (global-ws-trim-mode 1)))
 
 ;; Lightweight autoloads + keybindings to avoid eager requires
-;; Magit (first-use installation prompt; M-x magit-status works)
-(defun magit-status ()
+;; Magit (autoload with installation prompt)
+(autoload 'magit-status "magit" nil t)
+(autoload 'magit-diff-buffer-file "magit" nil t)
+
+(defun my/magit-status ()
   (interactive)
   (unless (featurep 'magit)
-    (unless (my/require-or-install 'magit 'magit)
-      (user-error "Magit unavailable")))
-  (call-interactively 'magit-status))
+    (my/require-or-install 'magit 'magit))
+  (magit-status))
 
-(defun magit-diff-buffer-file ()
+(defun my/magit-diff-buffer-file ()
   (interactive)
   (unless (featurep 'magit)
-    (unless (my/require-or-install 'magit 'magit)
-      (user-error "Magit unavailable")))
-  (call-interactively 'magit-diff-buffer-file))
+    (my/require-or-install 'magit 'magit))
+  (magit-diff-buffer-file))
 
-(global-set-key (kbd "C-x g") #'magit-status)
-(global-set-key (kbd "C-x ?") #'magit-diff-buffer-file)
+(global-set-key (kbd "C-x g") #'my/magit-status)
+(global-set-key (kbd "C-x ?") #'my/magit-diff-buffer-file)
+
+;; Temporarily disable Magit extras while troubleshooting
+;; (with-eval-after-load 'magit
+;;   ...
+;; )
 
 ;; Install remaining external packages (runs once; may block to download)
 (defvar my/packages-to-install
@@ -220,7 +226,8 @@
 (defun my/load-host (name feature)
   (let* ((file (expand-file-name (concat name ".el") (concat emacs-dir "/hosts"))))
     (when (file-exists-p file)
-      (require feature))))
+      (require feature)
+      (message "Loaded host config: %s (system-name: %s)" name system-name))))
 
 (cond
  ((string-prefix-p "superfly" system-name) (my/load-host "superfly" 'superfly))
@@ -230,7 +237,9 @@
  ((string-prefix-p "sugarline" system-name)(my/load-host "sugarline" 'sugarline))
  ((string-prefix-p "skrotnisse" system-name)(my/load-host "skrotnisse" 'skrotnisse))
  ((string= system-name "stevie.local")     (my/load-host "stevie" 'stevie))
- ((string= system-name "zipfly.lan")       (my/load-host "zipfly" 'zipfly))
+ ;; Load zipfly for both "zipfly" and "zipfly.*" hostnames
+ ((or (string-prefix-p "zipfly" system-name)
+      (string= system-name "zipfly.lan"))   (my/load-host "zipfly" 'zipfly))
  (t (my/load-host "generic" 'generic)))
 
 ;; Final keybindings (your custom keymap module)

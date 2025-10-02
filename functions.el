@@ -202,7 +202,6 @@
   "Docstring for pkg-paths."
   (interactive)
   (add-to-list 'load-path (concat sys-pkg-base "/yasnippet"))
-  (add-to-list 'load-path (concat sys-pkg-base "/magit"))
   (add-to-list 'load-path (concat sys-pkg-base "/haskell-mode"))
   (add-to-list 'load-path (concat sys-pkg-base "/rainbow-delimiters"))
   (add-to-list 'load-path (concat sys-pkg-base "/w3"))
