@@ -178,7 +178,16 @@
 
 ;; Desktop sessions (guarded)
 (when (require 'desktop nil 'noerror)
-  (desktop-save-mode 1))
+  (desktop-save-mode 1)
+  ;; If a previous broken session saved buffers as `fundamental-mode',
+  ;; try to re-detect modes from filenames after reading the desktop.
+  (defun my/reapply-major-modes-if-fundamental ()
+    (dolist (buf (buffer-list))
+      (with-current-buffer buf
+        (when (and buffer-file-name (eq major-mode 'fundamental-mode))
+          (ignore-errors (normal-mode t))))))
+  (add-hook 'desktop-after-read-hook #'my/reapply-major-modes-if-fundamental)
+  (add-hook 'after-init-hook #'my/reapply-major-modes-if-fundamental))
 
 ;; Host-specific last-word overrides, guarded
 (defun my/load-host (name feature)
