@@ -132,8 +132,9 @@
 ;; http://orgmode.org/manual/Conflicts.html
 (add-hook 'org-mode-hook
           (lambda ()
-            (setq fill-column 85)
-            (turn-on-auto-fill)
+            ;; Ensure M-q uses Org's filler; global fill-column is set elsewhere
+            (when (fboundp 'org-fill-paragraph)
+              (setq-local fill-paragraph-function #'org-fill-paragraph))
             (local-set-key (kbd "M-<up>") 'windmove-up)
             (local-set-key (kbd "M-<left>") 'windmove-left)
             (local-set-key (kbd "M-<right>") 'windmove-right)
