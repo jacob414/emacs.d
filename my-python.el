@@ -1,5 +1,11 @@
 ;; Python settings ------------------------------------------------------------
 
+;; Indentation: prefer 4 spaces, and disable noisy guessing
+(setq-default python-indent-offset 4)
+(setq python-indent-offset 4)
+(setq python-indent-guess-indent-offset nil)
+(setq python-indent-guess-indent-offset-verbose nil)
+
 ;; Default virtualenv configuration
 (setq my/default-venv (expand-file-name "~/opt/plus/def-venv"))
 (setq my/current-venv my/default-venv)
@@ -129,6 +135,10 @@
 (add-hook 'python-mode-hook
           '(lambda ()
              (interactive)
+             ;; Ensure 4-space indentation consistently in this buffer
+             (setq-local python-indent-offset 4)
+             (when (boundp 'py-indent-offset)
+               (setq-local py-indent-offset 4))
              (setenv "MYPYPATH"
                      (concat
                       (expand-file-name "~/src/mine/skunkworks/python/stubs")

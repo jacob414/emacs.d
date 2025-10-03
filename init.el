@@ -4,8 +4,7 @@
       enable-dir-local-variables t
       enable-remote-dir-locals nil)
 
-(dolist (pair '((python-indent-offset . integerp)
-                (js-indent-level . integerp)
+(dolist (pair '((js-indent-level . integerp)
                 (web-mode-markup-indent-offset . integerp)
                 (web-mode-css-indent-offset . integerp)
                 (web-mode-code-indent-offset . integerp)
