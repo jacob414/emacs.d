@@ -26,4 +26,23 @@
 
 ;; Theme is now applied from init during startup after packages are available.
 
+;; Shrink the font size used in the line-number gutter
+(defvar my/line-number-scale 0.80
+  "Scale factor applied to both line-number faces relative to `default'.")
+
+(defun my/set-line-number-faces ()
+  (let* ((base (face-attribute 'default :height nil 'default))
+         (scale (if (numberp my/line-number-scale) my/line-number-scale 1.0))
+         (h (if (integerp base)
+                (max 1 (truncate (* base scale)))
+              100)))
+    (when (facep 'line-number)
+      (set-face-attribute 'line-number nil :height h))
+    (when (facep 'line-number-current-line)
+      ;; Ensure current line uses the exact same height
+      (set-face-attribute 'line-number-current-line nil :height h))))
+
+(column-number-mode t)
+(global-display-line-numbers-mode t)
+
 (provide 'visual)

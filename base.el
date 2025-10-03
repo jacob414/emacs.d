@@ -4,8 +4,6 @@
 
 (when (fboundp 'set-fringe-mode) (set-fringe-mode 0))
 
-(column-number-mode t)
-(global-display-line-numbers-mode t)
 ;; Global wrapping width across modes
 (setq-default fill-column 83)
 ;; Keep the line number gutter compact; allow growth only when needed
@@ -14,13 +12,6 @@
   (setq display-line-numbers-width-start 3))
 ;; Let Emacs grow/shrink the gutter as needed; set to t to avoid shrink
 (setq display-line-numbers-grow-only nil)
-
-;; Shrink the font size used in the line-number gutter
-(defun my/set-line-number-faces ()
-  (when (facep 'line-number)
-    (set-face-attribute 'line-number nil :height 0.80))
-  (when (facep 'line-number-current-line)
-    (set-face-attribute 'line-number-current-line nil :height 0.80)))
 
 ;; Apply now and re-apply after themes change
 (add-hook 'after-init-hook #'my/set-line-number-faces)
