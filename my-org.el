@@ -143,7 +143,18 @@
             (local-set-key (kbd "C-,") 'scroll-up-one-line)
             (local-set-key (kbd "C-j") 'my-greedy-joinlines)
             (local-set-key (kbd "C-x C-e") 'langtool-correct-buffer)
-            (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)
+            ;; Restrict YAS tab binding to active snippets only.
+            ;; Use `yas-keymap` (snippet overlay map), not the global
+            ;; `yas-minor-mode-map`, to avoid hijacking TAB in other modes
+            ;; like Magit.
+            (when (boundp 'yas-keymap)
+              (let ((fn (cond ((fboundp 'yas-next-field-or-maybe-expand)
+                               #'yas-next-field-or-maybe-expand)
+                              ((fboundp 'yas-maybe-expand)
+                               #'yas-maybe-expand)
+                              (t nil))))
+                (when fn
+                  (define-key yas-keymap [tab] fn))))
             (setcar (nthcdr 4 org-emphasis-regexp-components) 4)
             ))
 
