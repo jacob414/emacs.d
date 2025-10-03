@@ -6,6 +6,47 @@
 
 (column-number-mode t)
 (global-display-line-numbers-mode t)
+;; Global wrapping width across modes
+(setq-default fill-column 83)
+;; Keep the line number gutter compact; allow growth only when needed
+(setq-default display-line-numbers-width 3)
+(when (boundp 'display-line-numbers-width-start)
+  (setq display-line-numbers-width-start 3))
+;; Let Emacs grow/shrink the gutter as needed; set to t to avoid shrink
+(setq display-line-numbers-grow-only nil)
+
+;; Shrink the font size used in the line-number gutter
+(defun my/set-line-number-faces ()
+  (when (facep 'line-number)
+    (set-face-attribute 'line-number nil :height 0.80))
+  (when (facep 'line-number-current-line)
+    (set-face-attribute 'line-number-current-line nil :height 0.80)))
+
+;; Apply now and re-apply after themes change
+(add-hook 'after-init-hook #'my/set-line-number-faces)
+(when (fboundp 'advice-add)
+  (advice-add 'load-theme :after (lambda (&rest _) (my/set-line-number-faces))))
+
+;; Reduce horizontal padding inside the line-number gutter by using
+;; fractional-width spaces on both sides of the digits. Target ~4px
+;; on each side (tweakable via `my/line-number-side-padding-px').
+(defvar my/line-number-side-padding-px 2
+  "Approximate pixel padding to apply on each side of line numbers.")
+
+(defun my/line-number--pad-columns ()
+  "Compute padding in columns to approximate `my/line-number-side-padding-px'."
+  (let* ((cw (float (frame-char-width)))
+         (px (float my/line-number-side-padding-px)))
+    (max 0.0 (/ px cw))))
+
+(defun my/display-line-number-format (line &rest _)
+  "Custom display-line-number formatter with reduced side padding.
+LINE is the absolute line number; ignore other args if Emacs passes them."
+  (let* ((pad (my/line-number--pad-columns))
+         (ls (propertize " " 'display `(space :width ,pad)))
+         (rs (propertize " " 'display `(space :width ,pad))))
+    (concat ls (format "%d" line) rs)))
+(setq display-line-numbers-format #'my/display-line-number-format)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (setq confirm-nonexistent-file-or-buffer nil)
@@ -45,6 +86,16 @@
 
 ;; y/n keypresses instead of spelled out 'yes'/'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Enable auto-fill everywhere by default
+;; Avoid `define-globalized-minor-mode` with `auto-fill-mode` (not a
+;; modern minor mode variable); set the default function instead.
+(setq-default auto-fill-function 'do-auto-fill)
+;; Defensively re-enable after major mode changes
+(add-hook 'after-change-major-mode-hook
+          (lambda ()
+            (unless (minibufferp)
+              (auto-fill-mode 1))))
 
 ;; yasnippet
 (defun my-yasnippet ()
