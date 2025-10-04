@@ -81,7 +81,7 @@
 ;; (add-hook 'emacs-startup-hook #'my/install-missing-packages)
 
 ;; Apply theme after packages have been installed
-;; (add-hook 'emacs-startup-hook #'my-zenburn)
+(add-hook 'emacs-startup-hook #'my-zenburn)
 
 ;; ripgrep
 (autoload 'rg "rg" nil t)
