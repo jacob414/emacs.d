@@ -21,4 +21,9 @@
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
 
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(setq recentf-max-saved-items 25)
+
+
 (provide 'here-env)
