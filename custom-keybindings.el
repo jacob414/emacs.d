@@ -41,4 +41,8 @@
 ;; Evaluate expression
 (global-set-key (kbd "M-E") 'eval-expression)
 
+;; Bind recentf-open-files to C-x r
+
+(global-set-key (kbd "C-x C-r") 'recentf-open-files)
+
 (provide 'custom-keybindings)
