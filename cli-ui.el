@@ -11,8 +11,8 @@
 
 (menu-bar-mode -1)
 
-(require 'linum)
-(global-linum-mode t)
-(setq linum-format "%d ")
+(require 'base)         ;; UI basics, yasnippet setup helper
+(require 'functions)    ;; utility functions (incl. osx-support)
+(require 'visual)       ;; theme bootstrap
 
 (require 'custom-keybindings)
