@@ -185,12 +185,9 @@
 (defun my-muggle-text-mode ()
   "Docstring for my-muggle-text-mode."
   (interactive)
-  (visual-line-mode 1)
   (auto-fill-mode 0)
   (ws-trim-mode 0)
-  (writegood-mode 1)
   (local-set-key (kbd "C-x L") 'langtool-check)
-  (linum-mode)  ;; linum not helpful here
   (set-window-margins nil 4 4) ;; widen margins
   )
 
