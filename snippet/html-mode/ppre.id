@@ -1,5 +1,5 @@
 #contributor : Jimmy Wu <frozenthrone88@gmail.com>
-#name : <pre>...</pre>
+#name : <pre id="...">...</pre>
 # --
 <pre id="$0">
   $1
