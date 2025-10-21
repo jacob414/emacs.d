@@ -1,0 +1,8 @@
+# key: sshell
+# name: shell source block
+# --
+#+BEGIN_SRC shell
+  $1
+  # [...]
+#+END_SRC
+
