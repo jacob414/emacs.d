@@ -337,4 +337,33 @@
            ((scan-error) nil))))
     (apply #'insert (nreverse closing))))
 
+;; macOS specifics (run after init so package features are available)
+(when (eq system-type 'darwin)
+  (add-hook 'after-init-hook
+            (lambda ()
+              (when (fboundp 'osx-support)
+                (osx-support)))))
+
+;; Whitespace trim (guarded)
+(when (require 'ws-trim nil 'noerror)
+  (setq-default ws-trim-level 1)
+  (when (fboundp 'global-ws-trim-mode)
+    (global-ws-trim-mode 1)))
+
+;; Lightweight autoloads + keybindings to avoid eager requires
+;; Magit (autoload with installation prompt)
+(autoload 'magit-status "magit" nil t)
+(autoload 'magit-diff-buffer-file "magit" nil t)
+
+(defun my/magit-status ()
+  (interactive)
+  (unless (featurep 'magit)
+    (my/require-or-install 'magit 'magit))
+  (magit-status))
+
+(defun my/magit-diff-buffer-file ()
+  (interactive)
+  (unless (featurep 'magit)
+    (my/require-or-install 'magit 'magit))
+  (magit-diff-buffer-file))
 (provide 'functions)
