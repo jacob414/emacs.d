@@ -36,6 +36,59 @@
 ;; Bind the function to a key combination if desired
 (global-set-key (kbd "C-c p") 'my-org-publish-site)
 
+(defun org-shell-region (beg end)
+  "Wrap the current region with org-mode shell source block markers.
+The region between BEG and END will be surrounded by #+BEGIN_SRC shell
+and #+END_SRC markers."
+  (interactive "r")
+  (save-excursion
+    ;; Add end marker after the region
+    (goto-char end)
+    (end-of-line)
+    ;; Only insert newline if we're not already at one
+    (unless (or (eobp) (looking-at "\n"))
+      (insert "\n"))
+    (insert "#+END_SRC")
+    ;; Add begin marker before the region
+    (goto-char beg)
+    (beginning-of-line)
+    (insert "#+BEGIN_SRC shell\n")))
+
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-c #") 'org-shell-region))
+
+(defun org-mark-region-asterisks ()
+  "Wrap the current region with asterisks."
+  (interactive)
+  (let ((region-start (region-beginning))
+        (region-end (region-end)))
+    (save-excursion
+      (goto-char region-start)
+      (insert "*")
+      ;; (delete-region region-start region-end)
+      (goto-char (+ region-end 1))
+      (insert "*"))))
+
+;; Bind the function to s-b in org-mode
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "s-b") 'org-mark-region-asterisks))
+
+(defun org-mark-region-slashes ()
+  "Wrap the current region with slashes (italic)."
+  (interactive)
+  (let ((region-start (region-beginning))
+        (region-end (region-end)))
+    (save-excursion
+      (goto-char region-start)
+      (insert "/")
+      ;; (delete-region region-start region-end)
+      (goto-char (+ region-end 1))
+      (insert "/"))))
+
+;; Bind the function to s-b in org-mode
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "s-i") 'org-mark-region-slashes))
+
 ;; Deploy static site
 
 ;; Define a function to publish your site and upload it using a shell script
