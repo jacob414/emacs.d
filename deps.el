@@ -18,13 +18,14 @@
       (when (y-or-n-p (format "%s not installed. Install now? " pkg))
         (unless (bound-and-true-p package--initialized)
           (package-initialize))
-        ;; Always refresh before first install attempt to ensure availability
+        ;; Always refresh before first install attempt to ensure availability (optional)
         ;; (ignore-errors (package-refresh-contents))
         (condition-case err
-            (message "-------------- INSTALLING %s" pkg)
-            (progn (package-install pkg)
-                   (require feature nil 'noerror))
-          (error (message "Install failed: %s" err)
+            (progn
+              (message "-------------- INSTALLING %s" pkg)
+              (package-install pkg)
+              (require feature nil 'noerror))
+          (error (message "Install failed: %S" err)
                  nil)))))
 
 (defun my/check-deps-on-startup-maybe-install ()

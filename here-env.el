@@ -14,8 +14,6 @@
 (add-to-list 'load-path (concat emacs-dir "/site-lisp/exec-path-from-shell"))
 (add-to-list 'load-path (concat emacs-dir "/hosts"))
 
-(add-to-list 'load-path (concat emacs-dir "/hosts"))
-
 (dolist
     (project (directory-files (concat emacs-dir "/site-lisp") t "\\w+"))
   (when (file-directory-p project)

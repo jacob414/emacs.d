@@ -28,16 +28,15 @@
 
 (global-set-key "\C-cd" 'duplicate-current-line)
 
-(defadvice kill-ring-save (before slick-copy activate compile)
-  "When called interactively with no active region, copy a single line instead."
-  (interactive
-	(if mark-active
-	  (list (region-beginning) (region-end))
-	  (message "Copied line")
-	  (list (line-beginning-position) (line-beginning-position 2))
-	)
-  )
-)
+;; Modern advice: copy current line if no region is active
+(when (fboundp 'advice-add)
+  (defun my/slick-copy (&rest _)
+    (interactive
+     (if mark-active
+         (list (region-beginning) (region-end))
+       (message "Copied line")
+       (list (line-beginning-position) (line-beginning-position 2)))))
+  (advice-add 'kill-ring-save :before #'my/slick-copy))
 
 (defun kill-other-buffers ()
       "Kill all other buffers."
@@ -214,8 +213,6 @@
   (global-set-key (kbd "M-9") "]")
   (global-set-key (kbd "M-(") "{")
   (global-set-key (kbd "M-)") "}")
-  (global-set-key (kbd "M-)") "}")
-  (global-set-key (kbd "M-2") "@")
   (global-set-key (kbd "M-2") "@")
   (global-set-key (kbd "M-+") "\\")
   (global-set-key (kbd "C-c b") "\·")

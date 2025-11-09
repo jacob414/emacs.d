@@ -54,20 +54,7 @@
 ;; Let Emacs grow/shrink the gutter as needed; set to t to avoid shrink
 (setq display-line-numbers-grow-only nil)
 
-;; Line-number face sizing (same size for current and non-current lines)
-(defvar my/line-number-scale 0.80
-  "Scale factor applied to both line-number faces relative to `default'.")
-
-(defun my/set-line-number-faces ()
-  (let* ((base (face-attribute 'default :height nil 'default))
-         (scale (if (numberp my/line-number-scale) my/line-number-scale 1.0))
-         (h (if (integerp base)
-                (max 1 (truncate (* base scale)))
-              100)))
-    (when (facep 'line-number)
-      (set-face-attribute 'line-number nil :height h))
-    (when (facep 'line-number-current-line)
-      (set-face-attribute 'line-number-current-line nil :height h))))
+;; (duplicate definitions removed; see earlier my/line-number-scale and my/set-line-number-faces)
 
 ;; Highlight the current line using built-in `hl-line`
 (defvar my/hl-line-bg "gray35"

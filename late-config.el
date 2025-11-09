@@ -146,7 +146,6 @@
  (t (my/load-host "generic" 'generic)))
 
 ;; Final keybindings (your custom keymap module)
-(ignore-errors (require 'custom-keybindings))
 
 ;; Faces from Custom live in custom.el now; nothing here.
 

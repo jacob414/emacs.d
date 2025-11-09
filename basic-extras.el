@@ -17,15 +17,9 @@
   (setq package-check-signature nil)
   )
 
-;; linum ----------------------------------------------------------------------
-
-;; Line numbers to the left
-(require 'linum)
-(global-linum-mode t)
-
-;; Jump buffers with M-<arrows>
-(require 'windmove)
-(windmove-default-keybindings 'meta)
+;; linum (migrated to display-line-numbers elsewhere) ------------------------
+;; Intentionally removed; line numbers are configured in `visual.el` using
+;; `display-line-numbers-mode`.
 
 ;; Highlight current line
 (global-hl-line-mode +1)

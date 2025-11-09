@@ -33,8 +33,10 @@
       (when (file-exists-p source-css-file)
         (copy-file source-css-file destination-css-file t)))))
 
-;; Bind the function to a key combination if desired
-(global-set-key (kbd "C-c p") 'my-org-publish-site)
+;; Org-specific keybindings
+;; Avoid global C-c p conflicts; bind within org-mode instead.
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-c C-g") #'my-org-publish-site))
 
 (defun org-shell-region (beg end)
   "Wrap the current region with org-mode shell source block markers.
@@ -217,8 +219,9 @@ and #+END_SRC markers."
       (".*::\\(editme\\)\\'" . (find-file file))
       (auto-mode . emacs)))
 
-(local-set-key (kbd "C-c C-c") 'org-latex-export-to-pdf)
-(local-set-key (kbd "C-c C-g") 'my-org-publish-site)
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-c C-c") #'org-latex-export-to-pdf)
+  (define-key org-mode-map (kbd "C-c C-g") #'my-org-publish-site))
 
  ;; Stenkoll org-mode integration
 (with-eval-after-load 'org

@@ -1,11 +1,8 @@
 (require 'package)
-(setq package-user-dir (concat "~/src/mine/elpa.d"))
-(setq my-package-sources '(("melpa" . "https://elpa.zilongshanren.com/melpa/")
-                           ("marmalade" . "http://marmalade-repo.org/packages/")
-                           ("elpa" . "http://tromey.com/elpa/") ) )
-
-(add-to-list 'package-archives my-package-sources t)
-
-(package-initialize)
+(setq package-user-dir (expand-file-name "~/src/mine/elpa.d"))
+(setq package-archives '(("gnu"   . "https://elpa.gnu.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
+(unless (bound-and-true-p package--initialized)
+  (package-initialize))
 
 (provide 'my-package-conf)

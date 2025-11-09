@@ -59,22 +59,12 @@
 (require 'flymake)
 (remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
 
-(unless (package-installed-p 'yapfify)
-  (package-refresh-contents)
-  (package-install 'yapfify))
-
-(unless (package-installed-p 'elpy)
-  (package-refresh-contents)
-  (package-install 'elpy))
-
-(use-package elpy
-  :ensure t
-  :config
+(with-eval-after-load 'elpy
   (local-set-key (kbd "C-x C-e") 'elpy-shell-send-buffer)
   (local-set-key (kbd "C-x C-d") 'elpy-pdb-break-at-point)
-  (bind-keys :map elpy-mode-map
-             ("s-<left>" . elpy-nav-indent-shift-left)
-             ("s-<right>" . elpy-nav-indent-shift-right)))
+  (when (boundp 'elpy-mode-map)
+    (define-key elpy-mode-map (kbd "s-<left>") #'elpy-nav-indent-shift-left)
+    (define-key elpy-mode-map (kbd "s-<right>") #'elpy-nav-indent-shift-right)))
 
 (setq elpy-modules '(elpy-module-company elpy-module-eldoc elpy-module-flymake
                                          elpy-module-pyvenv elpy-module-highlight-indentation
@@ -86,10 +76,9 @@
 
 ;; Activate default venv on startup
 (pyvenv-activate my/default-venv)
-(pyvenv-workon my/default-venv)
 
-;; Hook to automatically switch venv when changing buffers
-(add-hook 'buffer-list-update-hook #'my/auto-switch-venv)
+;; Switch venv when entering a Python buffer
+(add-hook 'python-mode-hook #'my/auto-switch-venv)
 
 ;; Manual command to check current venv and force switch
 (defun my/show-current-venv ()
@@ -118,9 +107,11 @@
   "Docstring for my-mypy."
   (interactive)
   (run-python)
-  (flycheck-mode)
-  (flycheck-compile 'python-mypy)
-  )
+  (if (require 'flycheck nil 'noerror)
+      (progn
+        (flycheck-mode)
+        (flycheck-compile 'python-mypy))
+    (message "Flycheck not available; install flycheck and flycheck-mypy.")))
 
 (load-library "persistent-overlays")
 
@@ -154,7 +145,7 @@
 
              (add-hook 'before-save-hook 'persistent-overlays-save-overlays nil 'local)
 
-             (require 'yapfify)
+             (require 'yapfify nil 'noerror)
              (highlight-lines-matching-regexp ".set_trace" 'hi-red-b)
              (define-key python-mode-map (kbd "C-x C-m") 'outline-toggle-children)
 

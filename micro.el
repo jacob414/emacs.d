@@ -25,13 +25,5 @@
 ;; linum ----------------------------------------------------------------------
 
 ;; Line numbers to the left
-(require 'linum)
-(global-linum-mode t)
-(setq linum-format "%d ")
-
-(custom-set-faces
- '(linum ((t
-           (:inherit (shadow default)
-                     :foreground "dark orange"
-                     :background "black"
-                     ))) ))
+;; Use modern line numbers
+(global-display-line-numbers-mode t)
