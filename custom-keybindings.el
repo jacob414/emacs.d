@@ -23,6 +23,24 @@
 (global-set-key (kbd "C-x RET") 'hs-toggle-hiding)
 (global-set-key (kbd "C-x x") 'eval-expression)
 
+;; Window movement (Windmove) centralized
+;; Use Meta+arrow keys globally, and ensure major/minor modes don't override.
+(require 'windmove)
+(windmove-default-keybindings 'meta)
+
+;; Make sure Org and Elpy don't shadow M-<arrows>
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "M-<left>") nil)
+  (define-key org-mode-map (kbd "M-<right>") nil)
+  (define-key org-mode-map (kbd "M-<up>") nil)
+  (define-key org-mode-map (kbd "M-<down>") nil))
+
+(with-eval-after-load 'elpy
+  (define-key elpy-mode-map (kbd "M-<left>") nil)
+  (define-key elpy-mode-map (kbd "M-<right>") nil)
+  (define-key elpy-mode-map (kbd "M-<up>") nil)
+  (define-key elpy-mode-map (kbd "M-<down>") nil))
+
 ;; Mixin in some paredit
 (global-set-key (kbd "M-'") 'paredit-open-curly)
 (global-set-key (kbd "C-8") 'paredit-open-round)

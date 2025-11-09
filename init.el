@@ -29,6 +29,8 @@
 (add-to-list 'load-path (concat emacs-dir "/site-lisp"))
 (add-to-list 'load-path (concat emacs-dir "/hosts"))
 
+
+(require 'custom-keybindings)
 (require 'here-env)     ;; keeps site-lisp/hosts on load-path
 (require 'deps)         ;; Checks if expected Elisp modules are
                         ;; present, can install if not.

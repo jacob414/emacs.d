@@ -188,11 +188,6 @@ and #+END_SRC markers."
             ;; Ensure M-q uses Org's filler; global fill-column is set elsewhere
             (when (fboundp 'org-fill-paragraph)
               (setq-local fill-paragraph-function #'org-fill-paragraph))
-            (local-set-key (kbd "M-<up>") 'windmove-up)
-            (local-set-key (kbd "M-<left>") 'windmove-left)
-            (local-set-key (kbd "M-<right>") 'windmove-right)
-            (local-set-key (kbd "M-<down>") 'windmove-down)
-            (local-set-key (kbd "C-<tab>") 'dabbrev-expand)
             (local-set-key (kbd "C-.") 'scroll-down-one-line)
             (local-set-key (kbd "C-,") 'scroll-up-one-line)
             (local-set-key (kbd "C-j") 'my-greedy-joinlines)

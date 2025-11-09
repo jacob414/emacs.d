@@ -70,17 +70,9 @@
 (use-package elpy
   :ensure t
   :config
-  (unbind-key "M-<left>" elpy-mode-map)
-  (unbind-key "M-<right>" elpy-mode-map)
-  (unbind-key "M-<up>" elpy-mode-map)
-  (unbind-key "M-<down>" elpy-mode-map)
   (local-set-key (kbd "C-x C-e") 'elpy-shell-send-buffer)
   (local-set-key (kbd "C-x C-d") 'elpy-pdb-break-at-point)
   (bind-keys :map elpy-mode-map
-             ("M-<left>" . windmove-left)
-             ("M-<right>" . windmove-right)
-             ("M-<up>" . windmove-up)
-             ("M-<down>" . windmove-down)
              ("s-<left>" . elpy-nav-indent-shift-left)
              ("s-<right>" . elpy-nav-indent-shift-right)))
 
