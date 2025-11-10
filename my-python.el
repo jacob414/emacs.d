@@ -27,13 +27,25 @@
   (setq my/current-venv venv-path
         my/python-bin (expand-file-name "bin/python" venv-path)
         my/pytest-bin (expand-file-name "bin/pytest" venv-path)
-        my/mypy-bin (expand-file-name "bin/mypy" venv-path)
-        python-shell-interpreter my/python-bin
-        elpy-rpc-python-command my/python-bin
-        elpy-rpc-virtualenv-path venv-path
-        elpy-syntax-check-command my/mypy-bin
-        elpy-test-pytest-runner-command my/pytest-bin
-        python-check-command my/mypy-bin))
+        my/mypy-bin (expand-file-name "bin/mypy" venv-path))
+  ;; Python interpreter: prefer venv python if executable, else system python
+  (setq python-shell-interpreter
+        (if (file-executable-p my/python-bin)
+            my/python-bin
+          (or (executable-find "python") "python")))
+  ;; Linting: use mypy if present; otherwise fall back to flake8
+  (if (file-executable-p my/mypy-bin)
+      (progn
+        (setq elpy-syntax-check-command my/mypy-bin)
+        (setq python-check-command my/mypy-bin))
+    (progn
+      (setq elpy-syntax-check-command "flake8")
+      (setq python-check-command (or (executable-find "flake8") "flake8"))))
+  ;; Testing: prefer venv pytest, else plain "pytest"
+  (setq elpy-test-pytest-runner-command
+        (if (file-executable-p my/pytest-bin)
+            my/pytest-bin
+          "pytest")))
 
 ;; Auto-switch virtualenv based on buffer location
 (defun my/auto-switch-venv ()
@@ -48,6 +60,9 @@
           (when (not (string= target-venv my/current-venv))
             (my/update-python-paths target-venv)
             (pyvenv-activate target-venv)
+            ;; Ensure Elpy's RPC picks up the new environment immediately.
+            (when (featurep 'elpy)
+              (ignore-errors (elpy-rpc-restart)))
             (message "Switched to venv: %s"
                      (if project-venv
                          (file-name-nondirectory (directory-file-name project-venv))
@@ -67,7 +82,9 @@
     (define-key elpy-mode-map (kbd "s-<right>") #'elpy-nav-indent-shift-right)))
 
 (setq elpy-modules '(elpy-module-company elpy-module-eldoc elpy-module-flymake
-                                         elpy-module-pyvenv elpy-module-highlight-indentation
+                                         elpy-module-pyvenv
+                                         ;; highlight-indentation can be slow on large files
+                                         ;; and adds overlays; keep it disabled for snappier edits.
                                          elpy-module-yasnippet elpy-module-sane-defaults)
       elpy-test-discover-runner-command '("python" "-m" "pytest")
       elpy-test-runner 'elpy-test-pytest-runner)
@@ -141,7 +158,10 @@
              (outline-minor-mode t)
              (persistent-overlays-minor-mode 1)
              (persistent-overlays-load-overlays)
-             (setq python-shell-interpreter my/python-bin)
+             (setq python-shell-interpreter
+                   (if (file-executable-p my/python-bin)
+                       my/python-bin
+                     (or (executable-find "python") "python")))
 
              (add-hook 'before-save-hook 'persistent-overlays-save-overlays nil 'local)
 
