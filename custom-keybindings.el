@@ -41,6 +41,13 @@
   (define-key elpy-mode-map (kbd "M-<up>") nil)
   (define-key elpy-mode-map (kbd "M-<down>") nil))
 
+;; Paredit helpers need explicit autoloads when paredit isn't loaded yet.
+(autoload 'paredit-open-curly "paredit" nil t)
+(autoload 'paredit-open-round "paredit" nil t)
+(autoload 'paredit-doublequote "paredit" nil t)
+(autoload 'paredit-kill "paredit" nil t)
+(autoload 'paredit-close-parenthesis "paredit" nil t)
+
 ;; Mixin in some paredit
 (global-set-key (kbd "M-'") 'paredit-open-curly)
 (global-set-key (kbd "C-8") 'paredit-open-round)

@@ -76,4 +76,6 @@
   (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
   )
 
+(require 'paredit)
+
 (provide 'base)
