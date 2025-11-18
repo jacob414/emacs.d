@@ -25,7 +25,7 @@
 (let ((pkgs '(magit use-package epl auto-complete dash elixir-mode haskell-mode
               exec-path-from-shell highlight-current-line drag-stuff ws-trim
               paredit multiple-cursors web-mode yapfify swift-mode apache-mode
-              markdown-mode yaml-mode nix-mode nodejs-repl dockerfile-mode
+              markdown-mode yaml-mode nix-mode rust-mode nodejs-repl dockerfile-mode
               prog-fill wc-mode langtool flymake-cursor expand-region
               writegood-mode csv-mode elpy importmagic flycheck-mypy lsp-mode
               writeroom-mode rg persistent-overlays buttercup el-mock
@@ -33,4 +33,3 @@
   (dolist (p pkgs)
     (message "Installing %s…" p)
     (ignore-errors (package-install p))))
-

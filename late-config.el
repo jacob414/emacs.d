@@ -62,6 +62,10 @@
 (autoload 'nix-mode "nix-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
 
+;; Rust
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
 ;; NGINX (fix regex to actually match .conf under nginx)
 (add-to-list 'auto-mode-alist '("nginx.*\\.conf\\'" . conf-mode))
 
