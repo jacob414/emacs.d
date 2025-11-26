@@ -363,4 +363,14 @@
   (unless (featurep 'magit)
     (my/require-or-install 'magit 'magit))
   (magit-diff-buffer-file))
+
+; Source - https://stackoverflow.com/a/3669681
+
+(defun show-file-name ()
+  "Show the full path file name in the minibuffer."
+  (interactive)
+  (message (buffer-file-name)))
+
+(global-set-key [C-f1] 'show-file-name) ; Or any other key you want
+
 (provide 'functions)
