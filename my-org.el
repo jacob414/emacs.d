@@ -219,8 +219,15 @@ and #+END_SRC markers."
       (".*::\\(editme\\)\\'" . (find-file file))
       (auto-mode . emacs)))
 
+(defun my/md-to-org-region (start end)
+  "Convert region from markdown to org"
+  (interactive "r")
+  (shell-command-on-region start end "pandoc -f markdown -t org" t t))
+
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "C-c C-c") #'org-latex-export-to-pdf)
+  (define-key org-mode-map (kbd "C-c C-´") #'my/md-to-org-region)
+  (define-key org-mode-map (kbd "C-c x") #'org-toggle-checkbox)
   (define-key org-mode-map (kbd "C-c C-g") #'my-org-publish-site))
 
  ;; Stenkoll org-mode integration
