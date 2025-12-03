@@ -1,0 +1,7 @@
+#name : Code block (bash)
+# key: cbash
+# --
+\`\`\`bash
+$1
+\`\`\`
+$2
