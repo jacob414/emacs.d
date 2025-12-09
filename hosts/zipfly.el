@@ -47,5 +47,8 @@
   (when (file-readable-p stenkoll-file)
     (reload-stenkoll)))
 
+(custom-set-variables
+ '(ns-alternate-modifier 'meta)
+ '(ns-right-alternate-modifier 'none))
 
 (provide 'zipfly)
