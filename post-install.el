@@ -29,7 +29,7 @@
               prog-fill wc-mode langtool flymake-cursor expand-region
               writegood-mode csv-mode elpy importmagic flycheck-mypy lsp-mode
               writeroom-mode rg persistent-overlays buttercup el-mock
-              undercover package-lint denote paredit)))
+              undercover package-lint denote paredit ollama-buddy)))
   (dolist (p pkgs)
     (message "Installing %s…" p)
     (ignore-errors (package-install p))))
