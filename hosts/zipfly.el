@@ -51,4 +51,6 @@
  '(ns-alternate-modifier 'meta)
  '(ns-right-alternate-modifier 'none))
 
+(require 'pax)
+
 (provide 'zipfly)
