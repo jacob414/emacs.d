@@ -2,60 +2,6 @@
 
 (require 'ox-html)
 
-;; Set default publishing options
-(setq org-html-validation-link nil ;; Remove validation link
-      org-html-doctype "html5"
-      org-html-html5-fancy t
-      org-html-postamble nil ;; No footer
-      org-html-head-include-scripts nil ;; Don't include default scripts
-      org-html-head-include-default-style nil ;; Don't include default style
-      org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\" />")
-
-;; Define a function to publish your site
-(defun my-org-publish-site ()
-  "Publish the Org site and copy the style.css file."
-  (interactive)
-  (let ((org-publish-project-alist
-         '(("my-site"
-            :base-directory "~/src/mine/site"
-            :publishing-directory "~/src/tmp/site"
-            :recursive t
-            :publishing-function org-html-publish-to-html
-            :with-toc nil))))
-    ;; Publish the Org files
-    (org-publish-all t)
-
-    ;; Copy the style.css file to the publishing directory
-    (let* ((source-css-file
-            (expand-file-name "style.css" "~/src/mine/site"))
-           (destination-css-file
-            (expand-file-name "style.css" "~/src/tmp/site")))
-      (when (file-exists-p source-css-file)
-        (copy-file source-css-file destination-css-file t)))))
-
-;; Org-specific keybindings
-;; Avoid global C-c p conflicts; bind within org-mode instead.
-(with-eval-after-load 'org
-  (define-key org-mode-map (kbd "C-c C-g") #'my-org-publish-site))
-
-(defun org-shell-region (beg end)
-  "Wrap the current region with org-mode shell source block markers.
-The region between BEG and END will be surrounded by #+BEGIN_SRC shell
-and #+END_SRC markers."
-  (interactive "r")
-  (save-excursion
-    ;; Add end marker after the region
-    (goto-char end)
-    (end-of-line)
-    ;; Only insert newline if we're not already at one
-    (unless (or (eobp) (looking-at "\n"))
-      (insert "\n"))
-    (insert "#+END_SRC")
-    ;; Add begin marker before the region
-    (goto-char beg)
-    (beginning-of-line)
-    (insert "#+BEGIN_SRC shell\n")))
-
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "C-c #") 'org-shell-region))
 
@@ -91,35 +37,9 @@ and #+END_SRC markers."
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "s-i") 'org-mark-region-slashes))
 
-;; Deploy static site
-
-;; Define a function to publish your site and upload it using a shell script
-(defun my-org-publish-site ()
-  "Publish the Org site, copy the style.css file, and run the upload script."
-  (interactive)
-  ;; Publish the Org files
-  (let ((org-publish-project-alist
-         '(("my-site"
-            :base-directory "~/src/mine/site"
-            :publishing-directory "~/src/tmp/site"
-            :recursive t
-            :publishing-function org-html-publish-to-html
-            :with-toc nil))))
-    (org-publish-all t)
-
-    ;; Copy the style.css file to the publishing directory
-    (let* ((source-css-file
-            (expand-file-name "style.css" "~/src/mine/site"))
-           (destination-css-file
-            (expand-file-name "style.css" "~/src/tmp/site")))
-      (when (file-exists-p source-css-file)
-        (copy-file source-css-file destination-css-file t))))
-
-  ;; Run the upload script
-  (let ((upload-script "~/bin/414pub.sh"))
-    (if (file-executable-p upload-script)
-        (shell-command (concat "bash " upload-script))
-      (message "Upload script %s is not executable or does not exist." upload-script))))
+;; NOTE: Second duplicate my-org-publish-site removed
+;; Was attempting to run ~/bin/414pub.sh which doesn't exist
+;; Use my-org-marsch.el system instead (Makefile-based deployment)
 
 (defun my-org-literal ()
   "Makes current selection an org-mode literal."
@@ -228,7 +148,8 @@ and #+END_SRC markers."
   (define-key org-mode-map (kbd "C-c C-c") #'org-latex-export-to-pdf)
   (define-key org-mode-map (kbd "C-c C-´") #'my/md-to-org-region)
   (define-key org-mode-map (kbd "C-c x") #'org-toggle-checkbox)
-  (define-key org-mode-map (kbd "C-c C-g") #'my-org-publish-site))
+  ;; C-c C-g removed - use C-c m p for marsch-publish-site instead
+  )
 
  ;; Stenkoll org-mode integration
 (with-eval-after-load 'org

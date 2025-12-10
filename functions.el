@@ -66,12 +66,6 @@
   (insert (format-time-string "%Y-%m-%d"))
 )
 
-(defun my-org-prompt ()
-  "Docstring for my-org-prompt."
-  (interactive)
-  (insert (format-time-string "** %Y-%m-%d %H:%M"))
-  )
-
 (defun my-isotimestamp ()
   (interactive)
   (insert (format-time-string "%Y-%m-%d %H:%M")) )

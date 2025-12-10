@@ -78,4 +78,6 @@
 
 (require 'paredit)
 
+(require 'pax)
+
 (provide 'base)

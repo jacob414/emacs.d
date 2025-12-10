@@ -25,3 +25,4 @@ site-lisp/stenkoll-dashboard.el
 .min-*
 .claude/
 elpy/
+privates.el
