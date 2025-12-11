@@ -144,6 +144,166 @@
   (interactive "r")
   (shell-command-on-region start end "pandoc -f markdown -t org" t t))
 
+;; Visual enhancements inspired by https://sophiebos.io/posts/beautifying-emacs-org-mode/
+(defvar my/org-preferred-variable-pitch-font "Roboto Mono"
+  "Variable-pitch font used for Org headings when available.")
+
+(defvar my/org-preferred-fixed-pitch-font "Roboto Mono"
+  "Fixed-pitch font used for Org blocks when available.")
+
+(defun my/org--font-installed-p (font)
+  "Return non-nil when FONT exists on the current system."
+  (and font (member font (font-family-list))))
+
+(defun my/org-apply-face-customizations ()
+  "Adjust Org faces for prettier documents."
+  (when (featurep 'org)
+    (let ((sans my/org-preferred-variable-pitch-font)
+          (mono my/org-preferred-fixed-pitch-font))
+      (when (my/org--font-installed-p sans)
+        (dolist (face '((org-level-1 . 1.35)
+                        (org-level-2 . 1.30)
+                        (org-level-3 . 1.20)
+                        (org-level-4 . 1.10)
+                        (org-level-5 . 1.10)
+                        (org-level-6 . 1.10)
+                        (org-level-7 . 1.10)
+                        (org-level-8 . 1.10)))
+          (set-face-attribute (car face) nil
+                              :family sans :weight 'bold :height (cdr face)))
+        (set-face-attribute 'org-document-title nil
+                            :family sans :weight 'bold :height 1.8))
+      (when (my/org--font-installed-p mono)
+        (set-face-attribute 'org-block nil
+                            :inherit 'fixed-pitch :family mono
+                            :foreground nil :height 0.90)
+        (set-face-attribute 'org-code nil
+                            :inherit '(shadow fixed-pitch)
+                            :family mono :height 0.90)
+        (set-face-attribute 'org-verbatim nil
+                            :inherit '(shadow fixed-pitch)
+                            :family mono :height 0.90)
+        (set-face-attribute 'org-indent nil
+                            :inherit '(org-hide fixed-pitch)
+                            :family mono :height 0.90)
+        (set-face-attribute 'org-meta-line nil
+                            :inherit '(font-lock-comment-face fixed-pitch)
+                            :family mono)
+        (set-face-attribute 'org-special-keyword nil
+                            :inherit '(font-lock-comment-face fixed-pitch)
+                            :family mono)
+        (set-face-attribute 'org-checkbox nil
+                            :inherit 'fixed-pitch :family mono)))))
+
+(defun my/org-buffer-local-settings ()
+  "Local visual tweaks for Org buffers."
+  (setq-local line-spacing 0.15)
+  (variable-pitch-mode 1)
+  (visual-line-mode 1))
+
+(with-eval-after-load 'org
+  (require 'org-indent)
+  (my/org-apply-face-customizations)
+  (when (fboundp 'advice-add)
+    (advice-add 'load-theme :after
+                (lambda (&rest _) (my/org-apply-face-customizations))))
+
+  ;; Install visual helper packages on demand
+  (my/require-or-install 'doom-themes 'doom-themes)
+  (ignore-errors
+    (when (featurep 'doom-themes)
+      (doom-themes-org-config)))
+  (when (my/require-or-install 'ligature 'ligature)
+    (ligature-set-ligatures 'org-mode '("->" "<-" "=>" "<=" ">=" "=/=" "=="))
+    (add-hook 'org-mode-hook #'ligature-mode))
+  (when (my/require-or-install 'olivetti 'olivetti)
+    (add-hook 'org-mode-hook #'olivetti-mode))
+  (when (my/require-or-install 'org-modern 'org-modern)
+    (setq org-auto-align-tags t
+          org-tags-column 0
+          org-fold-catch-invisible-edits 'show-and-error
+          org-special-ctrl-a/e t
+          org-insert-heading-respect-content t
+          org-modern-star nil
+          org-modern-tag nil
+          org-modern-priority nil
+          org-modern-todo nil
+          org-modern-table nil
+          org-agenda-tags-column 0
+          org-agenda-block-separator ?─
+          org-agenda-time-grid
+          '((daily today require-timed)
+            (800 1000 1200 1400 1600 1800 2000)
+            " ┄┄┄┄┄ " "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
+          org-agenda-current-time-string
+          "⭠ now ─────────────────────────────────────────────────")
+    (global-org-modern-mode 1))
+  (when (my/require-or-install 'org-superstar 'org-superstar)
+    (setq org-superstar-leading-bullet " "
+          org-superstar-headline-bullets-list (make-list 8 " ")
+          org-superstar-remove-leading-stars t
+          org-superstar-special-todo-items t
+          org-superstar-todo-bullet-alist
+          '(("TODO" . 9744)
+            ("PROJ" . 9744)
+            ("READ" . 9744)
+            ("CHECK" . 9744)
+            ("IDEA" . 9744)
+            ("DONE" . 9744)))
+    (add-hook 'org-mode-hook #'org-superstar-mode))
+
+  ;; Org appearance + behavior tweaks
+  (setq org-adapt-indentation t
+        org-hide-leading-stars t
+        org-hide-emphasis-markers t
+        org-pretty-entities t
+        org-ellipsis "  ·"
+        org-src-fontify-natively t
+        org-src-tab-acts-natively t
+        org-edit-src-content-indentation 0
+        org-lowest-priority ?F
+        org-default-priority ?E)
+  (setq org-priority-faces
+        '((65 . "#BF616A")
+          (66 . "#EBCB8B")
+          (67 . "#B48EAD")
+          (68 . "#81A1C1")
+          (69 . "#5E81AC")
+          (70 . "#4C566A")))
+  (setq org-todo-keywords
+        '((sequence "TODO" "PROJ" "READ" "CHECK" "IDEA" "|" "DONE")))
+  (setq org-todo-keyword-faces
+        '(("TODO" . (:foreground "#A3BE8C" :weight bold))
+          ("PROJ" . (:foreground "#88C0D0" :weight bold))
+          ("READ" . (:foreground "#8FBCBB" :weight bold))
+          ("CHECK" . (:foreground "#81A1C1" :weight bold))
+          ("IDEA" . (:foreground "#EBCB8B" :weight bold))
+          ("DONE" . (:foreground "#30343d" :weight bold))))
+
+  (let ((latex-opts (copy-sequence org-format-latex-options)))
+    (setq org-format-latex-options
+          (plist-put latex-opts :scale 2.0)))
+
+  (add-hook 'org-mode-hook #'my/org-buffer-local-settings))
+
+;; Org: inline file-name completion (same UI as C-x C-f)
+(defun my/org-file-path-capf ()
+  "Offer filesystem completion for the filename at point in Org buffers."
+  (when (derived-mode-p 'org-mode)
+    (let* ((end (point))
+           (start (save-excursion
+                    (skip-chars-backward "-._~/A-Za-z0-9:+")
+                    (point))))
+      (when (< start end)
+        (list start end #'completion-file-name-table
+              :exclusive 'no)))))
+
+(defun my/org-enable-file-path-capf ()
+  "Enable inline file-path completion via `completion-at-point'."
+  (add-hook 'completion-at-point-functions #'my/org-file-path-capf nil t))
+
+(add-hook 'org-mode-hook #'my/org-enable-file-path-capf)
+
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "C-c C-c") #'org-latex-export-to-pdf)
   (define-key org-mode-map (kbd "C-c C-´") #'my/md-to-org-region)
