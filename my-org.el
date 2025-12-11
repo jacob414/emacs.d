@@ -161,31 +161,31 @@
     (let ((sans my/org-preferred-variable-pitch-font)
           (mono my/org-preferred-fixed-pitch-font))
       (when (my/org--font-installed-p sans)
-        (dolist (face '((org-level-1 . 1.35)
-                        (org-level-2 . 1.30)
-                        (org-level-3 . 1.20)
-                        (org-level-4 . 1.10)
-                        (org-level-5 . 1.10)
-                        (org-level-6 . 1.10)
-                        (org-level-7 . 1.10)
-                        (org-level-8 . 1.10)))
+        (dolist (face '((org-level-1 . 1.50)
+                        (org-level-2 . 1.40)
+                        (org-level-3 . 1.30)
+                        (org-level-4 . 1.20)
+                        (org-level-5 . 1.15)
+                        (org-level-6 . 1.15)
+                        (org-level-7 . 1.15)
+                        (org-level-8 . 1.15)))
           (set-face-attribute (car face) nil
                               :family sans :weight 'bold :height (cdr face)))
         (set-face-attribute 'org-document-title nil
-                            :family sans :weight 'bold :height 1.8))
+                            :family sans :weight 'bold :height 2.0))
       (when (my/org--font-installed-p mono)
         (set-face-attribute 'org-block nil
                             :inherit 'fixed-pitch :family mono
-                            :foreground nil :height 0.90)
+                            :foreground nil :height 1.0)
         (set-face-attribute 'org-code nil
                             :inherit '(shadow fixed-pitch)
-                            :family mono :height 0.90)
+                            :family mono :height 1.0)
         (set-face-attribute 'org-verbatim nil
                             :inherit '(shadow fixed-pitch)
-                            :family mono :height 0.90)
+                            :family mono :height 1.0)
         (set-face-attribute 'org-indent nil
                             :inherit '(org-hide fixed-pitch)
-                            :family mono :height 0.90)
+                            :family mono :height 1.0)
         (set-face-attribute 'org-meta-line nil
                             :inherit '(font-lock-comment-face fixed-pitch)
                             :family mono)
@@ -199,7 +199,10 @@
   "Local visual tweaks for Org buffers."
   (setq-local line-spacing 0.15)
   (variable-pitch-mode 1)
-  (visual-line-mode 1))
+  (visual-line-mode 1)
+  (unless (bound-and-true-p my/org-text-scale-applied)
+    (setq-local my/org-text-scale-applied t)
+    (text-scale-increase 1)))
 
 (with-eval-after-load 'org
   (require 'org-indent)
@@ -209,7 +212,7 @@
                 (lambda (&rest _) (my/org-apply-face-customizations))))
 
   ;; Install visual helper packages on demand
-  (my/require-or-install 'doom-themes 'doom-themes)
+  ;; (my/require-or-install 'doom-themes 'doom-themes)
   (ignore-errors
     (when (featurep 'doom-themes)
       (doom-themes-org-config)))
