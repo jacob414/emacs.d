@@ -594,7 +594,7 @@ With prefix argument FORCE, rebuild all files regardless of timestamps."
 
         ;; Ask to open in browser
         (when (y-or-n-p "Open index.html in browser? ")
-          (browse-url (concat "file://" marsch-publishing-directory "/index.html"))))
+          (browse-url "http://localhost:8081/")))
     (error
      (message "✗ Publishing failed: %s" (error-message-string err))
      (error "Publishing failed: %s" (error-message-string err)))))
