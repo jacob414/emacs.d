@@ -65,11 +65,6 @@ and #+END_SRC markers."
       (when (file-exists-p source-css-file)
         (copy-file source-css-file destination-css-file t)))))
 
-;; Org-specific keybindings
-;; Avoid global C-c p conflicts; bind within org-mode instead.
-(with-eval-after-load 'org
-  (define-key org-mode-map (kbd "C-c C-g") #'my-org-publish-site))
-
 (defun org-shell-region (beg end)
   "Wrap the current region with org-mode shell source block markers.
 The region between BEG and END will be surrounded by #+BEGIN_SRC shell
@@ -182,6 +177,12 @@ If N is negative, remove -N characters from the end of each line."
   (newline)
   (pax/yank-log-entry)
   )
+
+;; Org-specific keybindings
+;; Avoid global C-c p conflicts; bind within org-mode instead.
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-c y") #'pax/yank-to-log)
+  (define-key org-mode-map (kbd "C-c C-g") #'my-org-publish-site))
 
 ;;; my-org-marsch.el --- Org-publish configuration for klimatmarsch.org
 
@@ -645,10 +646,23 @@ With prefix argument FORCE, rebuild all files regardless of timestamps."
     (message "✓ Timestamp cache cleared")))
 
 ;;; ============================================================
+;;; SECTION X: Pax log deterministic headers
+;;; ============================================================
+
+(defun pax/heading-3 () (interactive) (newline) (save-excursion (insert "*** ")))
+(defun pax/heading-4 () (interactive) (newline) (save-excursion (insert "**** ")))
+(defun pax/heading-5 () (interactive) (newline) (save-excursion (insert "***** ")))
+(defun pax/heading-6 () (interactive) (newline) (save-excursion (insert "****** ")))
+
+;;; ============================================================
 ;;; SECTION 6: Keybindings
 ;;; ============================================================
 
 (with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-c 3") #'pax/heading-3)
+  (define-key org-mode-map (kbd "C-c 4") #'pax/heading-4)
+  (define-key org-mode-map (kbd "C-c 5") #'pax/heading-5)
+  (define-key org-mode-map (kbd "C-c 6") #'pax/heading-6)
   (define-key org-mode-map (kbd "C-c m p") #'marsch-publish-site)
   (define-key org-mode-map (kbd "C-c m d") #'marsch-deploy-site)
   (define-key org-mode-map (kbd "C-c m s") #'marsch-publish-and-deploy)
