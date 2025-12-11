@@ -492,6 +492,17 @@ This keeps the preamble HTML in a separate file for easier editing."
           (buffer-string))
       (error "Preamble file not found: %s" preamble-file))))
 
+(defun marsch--load-postamble ()
+  "Load HTML postamble from fragment/botten.html file.
+This keeps the postamble HTML in a separate file for easier editing."
+  (let ((postamble-file
+         (expand-file-name "fragment/botten.html" marsch-base-directory)))
+    (if (file-exists-p postamble-file)
+        (with-temp-buffer
+          (insert-file-contents postamble-file)
+          (buffer-string))
+      (error "Postamble file not found: %s" postamble-file))))
+
 (setq org-publish-project-alist
       `(
         ;; ─────────────────────────────────────────────────────────
@@ -513,24 +524,7 @@ This keeps the preamble HTML in a separate file for easier editing."
          :html-head ,marsch-html-head-template
          :html-validation-link nil
          :html-preamble ,(marsch--load-preamble)
-         :html-postamble "  </div>
-</main>
-
-<div class=\"footer-stripe\" aria-hidden=\"true\"></div>
-
-<footer class=\"site-footer\">
-  <div class=\"container\">
-    <div class=\"footer-content\">
-      <p class=\"footer-org\">Klimatmarsch Göteborg 2026</p>
-      <p class=\"footer-attribution\">Temperaturstripes: <a href=\"https://showyourstripes.info\" target=\"_blank\" rel=\"noopener\">showyourstripes.info</a></p>
-      <nav class=\"footer-nav\">
-        <a href=\"/kontakt.html\">Kontakta oss</a>
-        <span class=\"footer-separator\">•</span>
-        <a href=\"/nyheter.html\">Nyheter</a>
-      </nav>
-    </div>
-  </div>
-</footer>"
+         :html-postamble ,(marsch--load-postamble)
 
          ;; Content settings
          :with-toc nil
