@@ -481,6 +481,17 @@ ADAPTATION POINT: For personal site, change to personal site directory.")
 
 ADAPTATION POINT: For personal site, change to personal site gen/ directory.")
 
+(defun marsch--load-preamble ()
+  "Load HTML preamble from fragment/toppen.html file.
+This keeps the preamble HTML in a separate file for easier editing."
+  (let ((preamble-file
+         (expand-file-name "fragment/toppen.html" marsch-base-directory)))
+    (if (file-exists-p preamble-file)
+        (with-temp-buffer
+          (insert-file-contents preamble-file)
+          (buffer-string))
+      (error "Preamble file not found: %s" preamble-file))))
+
 (setq org-publish-project-alist
       `(
         ;; ─────────────────────────────────────────────────────────
@@ -501,22 +512,7 @@ ADAPTATION POINT: For personal site, change to personal site gen/ directory.")
          :html-head-include-scripts nil
          :html-head ,marsch-html-head-template
          :html-validation-link nil
-         :html-preamble "<a href=\"#main-content\" class=\"skip-link\">Hoppa till huvudinnehåll</a>
-<header class=\"hero-header\">
-  <div class=\"hero-overlay\">
-    <div class=\"hero-content\">
-      <h1 class=\"hero-title\">Klimatmarsch Göteborg</h1>
-      <p class=\"hero-subtitle\">Stor klimatmarsch i Göteborg – söndagen den 6:e september 2026</p>
-      <p class=\"hero-date\">Klockan 13:00 – En vecka före valet 2026</p>
-      <div class=\"hero-actions\">
-        <a href=\"/index.html#event-info\" class=\"btn-primary\">Kom med i klimatmarschen!</a>
-        <a href=\"/index.html#schedule\" class=\"btn-secondary\">Se program</a>
-      </div>
-    </div>
-  </div>
-</header>
-<main id=\"main-content\">
-  <div class=\"container\">"
+         :html-preamble ,(marsch--load-preamble)
          :html-postamble "  </div>
 </main>
 
