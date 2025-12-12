@@ -639,10 +639,10 @@ With prefix argument FORCE, rebuild all files regardless of timestamps."
 ;;; SECTION X: Pax log deterministic headers
 ;;; ============================================================
 
-(defun pax/heading-3 () (interactive) (newline) (save-excursion (insert "*** ")))
-(defun pax/heading-4 () (interactive) (newline) (save-excursion (insert "**** ")))
-(defun pax/heading-5 () (interactive) (newline) (save-excursion (insert "***** ")))
-(defun pax/heading-6 () (interactive) (newline) (save-excursion (insert "****** ")))
+(defun pax/heading-3 () (interactive) (save-excursion (beginning-of-line) (insert "*** ")))
+(defun pax/heading-4 () (interactive) (save-excursion (beginning-of-line) (insert "**** ")))
+(defun pax/heading-5 () (interactive) (save-excursion (beginning-of-line) (insert "***** ")))
+(defun pax/heading-6 () (interactive) (save-excursion (beginning-of-line) (insert "****** ")))
 
 ;;; ============================================================
 ;;; SECTION 6: Keybindings
@@ -676,3 +676,4 @@ With prefix argument FORCE, rebuild all files regardless of timestamps."
 
 
 (provide 'pax)
+
