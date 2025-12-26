@@ -153,46 +153,6 @@
 
 ;; Faces from Custom live in custom.el now; nothing here.
 
-;; ============================================================
-;; Claude Code IDE - Emacs integration for Claude Code CLI
-;; ============================================================
-
-;; vterm is required for terminal backend
-(use-package vterm
-  :ensure t
-  :defer t
-  :config
-  ;; Compile vterm module on first use if needed
-  (setq vterm-always-compile-module t))
-
-;; Claude Code IDE
-(add-to-list 'load-path (concat emacs-dir "/site-lisp/claude-code-ide"))
-(use-package claude-code-ide
-  :commands (claude-code-ide claude-code-ide-menu claude-code-ide-toggle)
-  :bind (("C-c C-'" . claude-code-ide-menu)    ; Main menu
-         ("C-c C-;" . claude-code-ide)          ; Start/toggle Claude
-         ("C-c C-:" . claude-code-ide-toggle))  ; Toggle window
-  :config
-  ;; Window configuration
-  (setq claude-code-ide-window-side 'right)
-  (setq claude-code-ide-window-width 90)
-  (setq claude-code-ide-focus-on-open t)
-
-  ;; Terminal backend
-  (setq claude-code-ide-terminal-backend 'vterm)
-  (setq claude-code-ide-vterm-anti-flicker t)
-
-  ;; Diff integration - use ediff for reviewing changes
-  (setq claude-code-ide-use-ide-diff t)
-  (setq claude-code-ide-focus-claude-after-ediff t)
-
-  ;; CLI path (uses PATH by default, but explicit is safer)
-  (setq claude-code-ide-cli-path "claude")
-
-  ;; Optional: Enable MCP server for deeper Emacs integration
-  ;; (setq claude-code-ide-enable-mcp-server t)
-  )
-
 ;; End of init.new.el
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
