@@ -84,9 +84,11 @@ and #+END_SRC markers."
     (insert "#+BEGIN_SRC shell\n")))
 
  (with-eval-after-load 'org
-   (define-key org-mode-map (kbd "C-c #") 'org-shell-region))
+   )
 
 (with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-c #") 'org-shell-region)
+  (define-key org-mode-map (kbd "C-c p") 'my-org-prompt)
   (define-key org-mode-map (kbd "s-i") 'org-mark-region-slashes))
 
 ;; Deploy static site
@@ -639,10 +641,14 @@ With prefix argument FORCE, rebuild all files regardless of timestamps."
 ;;; SECTION X: Pax log deterministic headers
 ;;; ============================================================
 
-(defun pax/heading-3 () (interactive) (save-excursion (beginning-of-line) (insert "*** ")))
-(defun pax/heading-4 () (interactive) (save-excursion (beginning-of-line) (insert "**** ")))
-(defun pax/heading-5 () (interactive) (save-excursion (beginning-of-line) (insert "***** ")))
-(defun pax/heading-6 () (interactive) (save-excursion (beginning-of-line) (insert "****** ")))
+(defun pax/heading-3 () (interactive)
+       (save-excursion (beginning-of-line) (insert "*** ")))
+(defun pax/heading-4 () (interactive)
+       (save-excursion (beginning-of-line) (insert "**** ")))
+(defun pax/heading-5 () (interactive)
+       (save-excursion (beginning-of-line) (insert "***** ")))
+(defun pax/heading-6 () (interactive)
+       (save-excursion (beginning-of-line) (insert "****** ")))
 
 ;;; ============================================================
 ;;; SECTION 6: Keybindings
