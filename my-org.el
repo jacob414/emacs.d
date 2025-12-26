@@ -145,22 +145,37 @@
   (shell-command-on-region start end "pandoc -f markdown -t org" t t))
 
 ;; Visual enhancements inspired by https://sophiebos.io/posts/beautifying-emacs-org-mode/
-(defvar my/org-preferred-variable-pitch-font "Roboto Mono"
-  "Variable-pitch font used for Org headings when available.")
+(defvar my/org-preferred-variable-pitch-fonts '("Calibre" "Source Sans Pro")
+  "List of variable-pitch fonts to try for Org headings.")
 
-(defvar my/org-preferred-fixed-pitch-font "Roboto Mono"
-  "Fixed-pitch font used for Org blocks when available.")
+(defvar my/org-preferred-fixed-pitch-fonts '("Roboto Mono")
+  "List of fixed-pitch fonts to try for Org blocks.")
+
+(defvar my/org-letter-spacing-stretch 'semi-expanded
+  "Desired character stretch for Org variable-pitch text.
+See `face-width' for the list of accepted values.")
+
+(defun my/org-ensure-emphasis-markers-hidden ()
+  "Make sure Org emphasis markers stay invisible in this buffer."
+  (when org-hide-emphasis-markers
+    (let ((spec buffer-invisibility-spec))
+      (unless (or (eq spec t) (member t spec))
+        (add-to-invisibility-spec t)))))
 
 (defun my/org--font-installed-p (font)
   "Return non-nil when FONT exists on the current system."
   (and font (member font (font-family-list))))
 
+(defun my/org--first-available-font (candidates)
+  "Return first font from CANDIDATES available on this system."
+  (seq-find #'my/org--font-installed-p candidates))
+
 (defun my/org-apply-face-customizations ()
   "Adjust Org faces for prettier documents."
   (when (featurep 'org)
-    (let ((sans my/org-preferred-variable-pitch-font)
-          (mono my/org-preferred-fixed-pitch-font))
-      (when (my/org--font-installed-p sans)
+    (let ((sans (my/org--first-available-font my/org-preferred-variable-pitch-fonts))
+          (mono (my/org--first-available-font my/org-preferred-fixed-pitch-fonts)))
+      (when sans
         (dolist (face '((org-level-1 . 1.50)
                         (org-level-2 . 1.40)
                         (org-level-3 . 1.30)
@@ -173,7 +188,7 @@
                               :family sans :weight 'bold :height (cdr face)))
         (set-face-attribute 'org-document-title nil
                             :family sans :weight 'bold :height 2.0))
-      (when (my/org--font-installed-p mono)
+      (when mono
         (set-face-attribute 'org-block nil
                             :inherit 'fixed-pitch :family mono
                             :foreground nil :height 1.0)
@@ -193,13 +208,18 @@
                             :inherit '(font-lock-comment-face fixed-pitch)
                             :family mono)
         (set-face-attribute 'org-checkbox nil
+                            :inherit 'fixed-pitch :family mono)
+        (set-face-attribute 'org-table nil
                             :inherit 'fixed-pitch :family mono)))))
 
 (defun my/org-buffer-local-settings ()
   "Local visual tweaks for Org buffers."
-  (setq-local line-spacing 0.15)
+  (setq-local line-spacing 0.3)
   (variable-pitch-mode 1)
   (visual-line-mode 1)
+  (my/org-ensure-emphasis-markers-hidden)
+  (face-remap-add-relative 'variable-pitch
+                           :width my/org-letter-spacing-stretch)
   (unless (bound-and-true-p my/org-text-scale-applied)
     (setq-local my/org-text-scale-applied t)
     (text-scale-increase 1)))
