@@ -1,33 +1,3 @@
-[submodule "site-lisp/dash-at-point"]
-	path = site-lisp/dash-at-point
-	url = https://github.com/Kapeli/dash-at-point.git
-[submodule "site-lisp/coffee-mode"]
-	path = site-lisp/coffee-mode
-	url = https://github.com/defunkt/coffee-mode.git
-[submodule "site-lisp/expand-region.el"]
-	path = site-lisp/expand-region.el
-	url = https://github.com/magnars/expand-region.el.git
-[submodule "site-lisp/expand-region"]
-	path = site-lisp/expand-region
-	url = https://github.com/magnars/expand-region.el.git
-[submodule "site-lisp/elm-mode"]
-	path = site-lisp/elm-mode
-	url = https://github.com/jcollard/elm-mode.git
-[submodule "site-lisp/f.el"]
-	path = site-lisp/f.el
-	url = https://github.com/rejeep/f.el.git
-[submodule "site-lisp/s.el"]
-	path = site-lisp/s.el
-	url = https://github.com/magnars/s.el.git
-[submodule "site-lisp/dash.el"]
-	path = site-lisp/dash.el
-	url = https://github.com/magnars/dash.el.git
-[submodule "site-lisp/trac-wiki-el"]
-	path = site-lisp/trac-wiki-el
-	url = https://github.com/tiborsimko/trac-wiki-el.git
-[submodule "site-lisp/dockerfile-mode"]
-	path = site-lisp/dockerfile-mode
-	url = https://github.com/spotify/dockerfile-mode
 [submodule "site-lisp/persistent-overlay"]
 	path = site-lisp/persistent-overlay
 	url = git@github.com:mneilly/Emacs-Persistent-Overlays.git

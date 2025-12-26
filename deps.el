@@ -58,7 +58,7 @@ installation script and, if confirmed, load `post-install.el`."
 (defvar my/packages-to-install
   '(nginx-mode nix-mode rust-mode php-mode applescript-mode csharp-mode
     haml-mode sass-mode scss-mode typopunct xml-rpc edit-server
-    dropdown-list coffee-mode ws-trim rst po-mode
+    dropdown-list ws-trim rst po-mode
     zenburn-theme solarized-theme)
   "Packages to migrate from site-lisp to ELPA/MELPA.")
 
