@@ -35,3 +35,6 @@
 	path = site-lisp/typopunct
 	url = https://github.com/emacsmirror/typopunct.git
 	branch = master
+[submodule "site-lisp/claude-code-ide"]
+	path = site-lisp/claude-code-ide
+	url = https://github.com/manzaltu/claude-code-ide.el.git
