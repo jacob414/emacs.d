@@ -239,8 +239,6 @@ See `face-width' for the list of accepted values.")
   (when (my/require-or-install 'ligature 'ligature)
     (ligature-set-ligatures 'org-mode '("->" "<-" "=>" "<=" ">=" "=/=" "=="))
     (add-hook 'org-mode-hook #'ligature-mode))
-  (when (my/require-or-install 'olivetti 'olivetti)
-    (add-hook 'org-mode-hook #'olivetti-mode))
   (when (my/require-or-install 'org-modern 'org-modern)
     (setq org-auto-align-tags t
           org-tags-column 0
