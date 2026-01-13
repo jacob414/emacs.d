@@ -641,6 +641,10 @@ With prefix argument FORCE, rebuild all files regardless of timestamps."
 ;;; SECTION X: Pax log deterministic headers
 ;;; ============================================================
 
+(defun pax/heading-1 () (interactive)
+       (save-excursion (beginning-of-line) (insert "* ")))
+(defun pax/heading-2 () (interactive)
+       (save-excursion (beginning-of-line) (insert "** ")))
 (defun pax/heading-3 () (interactive)
        (save-excursion (beginning-of-line) (insert "*** ")))
 (defun pax/heading-4 () (interactive)
@@ -655,6 +659,8 @@ With prefix argument FORCE, rebuild all files regardless of timestamps."
 ;;; ============================================================
 
 (with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-c 1") #'pax/heading-1)
+  (define-key org-mode-map (kbd "C-c 2") #'pax/heading-2)
   (define-key org-mode-map (kbd "C-c 3") #'pax/heading-3)
   (define-key org-mode-map (kbd "C-c 4") #'pax/heading-4)
   (define-key org-mode-map (kbd "C-c 5") #'pax/heading-5)
