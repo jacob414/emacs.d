@@ -596,6 +596,13 @@ With prefix argument FORCE, rebuild all files regardless of timestamps."
         (org-publish-project "marsch-site" force)
         (message "✓ klimatmarsch.org published successfully!")
 
+        ;; Sync to nginx /tmp/hemsida for local preview
+        (message "Syncing to local nginx...")
+        (let ((sync-result (call-process-shell-command "~/bin/nginx-sync-hemsida")))
+          (if (= sync-result 0)
+              (message "✓ Synced to http://localhost:8081/")
+            (message "⚠ nginx sync failed (exit code: %d)" sync-result)))
+
         ;; Ask to open in browser
         (when (y-or-n-p "Open index.html in browser? ")
           (browse-url "http://localhost:8081/")))
