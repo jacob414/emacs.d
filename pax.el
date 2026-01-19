@@ -31,6 +31,8 @@ and #+END_SRC markers."
 (defun my-org-prompt ()
   "Docstring for my-org-prompt."
   (interactive)
+  (insert "-----")
+  (newline)
   (insert (format-time-string "** %Y-%m-%d %H:%M"))
   )
 
