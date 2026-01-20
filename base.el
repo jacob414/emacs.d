@@ -78,6 +78,8 @@
 
 (require 'paredit)
 
+(require 'mustache)
+
 (require 'pax)
 
 (provide 'base)
