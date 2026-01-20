@@ -10,7 +10,7 @@
 (global-set-key (kbd "C-c i") 'indent-region)
 (global-set-key (kbd "C-c f") 'forward-sexp)
 (global-set-key (kbd "<f5>") 'eval-region)
-(global-set-key (kbd "C-c p") 'query-replace)
+(global-set-key (kbd "C-c r") 'query-replace)
 (global-set-key (kbd "C-c a") 'mark-whole-buffer)
 (global-set-key (kbd "C-c f") 'rgrep)
 (global-set-key (kbd "C-c o") 'occur)
