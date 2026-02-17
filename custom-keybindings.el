@@ -48,6 +48,9 @@
 (autoload 'paredit-kill "paredit" nil t)
 (autoload 'paredit-close-parenthesis "paredit" nil t)
 
+;; Send region to iTerm2
+(global-set-key (kbd "C-c C-t") 'send-region-to-iterm)
+
 ;; Mixin in some paredit
 (global-set-key (kbd "M-'") 'paredit-open-curly)
 (global-set-key (kbd "C-8") 'paredit-open-round)

@@ -367,4 +367,24 @@
 
 (global-set-key [C-f1] 'show-file-name) ; Or any other key you want
 
+;; Send selected region to iTerm2
+(defun send-region-to-iterm (beg end)
+  "Send the selected region to iTerm2 and execute it.
+The text is sent to the current session of the current iTerm2 window."
+  (interactive "r")
+  (let* ((text (buffer-substring-no-properties beg end))
+         ;; Escape backslashes first, then quotes
+         (escaped (replace-regexp-in-string "\\\\" "\\\\\\\\" text))
+         (escaped (replace-regexp-in-string "\"" "\\\\\"" escaped))
+         ;; Also escape newlines for AppleScript string
+         (escaped (replace-regexp-in-string "\n" "\\\\n" escaped))
+         (script (format "tell application \"iTerm\"
+    activate
+    tell current session of current window
+        write text \"%s\"
+    end tell
+end tell" escaped)))
+    (do-applescript script)
+    (message "Sent to iTerm2")))
+
 (provide 'functions)
