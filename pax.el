@@ -1,4 +1,4 @@
-(when (file-directory-p "privates.el") (require 'privates) )
+(when (file-exists-p (expand-file-name "privates.el" user-emacs-directory)) (require 'privates))
 
 ;; Set default publishing options
 (setq org-html-validation-link nil ;; Remove validation link
