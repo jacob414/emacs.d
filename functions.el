@@ -70,6 +70,10 @@
   (interactive)
   (insert (format-time-string "%Y-%m-%d %H:%M")) )
 
+(defun my-localclock ()
+  (interactive)
+  (insert (format-time-string "%H:%M")) )
+
 (defun my-longyear ()
   (interactive)
   (insert (format-time-string "%Y")) )
