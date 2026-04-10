@@ -1,3 +1,14 @@
+;; --- PATH/exec-path för GUI Emacs på macOS ---
+;; GUI Emacs startar via launchd/Finder och ärver inte skalets PATH.
+;; Homebrew ligger på /opt/homebrew/bin — måste läggas in explicit
+;; så att verktyg som tmux, languagetool och emamux kan hittas.
+(let ((homebrew-bin "/opt/homebrew/bin"))
+  (unless (member homebrew-bin exec-path)
+    (add-to-list 'exec-path homebrew-bin))
+  (let ((current (getenv "PATH")))
+    (unless (and current (string-match-p (regexp-quote homebrew-bin) current))
+      (setenv "PATH" (concat homebrew-bin ":" (or current ""))))))
+
 (setq langtool-bin "/opt/homebrew/bin/languagetool")
 
 ;; Guard org2web usage to avoid load-time errors if it's absent
@@ -52,5 +63,19 @@
  '(ns-right-alternate-modifier 'none))
 
 (require 'pax)
+
+;; --- emamux: interaktion med Pax-sessionen i tmux ---
+;; emamux letar efter `tmux' via exec-path. exec-path är redan
+;; fixat ovan så require kommer gå igenom. Defaultvärdena pekar på
+;; tmux-sessionen "pax" (byt namn med `tmux rename-session -t 0 pax'
+;; om du behöver flytta över till en annan). Dessa används av
+;; `emamux:send-region' och liknande kommandon.
+(require 'emamux)
+
+(with-eval-after-load 'emamux
+  (setq emamux:session "pax"
+        emamux:window  "0"
+        emamux:pane    "0"
+        emamux:default-orientation 'horizontal))
 
 (provide 'zipfly)
