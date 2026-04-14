@@ -33,7 +33,13 @@
 
 ;; Web-mode + associations
 (autoload 'web-mode "web-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.\(js\|jsx\|ts\|tsx\)\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.\(js\|jsx\)\\'" . web-mode))
+
+;; TypeScript-mode
+(autoload 'typescript-mode "typescript-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.mts\\'" . typescript-mode))
 (defun my/web-mode-setup ()
   (setq web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
