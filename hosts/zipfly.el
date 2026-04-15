@@ -78,4 +78,6 @@
         emamux:pane    "0"
         emamux:default-orientation 'horizontal))
 
+(server-start)
+
 (provide 'zipfly)
