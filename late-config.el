@@ -47,9 +47,19 @@
   (when (fboundp 'hs-minor-mode) (hs-minor-mode 1)))
 (add-hook 'web-mode-hook #'my/web-mode-setup)
 
+;; JSON mode
+(autoload 'json-mode "json-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
+(defun my/json-mode-setup ()
+  (setq js-indent-level 2))
+(add-hook 'json-mode-hook #'my/json-mode-setup)
+
 ;; YAML, Dockerfile, Markdown, Apache, Nix
 (autoload 'yaml-mode "yaml-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-mode))
+(defun my/yaml-mode-setup ()
+  (setq yaml-indent-offset 2))
+(add-hook 'yaml-mode-hook #'my/yaml-mode-setup)
 
 (autoload 'dockerfile-mode "dockerfile-mode" nil t)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
