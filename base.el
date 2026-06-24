@@ -76,10 +76,14 @@
   (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
   )
 
+(require 'posframe)
+
 (require 'paredit)
 
 (require 'mustache)
 
 (require 'pax)
+
+(require 'my-option-frame)
 
 (provide 'base)
