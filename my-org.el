@@ -288,8 +288,6 @@
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "C-c C-c") #'org-latex-export-to-pdf)
   (define-key org-mode-map (kbd "C-c C-´") #'my/md-to-org-region)
-  (define-key org-mode-map (kbd "C-c x") #'org-toggle-checkbox)
-  ;; C-c C-g removed - use C-c m p for marsch-publish-site instead
   )
 
  ;; Stenkoll org-mode integration
