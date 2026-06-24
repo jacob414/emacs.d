@@ -40,6 +40,9 @@
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.mts\\'" . typescript-mode))
+(defun my/typescript-mode-setup ()
+  (setq typescript-indent-level 2))
+(add-hook 'typescript-mode-hook #'my/typescript-mode-setup)
 (defun my/web-mode-setup ()
   (setq web-mode-markup-indent-offset 2
         web-mode-css-indent-offset 2
@@ -51,7 +54,8 @@
 (autoload 'json-mode "json-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
 (defun my/json-mode-setup ()
-  (setq js-indent-level 2))
+  (setq js-indent-level 2
+        json-reformat:indent-width 2))
 (add-hook 'json-mode-hook #'my/json-mode-setup)
 
 ;; YAML, Dockerfile, Markdown, Apache, Nix
