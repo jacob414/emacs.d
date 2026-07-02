@@ -6,6 +6,7 @@
     (custom-set-faces
      '(cursor ((t (:background "red"))))
      '(highlight-current-line-face ((t (:background "gray35"))))
+     (setq my/hl-line-bg "#gray35")
      '(org-checkbox ((t (:foreground nil :inherit org-todo)))))))
 
 (defun my-solarized ()
