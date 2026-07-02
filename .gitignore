@@ -26,3 +26,5 @@ site-lisp/stenkoll-dashboard.el
 .claude/
 elpy/
 privates.el
+AGENTS.md
+CLAUDE.md
