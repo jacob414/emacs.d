@@ -26,5 +26,8 @@ site-lisp/stenkoll-dashboard.el
 .claude/
 elpy/
 privates.el
+tests/privates-tests.el
 AGENTS.md
 CLAUDE.md
+.mc-lists.el
+snippet/org-mode/uth
