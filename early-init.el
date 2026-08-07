@@ -10,6 +10,11 @@
               (setq gc-cons-threshold normal-gc-cons-threshold
                     gc-cons-percentage normal-gc-cons-percentage))))
 
+;; Load .el over a stale .elc. Without this, `require' silently prefers the
+;; byte-compiled file no matter how old it is, so edits to e.g. pax.el have
+;; no effect until it is recompiled — and the failure is completely quiet.
+(setq load-prefer-newer t)
+
 ;; Use external package directory (keeps repo clean)
 (setq package-user-dir (expand-file-name "~/src/mine/elpa.d/"))
 ;; Keep quickstart cache alongside external package dir
