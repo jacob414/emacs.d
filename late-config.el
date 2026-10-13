@@ -65,6 +65,30 @@
   (setq yaml-indent-offset 2))
 (add-hook 'yaml-mode-hook #'my/yaml-mode-setup)
 
+;; Swift (swift-mode från MELPA; sourcekit-lsp följer med Xcode-verktygen)
+(autoload 'swift-mode "swift-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.swift\\'" . swift-mode))
+(defun my/swift-mode-setup ()
+  (setq swift-mode:basic-offset 2)
+  (subword-mode 1)
+  (when (executable-find "sourcekit-lsp")
+    (eglot-ensure)))
+(add-hook 'swift-mode-hook #'my/swift-mode-setup)
+;; Emacs 30:s eglot saknar post för swift-mode; Package.swift gör
+;; underkataloger i ett större git-repo (t.ex. skunkworks) till egna projekt.
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs '(swift-mode . ("sourcekit-lsp")))
+  ;; Det inbyggda eglot (Emacs 30) avvisar sourcekit-lsp:s extra nyckel
+  ;; :logName i window/logMessage med ett fel per meddelande. Gäller bara
+  ;; den inbyggda versionen; ett eglot från GNU ELPA klarar det själv.
+  (when (string-match-p "/lisp/progmodes/" (or (locate-library "eglot") ""))
+    (cl-defmethod eglot-handle-notification
+      (_server (_method (eql window/logMessage)) &key _type message
+               &allow-other-keys)
+      (eglot--message "%s" message))))
+(with-eval-after-load 'project
+  (add-to-list 'project-vc-extra-root-markers "Package.swift"))
+
 (autoload 'dockerfile-mode "dockerfile-mode" nil t)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
@@ -129,6 +153,8 @@
    ("C-c n g" . denote-grep))
   :config
   (setq denote-directory (expand-file-name "~/src/mine/skunkworks/denote"))
+  ;; C-c n t toppnod, C-c n k / K radera anteckning med länkar
+  (load (expand-file-name "~/src/mine/emacs.d/pax-denote") t)
 
   ;; Automatically rename Denote buffers when opening them so that
   ;; instead of their long file name they have, for example, a literal
