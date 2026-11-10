@@ -190,6 +190,7 @@
  ((string-prefix-p "sugarline" system-name)(my/load-host "sugarline" 'sugarline))
  ((string-prefix-p "skrotnisse" system-name)(my/load-host "skrotnisse" 'skrotnisse))
  ((string= system-name "stevie.local")     (my/load-host "stevie" 'stevie))
+ ((string-prefix-p "dimman" system-name)   (my/load-host "dimman" 'dimman))
  ;; Load zipfly for both "zipfly" and "zipfly.*" hostnames
  ((or (string-prefix-p "zipfly" system-name)
       (string= system-name "zipfly.lan"))   (my/load-host "zipfly" 'zipfly))
