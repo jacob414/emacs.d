@@ -1,0 +1,45 @@
+#!/bin/sh
+# pre-push-public-guard — keep machine branches and private paths off GitHub.
+#
+# Branch model (see BRANCHES.md):
+#   master        public; the only branch that may be pushed to GitHub
+#   <hostname>    one branch per machine (zipfly, dimman, ...) = master +
+#                 machine-specific/private commits; pushed to a private remote
+#
+# Install:  ln -s ../../tools/pre-push-public-guard .git/hooks/pre-push
+#
+# Called by git as: pre-push <remote-name> <remote-url>, refs on stdin.
+remote_url="$2"
+case "$remote_url" in
+    *github.com*) ;;
+    *) exit 0 ;;   # private remotes: anything goes
+esac
+
+# Patterns that must never be added on the public branch. Extend locally with
+# a file .git/info/private-patterns (one extended regex per line).
+patterns='skunk''works/docs/pax|/Users/[a-z]+/|privates\.el$|pax-(answers|prompts)\.org'
+if [ -f "$(git rev-parse --git-dir)/info/private-patterns" ]; then
+    extra=$(grep -v '^#' "$(git rev-parse --git-dir)/info/private-patterns" | paste -sd'|' -)
+    [ -n "$extra" ] && patterns="$patterns|$extra"
+fi
+
+zero=0000000000000000000000000000000000000000
+status=0
+while read -r local_ref local_sha remote_ref remote_sha; do
+    [ "$local_sha" = "$zero" ] && continue          # deleting a remote ref
+    if [ "$remote_ref" != "refs/heads/master" ]; then
+        echo "pre-push: refusing to push $local_ref -> $remote_ref to GitHub;" >&2
+        echo "          only master is public. Machine branches go to the private remote." >&2
+        status=1
+        continue
+    fi
+    if [ "$remote_sha" = "$zero" ]; then range="$local_sha"; else range="$remote_sha..$local_sha"; fi
+    hits=$(git log -p --format= "$range" | grep -E '^\+' | grep -v '^+++' | grep -E -n "$patterns" | head -5)
+    if [ -n "$hits" ]; then
+        echo "pre-push: private-looking lines in the commits being pushed to GitHub:" >&2
+        echo "$hits" >&2
+        echo "          Move them to a machine branch, or push with --no-verify if you are sure." >&2
+        status=1
+    fi
+done
+exit $status
