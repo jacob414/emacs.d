@@ -34,7 +34,7 @@ while read -r local_ref local_sha remote_ref remote_sha; do
         continue
     fi
     if [ "$remote_sha" = "$zero" ]; then range="$local_sha"; else range="$remote_sha..$local_sha"; fi
-    hits=$(git log -p --format= "$range" | grep -E '^\+' | grep -v '^+++' | grep -E -n "$patterns" | head -5)
+    hits=$(git log -p --format= "$range" -- . ":(exclude).gitignore" | grep -E '^\+' | grep -v '^+++' | grep -E -n "$patterns" | head -5)
     if [ -n "$hits" ]; then
         echo "pre-push: private-looking lines in the commits being pushed to GitHub:" >&2
         echo "$hits" >&2
