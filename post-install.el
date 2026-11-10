@@ -29,8 +29,12 @@
               prog-fill wc-mode langtool flymake-cursor expand-region
               writegood-mode csv-mode elpy importmagic flycheck-mypy lsp-mode
               writeroom-mode rg persistent-overlays buttercup el-mock
-              undercover package-lint denote denote-org paredit ollama-buddy
+              undercover package-lint denote denote-org paredit
               apples-mode mustache typescript-mode json-mode posframe)))
+  ;; ollama-buddy's autoloads call `transient-prefix' at load time, which
+  ;; breaks package activation on Emacs 29 (stratus, 2026-11-10).
+  (when (>= emacs-major-version 30)
+    (setq pkgs (append pkgs '(ollama-buddy))))
   (dolist (p pkgs)
     (message "Installing %s…" p)
     (ignore-errors (package-install p))))
