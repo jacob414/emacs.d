@@ -192,7 +192,9 @@ If N is negative, remove -N characters from the end of each line."
 ;;; Klimatmarsch publishing - loaded from project directory
 ;;; All marsch code lives in my-org-marsch.el (single source of truth)
 ;;; ============================================================
-(load "~/src/mine/skunkworks/docs/politik/xr/val2026/hemsida/my-org-marsch" nil)
+;; NOERROR: the project file exists only on some machines; its absence must not
+;; abort init on the others.
+(load "~/src/mine/skunkworks/docs/politik/xr/val2026/hemsida/my-org-marsch" :noerror)
 
 ;;; ============================================================
 ;;; Pax log deterministic headers
